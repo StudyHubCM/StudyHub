@@ -1,0 +1,166 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 7%;
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #172033;
+    font-weight: 600;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 7%;
+    background: white;
+}
+
+.welcome {
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #5f6878;
+}
+
+.button {
+    display: inline-block;
+    padding: 14px 24px;
+    border-radius: 10px;
+    background: #172033;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.section {
+    padding: 60px 7%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.card span {
+    font-size: 30px;
+}
+
+.card h3 {
+    margin: 10px 0;
+}
+
+.card p {
+    color: #687386;
+}
+
+.subjects {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.subject {
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    text-align: center;
+    font-weight: bold;
+    border: 1px solid #e5e7eb;
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: white;
+    color: #687386;
+}
+
+@media (max-width: 600px) {
+
+    header {
+        padding: 16px 5%;
+    }
+
+    nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 5%;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .section {
+        padding: 45px 5%;
+    }
+
+    .cards,
+    .subjects {
+        grid-template-columns: 1fr;
+    }
+}
