@@ -3,88 +3,532 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudyHub | Study Smarter</title>
+
+    <meta name="description" content="StudyHub — A modern learning platform helping students study smarter with notes, past questions and useful study tools.">
+
+    <title>StudyHub | Study Smarter. Learn Better.</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <header>
-        <div class="logo">🎓 StudyHub</div>
+    <!-- ================= HEADER ================= -->
 
-        <nav>
-            <a href="#home">Home</a>
+    <header class="header">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">🎓</span>
+            <span>StudyHub</span>
+        </a>
+
+        <nav class="nav">
+            <a href="#home" class="active">Home</a>
             <a href="#resources">Resources</a>
             <a href="#subjects">Subjects</a>
+            <a href="#tools">Tools</a>
         </nav>
+
+        <a href="#resources" class="header-button">
+            Start Studying
+        </a>
+
     </header>
+
 
     <main>
 
+        <!-- ================= HERO ================= -->
+
         <section id="home" class="hero">
-            <p class="welcome">WELCOME TO STUDYHUB</p>
 
-            <h1>Study smarter.<br>Learn better. 🚀</h1>
+            <div class="hero-content">
 
-            <p class="subtitle">
-                Your student learning platform for notes,
-                past questions and useful study tools.
-            </p>
+                <div class="hero-badge">
+                    🚀 Built for students
+                </div>
 
-            <a class="button" href="#resources">
-                Explore Resources
-            </a>
+                <h1>
+                    Study smarter.<br>
+                    <span>Learn better.</span>
+                </h1>
+
+                <p class="hero-text">
+                    Everything you need to understand your subjects,
+                    practice for exams and keep your studies on track.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#resources" class="primary-button">
+                        Explore Resources →
+                    </a>
+
+                    <a href="#tools" class="secondary-button">
+                        Explore Tools
+                    </a>
+
+                </div>
+
+                <div class="hero-trust">
+
+                    <div class="trust-item">
+                        <strong>📚</strong>
+                        <span>Study Resources</span>
+                    </div>
+
+                    <div class="trust-item">
+                        <strong>🧠</strong>
+                        <span>Learn Smarter</span>
+                    </div>
+
+                    <div class="trust-item">
+                        <strong>🎯</strong>
+                        <span>Exam Focused</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="hero-visual">
+
+                <div class="study-card main-study-card">
+
+                    <div class="study-card-top">
+                        <span>📖</span>
+                        <span class="online-dot">●</span>
+                    </div>
+
+                    <h3>Your learning journey</h3>
+
+                    <p>
+                        Learn, practice and improve.
+                    </p>
+
+                    <div class="progress-bar">
+                        <div class="progress"></div>
+                    </div>
+
+                    <small>Ready to start studying?</small>
+
+                </div>
+
+                <div class="floating-card floating-one">
+                    🧬 Biology
+                </div>
+
+                <div class="floating-card floating-two">
+                    🧮 Grade Calculator
+                </div>
+
+            </div>
+
         </section>
 
-        <section id="resources" class="section">
-            <h2>Study Resources</h2>
+
+        <!-- ================= RESOURCES ================= -->
+
+        <section id="resources" class="section resources-section">
+
+            <div class="section-heading">
+
+                <div>
+                    <p class="section-label">LEARN & PRACTICE</p>
+
+                    <h2>
+                        Everything you need to study
+                    </h2>
+                </div>
+
+                <p>
+                    Find useful resources designed to make
+                    revision simpler and more effective.
+                </p>
+
+            </div>
+
 
             <div class="cards">
 
-                <div class="card">
-                    <span>📚</span>
-                    <h3>Notes</h3>
-                    <p>Find organized study notes.</p>
-                </div>
+                <a href="#" class="card resource-card">
 
-                <div class="card">
-                    <span>📝</span>
-                    <h3>Past Questions</h3>
-                    <p>Practice with past examination questions.</p>
-                </div>
+                    <div class="card-icon notes-icon">
+                        📚
+                    </div>
 
-                <div class="card">
-                    <span>🧮</span>
-                    <h3>Grade Calculator</h3>
-                    <p>Calculate your grades easily.</p>
-                </div>
+                    <div>
+                        <h3>Study Notes</h3>
 
-                <div class="card">
-                    <span>⏳</span>
-                    <h3>Exam Countdown</h3>
-                    <p>Keep track of important exam dates.</p>
-                </div>
+                        <p>
+                            Organized notes to help you understand
+                            important topics faster.
+                        </p>
+                    </div>
+
+                    <span class="card-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="card resource-card">
+
+                    <div class="card-icon questions-icon">
+                        📝
+                    </div>
+
+                    <div>
+                        <h3>Past Questions</h3>
+
+                        <p>
+                            Practice with examination questions
+                            and prepare with confidence.
+                        </p>
+                    </div>
+
+                    <span class="card-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="card resource-card">
+
+                    <div class="card-icon revision-icon">
+                        🧠
+                    </div>
+
+                    <div>
+                        <h3>Revision Materials</h3>
+
+                        <p>
+                            Helpful materials for reviewing topics
+                            before your exams.
+                        </p>
+                    </div>
+
+                    <span class="card-arrow">→</span>
+
+                </a>
+
+
+                <a href="#subjects" class="card resource-card">
+
+                    <div class="card-icon subjects-icon">
+                        🎓
+                    </div>
+
+                    <div>
+                        <h3>Explore Subjects</h3>
+
+                        <p>
+                            Find resources organized by your
+                            favorite school subjects.
+                        </p>
+                    </div>
+
+                    <span class="card-arrow">→</span>
+
+                </a>
 
             </div>
+
         </section>
 
-        <section id="subjects" class="section">
-            <h2>Popular Subjects</h2>
 
-            <div class="subjects">
+        <!-- ================= SUBJECTS ================= -->
 
-                <div class="subject">🔬 Biology</div>
-                <div class="subject">⚗️ Chemistry</div>
-                <div class="subject">⚡ Physics</div>
-                <div class="subject">📐 Mathematics</div>
+        <section id="subjects" class="section subjects-section">
+
+            <div class="section-heading centered">
+
+                <p class="section-label">YOUR SUBJECTS</p>
+
+                <h2>
+                    Explore your subjects
+                </h2>
+
+                <p>
+                    Choose a subject and start learning.
+                </p>
 
             </div>
+
+
+            <div class="subjects-grid">
+
+                <a href="#" class="subject-card biology">
+
+                    <span class="subject-icon">🧬</span>
+
+                    <div>
+                        <h3>Biology</h3>
+                        <p>Explore Biology resources</p>
+                    </div>
+
+                    <span class="subject-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="subject-card chemistry">
+
+                    <span class="subject-icon">⚗️</span>
+
+                    <div>
+                        <h3>Chemistry</h3>
+                        <p>Explore Chemistry resources</p>
+                    </div>
+
+                    <span class="subject-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="subject-card physics">
+
+                    <span class="subject-icon">⚡</span>
+
+                    <div>
+                        <h3>Physics</h3>
+                        <p>Explore Physics resources</p>
+                    </div>
+
+                    <span class="subject-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="subject-card mathematics">
+
+                    <span class="subject-icon">📐</span>
+
+                    <div>
+                        <h3>Mathematics</h3>
+                        <p>Explore Mathematics resources</p>
+                    </div>
+
+                    <span class="subject-arrow">→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= TOOLS ================= -->
+
+        <section id="tools" class="section tools-section">
+
+            <div class="section-heading centered">
+
+                <p class="section-label">STUDY TOOLS</p>
+
+                <h2>
+                    Tools that make studying easier
+                </h2>
+
+                <p>
+                    Simple tools designed to help you stay organized
+                    and understand your progress.
+                </p>
+
+            </div>
+
+
+            <div class="tools-grid">
+
+                <a href="#" class="tool-card">
+
+                    <div class="tool-icon">
+                        🧮
+                    </div>
+
+                    <div>
+                        <h3>Grade Calculator</h3>
+
+                        <p>
+                            Calculate your grades quickly and easily.
+                        </p>
+                    </div>
+
+                    <span>→</span>
+
+                </a>
+
+
+                <a href="#" class="tool-card">
+
+                    <div class="tool-icon">
+                        ⏳
+                    </div>
+
+                    <div>
+                        <h3>Exam Countdown</h3>
+
+                        <p>
+                            Keep track of important examination dates.
+                        </p>
+                    </div>
+
+                    <span>→</span>
+
+                </a>
+
+
+                <a href="#" class="tool-card">
+
+                    <div class="tool-icon">
+                        📝
+                    </div>
+
+                    <div>
+                        <h3>Quizzes</h3>
+
+                        <p>
+                            Test yourself and strengthen your knowledge.
+                        </p>
+                    </div>
+
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= WHY STUDYHUB ================= -->
+
+        <section class="why-section">
+
+            <div class="why-content">
+
+                <p class="section-label">
+                    WHY STUDYHUB?
+                </p>
+
+                <h2>
+                    Your study life,<br>
+                    made simpler.
+                </h2>
+
+                <p>
+                    StudyHub brings useful learning resources and
+                    study tools together in one place, so you can
+                    spend less time searching and more time learning.
+                </p>
+
+                <a href="#resources" class="primary-button">
+                    Start Exploring →
+                </a>
+
+            </div>
+
+
+            <div class="benefits">
+
+                <div class="benefit">
+                    <span>01</span>
+                    <div>
+                        <h3>Organized</h3>
+                        <p>
+                            Resources arranged so you can find
+                            what you need faster.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="benefit">
+                    <span>02</span>
+                    <div>
+                        <h3>Student-focused</h3>
+                        <p>
+                            Designed around the things students
+                            actually need.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="benefit">
+                    <span>03</span>
+                    <div>
+                        <h3>Always improving</h3>
+                        <p>
+                            New tools and useful resources can
+                            continually be added.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
         </section>
 
     </main>
 
-    <footer>
-        <p>© 2026 StudyHub. Built for students. 🎓</p>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="#home" class="logo">
+                    <span class="logo-icon">🎓</span>
+                    <span>StudyHub</span>
+                </a>
+
+                <p>
+                    Study smarter. Learn better.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <div>
+                    <h4>Explore</h4>
+
+                    <a href="#home">Home</a>
+                    <a href="#resources">Resources</a>
+                    <a href="#subjects">Subjects</a>
+                    <a href="#tools">Tools</a>
+                </div>
+
+
+                <div>
+                    <h4>Subjects</h4>
+
+                    <a href="#">Biology</a>
+                    <a href="#">Chemistry</a>
+                    <a href="#">Physics</a>
+                    <a href="#">Mathematics</a>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © 2026 StudyHub. Built for students. 🎓
+            </p>
+
+            <p>
+                Learn • Practice • Improve
+            </p>
+
+        </div>
+
     </footer>
 
 </body>
