@@ -1503,3 +1503,39 @@ a {
     }
 
 }
+/* =========================
+   BIOLOGY COMPARISON TABLE
+   ========================= */
+
+.comparison-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    margin: 25px 0;
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+    background: white;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 14px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+.comparison-table th {
+    font-weight: bold;
+    background: #f0f3ff;
+}
+
+.comparison-table td:first-child {
+    font-weight: bold;
+}
+
+.comparison-table tr:nth-child(even) {
+    background: #f9fafb;
+}
