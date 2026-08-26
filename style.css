@@ -1169,3 +1169,112 @@ a {
         width: 100%;
     }
 }
+/* =========================
+   EXAM COUNTDOWN
+   ========================= */
+
+.countdown-card {
+    grid-column: span 2;
+    align-items: flex-start;
+}
+
+.countdown-content {
+    flex: 1;
+}
+
+.countdown-content h3 {
+    margin-bottom: 5px;
+}
+
+.countdown-input {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.countdown-input input {
+    flex: 1;
+    min-width: 150px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dfe4ed;
+    border-radius: 10px;
+
+    background: #f8f9fc;
+    color: #172033;
+
+    font-size: 13px;
+
+    outline: none;
+}
+
+.countdown-input input:focus {
+    border-color: #3157d5;
+
+    box-shadow:
+        0 0 0 3px rgba(49, 87, 213, 0.1);
+}
+
+.countdown-input button {
+    padding: 12px 17px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #3157d5;
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.countdown-input button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(49, 87, 213, 0.2);
+}
+
+.countdown-result {
+    margin-top: 15px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    background: #f0f3ff;
+    color: #3157d5;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   COUNTDOWN MOBILE
+   ========================= */
+
+@media (max-width: 850px) {
+
+    .countdown-card {
+        grid-column: span 1;
+    }
+
+    .countdown-input {
+        flex-direction: column;
+    }
+
+    .countdown-input input,
+    .countdown-input button {
+        width: 100%;
+    }
+}
