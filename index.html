@@ -354,13 +354,19 @@
 
         <div class="calculator-input">
 
-            <input
-                type="number"
-                id="score"
-                placeholder="Enter score (0–100)"
-                min="0"
-                max="100"
-            >
+           <select id="gradingSystem">
+    <option value="general">General Percentage</option>
+    <option value="gce-ol">Cameroon GCE O/L</option>
+    <option value="gce-al">Cameroon GCE A/L</option>
+</select>
+
+<input
+    type="number"
+    id="score"
+    placeholder="Enter score (0–100)"
+    min="0"
+    max="100"
+>
 
             <button onclick="calculateGrade()">
                 Calculate
