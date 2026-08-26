@@ -383,23 +383,46 @@
 </div>
 
 
-                <a href="#" class="tool-card">
+                <div class="tool-card countdown-card">
 
-                    <div class="tool-icon">
-                        ⏳
-                    </div>
+    <div class="tool-icon">
+        ⏳
+    </div>
 
-                    <div>
-                        <h3>Exam Countdown</h3>
+    <div class="countdown-content">
 
-                        <p>
-                            Keep track of important examination dates.
-                        </p>
-                    </div>
+        <h3>Exam Countdown</h3>
 
-                    <span>→</span>
+        <p>
+            Set an exam date and keep track of the time remaining.
+        </p>
 
-                </a>
+        <div class="countdown-input">
+
+            <input
+                type="text"
+                id="examName"
+                placeholder="Exam name"
+            >
+
+            <input
+                type="datetime-local"
+                id="examDate"
+            >
+
+            <button onclick="startCountdown()">
+                Start Countdown
+            </button>
+
+        </div>
+
+        <div id="countdownResult" class="countdown-result">
+            Choose an exam date to begin.
+        </div>
+
+    </div>
+
+</div>
 
 
                 <a href="#" class="tool-card">
