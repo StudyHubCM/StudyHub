@@ -338,23 +338,43 @@
 
             <div class="tools-grid">
 
-                <a href="#" class="tool-card">
+               <div class="tool-card calculator-card">
 
-                    <div class="tool-icon">
-                        🧮
-                    </div>
+    <div class="tool-icon">
+        🧮
+    </div>
 
-                    <div>
-                        <h3>Grade Calculator</h3>
+    <div class="calculator-content">
 
-                        <p>
-                            Calculate your grades quickly and easily.
-                        </p>
-                    </div>
+        <h3>Grade Calculator</h3>
 
-                    <span>→</span>
+        <p>
+            Enter your score to calculate your grade.
+        </p>
 
-                </a>
+        <div class="calculator-input">
+
+            <input
+                type="number"
+                id="score"
+                placeholder="Enter score (0–100)"
+                min="0"
+                max="100"
+            >
+
+            <button onclick="calculateGrade()">
+                Calculate
+            </button>
+
+        </div>
+
+        <div id="gradeResult" class="grade-result">
+            Your result will appear here.
+        </div>
+
+    </div>
+
+</div>
 
 
                 <a href="#" class="tool-card">
