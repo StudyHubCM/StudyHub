@@ -88,3 +88,85 @@ function calculateGrade() {
 
     }
 }
+// ================================
+// STUDYHUB - EXAM COUNTDOWN
+// ================================
+
+let countdownTimer;
+
+function startCountdown() {
+    const examName = document.getElementById("examName");
+    const examDate = document.getElementById("examDate");
+    const result = document.getElementById("countdownResult");
+
+    if (!examName || !examDate || !result) return;
+
+    const name = examName.value.trim();
+    const date = examDate.value;
+
+    if (name === "") {
+        result.textContent = "Please enter an exam name.";
+        return;
+    }
+
+    if (date === "") {
+        result.textContent = "Please choose an exam date.";
+        return;
+    }
+
+    const targetDate = new Date(date).getTime();
+
+    if (isNaN(targetDate)) {
+        result.textContent = "Please choose a valid date.";
+        return;
+    }
+
+    clearInterval(countdownTimer);
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+            clearInterval(countdownTimer);
+
+            result.innerHTML = `
+                <strong>${name}</strong><br>
+                🎉 The exam date has arrived!
+            `;
+
+            return;
+        }
+
+        const days = Math.floor(
+            difference / (1000 * 60 * 60 * 24)
+        );
+
+        const hours = Math.floor(
+            (difference / (1000 * 60 * 60)) % 24
+        );
+
+        const minutes = Math.floor(
+            (difference / (1000 * 60)) % 60
+        );
+
+        const seconds = Math.floor(
+            (difference / 1000) % 60
+        );
+
+        result.innerHTML = `
+            <strong>${name}</strong><br>
+            ${days} Days ·
+            ${hours} Hours ·
+            ${minutes} Minutes ·
+            ${seconds} Seconds
+        `;
+    }
+
+    updateCountdown();
+
+    countdownTimer = setInterval(
+        updateCountdown,
+        1000
+    );
+}
