@@ -170,3 +170,87 @@ function startCountdown() {
         1000
     );
 }
+function calculateMagnification() {
+
+    const imageInput = document.getElementById("magnification-image");
+    const actualInput = document.getElementById("magnification-actual");
+    const magnificationInput = document.getElementById("magnification-value");
+
+    const imageUnit = document.getElementById("magnification-image-unit").value;
+    const actualUnit = document.getElementById("magnification-actual-unit").value;
+
+    const calculation = document.getElementById("magnification-calculate").value;
+    const result = document.getElementById("magnification-result");
+
+    const image = parseFloat(imageInput.value);
+    const actual = parseFloat(actualInput.value);
+    const magnification = parseFloat(magnificationInput.value);
+
+
+    if (calculation === "magnification") {
+
+        if (!image || !actual || image <= 0 || actual <= 0) {
+            result.textContent = "Please enter a valid image size and actual size.";
+            return;
+        }
+
+        let imageInMicrometres = image;
+        let actualInMicrometres = actual;
+
+        if (imageUnit === "mm") {
+            imageInMicrometres = image * 1000;
+        }
+
+        if (actualUnit === "mm") {
+            actualInMicrometres = actual * 1000;
+        }
+
+        const answer = imageInMicrometres / actualInMicrometres;
+
+        magnificationInput.value = answer;
+
+        result.textContent = "Magnification = ×" + answer;
+    }
+
+
+    else if (calculation === "actual") {
+
+        if (!image || !magnification || image <= 0 || magnification <= 0) {
+            result.textContent = "Please enter a valid image size and magnification.";
+            return;
+        }
+
+        let imageInMicrometres = image;
+
+        if (imageUnit === "mm") {
+            imageInMicrometres = image * 1000;
+        }
+
+        const answer = imageInMicrometres / magnification;
+
+        actualInput.value = answer;
+
+        result.textContent = "Actual size = " + answer + " μm";
+    }
+
+
+    else if (calculation === "image") {
+
+        if (!actual || !magnification || actual <= 0 || magnification <= 0) {
+            result.textContent = "Please enter a valid actual size and magnification.";
+            return;
+        }
+
+        let actualInMicrometres = actual;
+
+        if (actualUnit === "mm") {
+            actualInMicrometres = actual * 1000;
+        }
+
+        const answer = actualInMicrometres * magnification;
+
+        imageInput.value = answer;
+
+        result.textContent = "Image size = " + answer + " μm";
+    }
+}
