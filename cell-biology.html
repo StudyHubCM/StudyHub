@@ -1323,7 +1323,86 @@
 
 </div>
 
+<h2>🧮 Magnification Calculator</h2>
 
+<p>
+    Use this calculator to solve common magnification
+    problems. Enter the values you know and StudyHub will
+    calculate the missing value.
+</p>
+
+<div class="calculator-card">
+
+    <label for="magnification-image">
+        Image size
+    </label>
+
+    <input
+        type="number"
+        id="magnification-image"
+        placeholder="Enter image size"
+    >
+
+    <select id="magnification-image-unit">
+        <option value="mm">mm</option>
+        <option value="um">μm</option>
+    </select>
+
+
+    <label for="magnification-actual">
+        Actual size
+    </label>
+
+    <input
+        type="number"
+        id="magnification-actual"
+        placeholder="Enter actual size"
+    >
+
+    <select id="magnification-actual-unit">
+        <option value="um">μm</option>
+        <option value="mm">mm</option>
+    </select>
+
+
+    <label for="magnification-value">
+        Magnification
+    </label>
+
+    <input
+        type="number"
+        id="magnification-value"
+        placeholder="Enter magnification"
+    >
+
+
+    <select id="magnification-calculate">
+
+        <option value="magnification">
+            Calculate Magnification
+        </option>
+
+        <option value="actual">
+            Calculate Actual Size
+        </option>
+
+        <option value="image">
+            Calculate Image Size
+        </option>
+
+    </select>
+
+
+    <button onclick="calculateMagnification()">
+        Calculate
+    </button>
+
+
+    <div id="magnification-result" class="calculator-result">
+        Your answer will appear here.
+    </div>
+
+</div>
 <h2>🎯 O/L Exam Focus</h2>
 
 <div class="note-card">
