@@ -1539,3 +1539,150 @@ a {
 .comparison-table tr:nth-child(even) {
     background: #f9fafb;
 }
+/* =========================================================
+   STUDYHUB — LIVING WORLD QUIZ
+   ========================================================= */
+
+.quiz-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 28px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+}
+
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    font-weight: 700;
+}
+
+#quizProgress {
+    color: #555;
+}
+
+#quizScore {
+    color: #2563eb;
+}
+
+.quiz-question {
+    margin-bottom: 25px;
+}
+
+.quiz-question h3 {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.quiz-options {
+    display: grid;
+    gap: 12px;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 15px 18px;
+    background: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: #2563eb;
+    background: #eff6ff;
+    transform: translateY(-1px);
+}
+
+.quiz-option:disabled {
+    cursor: default;
+}
+
+.quiz-option.correct {
+    border-color: #16a34a;
+    background: #dcfce7;
+}
+
+.quiz-option.wrong {
+    border-color: #dc2626;
+    background: #fee2e2;
+}
+
+.quiz-feedback {
+    margin-top: 20px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.correct-feedback {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.wrong-feedback {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.quiz-next {
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.quiz-result {
+    text-align: center;
+    padding: 30px 10px;
+}
+
+.quiz-result h3 {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+}
+
+#finalScore {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+
+/* =========================================================
+   MOBILE QUIZ
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .quiz-container {
+        margin: 25px 10px;
+        padding: 20px;
+        border-radius: 16px;
+    }
+
+    .quiz-header {
+        font-size: 0.9rem;
+    }
+
+    .quiz-question h3 {
+        font-size: 1.1rem;
+    }
+
+    .quiz-option {
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+
+}
