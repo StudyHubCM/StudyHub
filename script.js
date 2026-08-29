@@ -1201,3 +1201,670 @@ function finishCellBiologyQuiz() {
         (${percentage}%)
     `;
 }
+/* =========================================================
+   STUDYHUB — THE LIVING WORLD QUIZ
+   50 QUESTIONS
+   ========================================================= */
+
+const livingWorldQuiz = [
+
+    {
+        question: "Which mnemonic is commonly used to remember the characteristics of living organisms?",
+        options: ["MRS GREN", "GREN MRS", "SMART", "LIFE"],
+        answer: 0
+    },
+
+    {
+        question: "What does the M in MRS GREN stand for?",
+        options: ["Metabolism", "Movement", "Memory", "Muscle"],
+        answer: 1
+    },
+
+    {
+        question: "What is respiration?",
+        options: [
+            "The removal of waste",
+            "The production of offspring",
+            "A chemical process that releases energy from nutrients",
+            "The movement of organisms"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "What is sensitivity?",
+        options: [
+            "The ability to detect and respond to changes",
+            "The ability to reproduce",
+            "The ability to digest food",
+            "The ability to grow"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Which characteristic of life refers to a permanent increase in size and dry mass?",
+        options: ["Nutrition", "Growth", "Excretion", "Movement"],
+        answer: 1
+    },
+
+    {
+        question: "What is reproduction?",
+        options: [
+            "The removal of waste",
+            "The production of new individuals",
+            "The release of energy",
+            "The absorption of water"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "What is excretion?",
+        options: [
+            "The removal of metabolic waste",
+            "The taking in of food",
+            "The production of offspring",
+            "The movement of an organism"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What is nutrition?",
+        options: [
+            "The removal of carbon dioxide",
+            "The taking in of materials needed by an organism",
+            "The detection of stimuli",
+            "The production of gametes"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which is the correct order of organization?",
+        options: [
+            "Organ → Cell → Tissue → Organism",
+            "Cell → Tissue → Organ → Organ System → Organism",
+            "Tissue → Cell → Organ → Organism",
+            "Organism → Organ → Tissue → Cell"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "What is a tissue?",
+        options: [
+            "A group of similar cells working together",
+            "A group of organs",
+            "A complete organism",
+            "A single organelle"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What is an organ?",
+        options: [
+            "A single cell",
+            "A group of similar organisms",
+            "A structure made of different tissues working together",
+            "A group of ecosystems"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "What is classification?",
+        options: [
+            "The study of cells",
+            "The grouping of organisms according to similarities and differences",
+            "The process of respiration",
+            "The process of digestion"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Why do scientists classify organisms?",
+        options: [
+            "To make organisms larger",
+            "To make identification and study easier",
+            "To prevent reproduction",
+            "To change their characteristics"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which is the correct classification hierarchy?",
+        options: [
+            "Species → Genus → Family → Kingdom",
+            "Kingdom → Phylum → Class → Order → Family → Genus → Species",
+            "Kingdom → Species → Class → Family",
+            "Genus → Kingdom → Species → Order"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which classification group is the most specific?",
+        options: ["Kingdom", "Class", "Family", "Species"],
+        answer: 3
+    },
+
+    {
+        question: "What is a dichotomous key used for?",
+        options: [
+            "Measuring temperature",
+            "Identifying organisms",
+            "Measuring mass",
+            "Producing food"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "At each stage of a dichotomous key, there are usually:",
+        options: [
+            "Two contrasting choices",
+            "Five choices",
+            "No choices",
+            "Only one choice"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What is binomial nomenclature?",
+        options: [
+            "Naming organisms using two names",
+            "Naming organisms using one name",
+            "Grouping organisms by habitat",
+            "Naming only plants"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Which part of a scientific name begins with a capital letter?",
+        options: ["Species", "Genus", "Family", "Order"],
+        answer: 1
+    },
+
+    {
+        question: "How is a scientific name normally written when typed?",
+        options: [
+            "In bold",
+            "In capitals",
+            "In italics",
+            "In quotation marks"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "Bacteria are classified as:",
+        options: ["Eukaryotes", "Prokaryotes", "Fungi", "Animals"],
+        answer: 1
+    },
+
+    {
+        question: "What is a major feature of prokaryotic cells?",
+        options: [
+            "They have a membrane-bound nucleus",
+            "They have chloroplasts",
+            "They lack a membrane-bound nucleus",
+            "They always have mitochondria"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "Which organism is a fungus?",
+        options: ["Amoeba", "Yeast", "Euglena", "Fish"],
+        answer: 1
+    },
+
+    {
+        question: "What are hyphae?",
+        options: [
+            "Structures found in many fungi",
+            "Blood cells",
+            "Plant roots",
+            "Animal bones"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "A mass of hyphae is called a:",
+        options: ["Nucleus", "Mycelium", "Chloroplast", "Tissue"],
+        answer: 1
+    },
+
+    {
+        question: "Which substance is found in fungal cell walls?",
+        options: ["Cellulose", "Chitin", "Starch", "Glycogen"],
+        answer: 1
+    },
+
+    {
+        question: "Which of the following is a protoctist?",
+        options: ["Amoeba", "Mushroom", "Human", "Maize"],
+        answer: 0
+    },
+
+    {
+        question: "Which group contains organisms that are generally multicellular and photosynthetic?",
+        options: ["Plants", "Bacteria", "Fungi", "Animals"],
+        answer: 0
+    },
+
+    {
+        question: "What substance forms the cell wall of plants?",
+        options: ["Chitin", "Cellulose", "Glycogen", "Protein"],
+        answer: 1
+    },
+
+    {
+        question: "What carbohydrate do plants mainly store?",
+        options: ["Glycogen", "Starch", "Chitin", "Cellulose"],
+        answer: 1
+    },
+
+    {
+        question: "Which feature is absent from animal cells?",
+        options: [
+            "Cell membrane",
+            "Cytoplasm",
+            "Cellulose cell wall",
+            "Nucleus"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "What is biodiversity?",
+        options: [
+            "The variety of living organisms",
+            "The number of cells in an organism",
+            "The amount of rainfall",
+            "The size of an ecosystem"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Which is a threat to biodiversity?",
+        options: ["Conservation", "Deforestation", "Reforestation", "Afforestation"],
+        answer: 1
+    },
+
+    {
+        question: "Which of the following can help protect biodiversity?",
+        options: [
+            "Habitat destruction",
+            "Overhunting",
+            "National parks",
+            "Pollution"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "What is conservation?",
+        options: [
+            "The destruction of habitats",
+            "The protection and careful management of natural resources",
+            "The removal of all wildlife",
+            "The hunting of endangered organisms"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "What is reforestation?",
+        options: [
+            "Cutting down forests",
+            "Planting trees to replace those removed",
+            "Building roads through forests",
+            "Removing wildlife"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which plant is commonly used as a food crop?",
+        options: ["Plantain", "Mushroom", "Amoeba", "Paramecium"],
+        answer: 0
+    },
+
+    {
+        question: "Water has the chemical formula:",
+        options: ["CO₂", "O₂", "H₂O", "NaCl"],
+        answer: 2
+    },
+
+    {
+        question: "Which property of water allows many substances to dissolve in it?",
+        options: [
+            "It is a good solvent",
+            "It is always solid",
+            "It has no heat capacity",
+            "It is opaque"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Why is water important in photosynthesis?",
+        options: [
+            "It is a raw material used in the process",
+            "It destroys chlorophyll",
+            "It prevents light from reaching leaves",
+            "It stops glucose production"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "How does water help plants maintain turgidity?",
+        options: [
+            "It causes cells to lose all their contents",
+            "It creates turgor pressure inside cells",
+            "It destroys cell walls",
+            "It prevents water absorption"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which process involves the loss of water vapour from plants?",
+        options: ["Evaporation", "Transpiration", "Condensation", "Infiltration"],
+        answer: 1
+    },
+
+    {
+        question: "What is evaporation?",
+        options: [
+            "Liquid water changing into water vapour",
+            "Water vapour changing into liquid",
+            "Water falling from clouds",
+            "Water entering the soil"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What is condensation?",
+        options: [
+            "Liquid changing into gas",
+            "Gas changing into liquid",
+            "Water flowing over land",
+            "Water entering roots"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "What is precipitation?",
+        options: [
+            "Water falling from clouds to Earth's surface",
+            "Water entering plant roots",
+            "Water vapour leaving leaves",
+            "Water evaporating from oceans"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What is runoff?",
+        options: [
+            "Water flowing over the land surface",
+            "Water changing into vapour",
+            "Water changing into ice",
+            "Water leaving plant leaves"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What is infiltration?",
+        options: [
+            "Water moving from the ground surface into soil",
+            "Water evaporating from oceans",
+            "Water falling as rain",
+            "Water leaving leaves"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "What is the main source of energy driving the water cycle?",
+        options: ["The Moon", "The Sun", "The soil", "Wind alone"],
+        answer: 1
+    },
+
+    {
+        question: "Which process forms clouds when water vapour cools?",
+        options: ["Evaporation", "Condensation", "Runoff", "Infiltration"],
+        answer: 1
+    },
+
+    {
+        question: "Which sequence correctly represents part of the water cycle?",
+        options: [
+            "Evaporation → Condensation → Precipitation",
+            "Precipitation → Evaporation → Condensation",
+            "Condensation → Infiltration → Evaporation only",
+            "Runoff → Photosynthesis → Condensation"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Why is water important to animals?",
+        options: [
+            "It helps transport substances and remove wastes",
+            "It prevents all chemical reactions",
+            "It replaces oxygen",
+            "It stops digestion"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Which of these is NOT a major process of the water cycle?",
+        options: ["Evaporation", "Condensation", "Precipitation", "Photosynthesis"],
+        answer: 3
+    }
+
+];
+
+
+let currentQuizQuestion = 0;
+let quizScore = 0;
+let quizAnswered = false;
+
+
+/* Start quiz when the page contains the quiz */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    if (document.getElementById("quizQuestion")) {
+        loadQuizQuestion();
+    }
+
+});
+
+
+function loadQuizQuestion() {
+
+    const question = livingWorldQuiz[currentQuizQuestion];
+
+    document.getElementById("quizQuestion").textContent =
+        question.question;
+
+    document.getElementById("quizProgress").textContent =
+        "Question " + (currentQuizQuestion + 1) + " of 50";
+
+    document.getElementById("quizScore").textContent =
+        "Score: " + quizScore;
+
+    const optionsContainer =
+        document.getElementById("quizOptions");
+
+    optionsContainer.innerHTML = "";
+
+    document.getElementById("quizFeedback").textContent = "";
+
+    document.getElementById("nextQuestion").style.display = "none";
+
+    quizAnswered = false;
+
+
+    question.options.forEach(function (option, index) {
+
+        const button = document.createElement("button");
+
+        button.className = "quiz-option";
+
+        button.textContent = option;
+
+        button.onclick = function () {
+            selectQuizAnswer(index);
+        };
+
+        optionsContainer.appendChild(button);
+
+    });
+
+}
+
+
+function selectQuizAnswer(selectedAnswer) {
+
+    if (quizAnswered) {
+        return;
+    }
+
+    quizAnswered = true;
+
+    const question = livingWorldQuiz[currentQuizQuestion];
+
+    const buttons =
+        document.querySelectorAll(".quiz-option");
+
+    buttons.forEach(function (button, index) {
+
+        button.disabled = true;
+
+        if (index === question.answer) {
+            button.classList.add("correct");
+        }
+
+        if (
+            index === selectedAnswer &&
+            selectedAnswer !== question.answer
+        ) {
+            button.classList.add("wrong");
+        }
+
+    });
+
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+
+    if (selectedAnswer === question.answer) {
+
+        quizScore++;
+
+        feedback.textContent =
+            "✅ Correct!";
+
+        feedback.className =
+            "quiz-feedback correct-feedback";
+
+    } else {
+
+        feedback.textContent =
+            "❌ Incorrect. The correct answer is: " +
+            question.options[question.answer];
+
+        feedback.className =
+            "quiz-feedback wrong-feedback";
+
+    }
+
+
+    document.getElementById("quizScore").textContent =
+        "Score: " + quizScore;
+
+    document.getElementById("nextQuestion").style.display =
+        "inline-block";
+
+}
+
+
+function nextQuizQuestion() {
+
+    currentQuizQuestion++;
+
+    if (currentQuizQuestion >= livingWorldQuiz.length) {
+
+        showQuizResult();
+
+        return;
+    }
+
+    loadQuizQuestion();
+
+}
+
+
+function showQuizResult() {
+
+    document.getElementById("quizQuestion").style.display =
+        "none";
+
+    document.getElementById("quizOptions").style.display =
+        "none";
+
+    document.getElementById("quizFeedback").style.display =
+        "none";
+
+    document.getElementById("nextQuestion").style.display =
+        "none";
+
+    document.getElementById("quizResult").style.display =
+        "block";
+
+    document.getElementById("finalScore").textContent =
+        "You scored " + quizScore + " out of 50.";
+}
+
+
+function restartQuiz() {
+
+    currentQuizQuestion = 0;
+    quizScore = 0;
+    quizAnswered = false;
+
+    document.getElementById("quizQuestion").style.display =
+        "block";
+
+    document.getElementById("quizOptions").style.display =
+        "grid";
+
+    document.getElementById("quizFeedback").style.display =
+        "block";
+
+    document.getElementById("quizResult").style.display =
+        "none";
+
+    loadQuizQuestion();
+
+}
