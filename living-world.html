@@ -1538,7 +1538,63 @@ conservation and sustainable use of natural resources.
 </p>
 
 </div>
+<!-- ===================================================== -->
+<!-- 11. LIVING WORLD QUIZ -->
+<!-- ===================================================== -->
 
+<h2>🧠 11. The Living World Quiz</h2>
+
+<p>
+Test your knowledge of everything covered in The Living World.
+There are <strong>50 questions</strong>, presented one at a time.
+</p>
+
+<div class="quiz-container">
+
+    <div class="quiz-header">
+        <span id="quizProgress">Question 1 of 50</span>
+        <span id="quizScore">Score: 0</span>
+    </div>
+
+    <div class="quiz-question">
+        <h3 id="quizQuestion">
+            Loading question...
+        </h3>
+    </div>
+
+    <div id="quizOptions" class="quiz-options"></div>
+
+    <div id="quizFeedback" class="quiz-feedback"></div>
+
+    <button
+        id="quizNext"
+        class="primary-button quiz-next"
+        style="display:none;"
+        onclick="nextQuestion()"
+    >
+        Next Question →
+    </button>
+
+    <div
+        id="quizResult"
+        class="quiz-result"
+        style="display:none;"
+    >
+
+        <h3>🎉 Quiz Complete!</h3>
+
+        <p id="finalScore"></p>
+
+        <button
+            class="primary-button"
+            onclick="restartQuiz()"
+        >
+            🔄 Try Again
+        </button>
+
+    </div>
+
+</div>
 
 </div>
 
@@ -1554,7 +1610,7 @@ conservation and sustainable use of natural resources.
 </p>
 
 </footer>
-
+<script src="script.js"></script>
 </body>
 
 </html>
