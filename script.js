@@ -1,22 +1,5 @@
 // =====================================================
-// STUDYHUB - MAIN SCRIPT
-// =====================================================
-// Contains:
-// 1. Grade Calculator
-// 2. Exam Countdown
-// 3. Magnification Calculator
-// 4. Cell Biology Quiz
-// 5. The Living World Quiz
-//
-// IMPORTANT:
-// The two quizzes are kept completely separate so they
-// cannot interfere with each other.
-// =====================================================
-
-
-
-// =====================================================
-// 1. STUDYHUB - GRADE CALCULATOR
+// STUDYHUB - GRADE CALCULATOR
 // =====================================================
 
 function calculateGrade() {
@@ -30,7 +13,8 @@ function calculateGrade() {
     const score = Number(scoreInput.value);
     const system = gradingSystem.value;
 
-    if (scoreInput.value.trim() === "" || isNaN(score)) {
+    // Check input
+    if (scoreInput.value === "" || isNaN(score)) {
         result.textContent = "Please enter a score.";
         return;
     }
@@ -104,12 +88,11 @@ function calculateGrade() {
 }
 
 
-
 // =====================================================
-// 2. STUDYHUB - EXAM COUNTDOWN
+// STUDYHUB - EXAM COUNTDOWN
 // =====================================================
 
-let countdownTimer = null;
+let countdownTimer;
 
 function startCountdown() {
 
@@ -132,8 +115,7 @@ function startCountdown() {
         return;
     }
 
-    // Treat the selected date as the end of that day.
-    const targetDate = new Date(date + "T23:59:59").getTime();
+    const targetDate = new Date(date).getTime();
 
     if (isNaN(targetDate)) {
         result.textContent = "Please choose a valid date.";
@@ -144,7 +126,7 @@ function startCountdown() {
 
     function updateCountdown() {
 
-        const now = Date.now();
+        const now = new Date().getTime();
         const difference = targetDate - now;
 
         if (difference <= 0) {
@@ -152,7 +134,7 @@ function startCountdown() {
             clearInterval(countdownTimer);
 
             result.innerHTML = `
-                <strong>${escapeHTML(name)}</strong><br>
+                <strong>${name}</strong><br>
                 🎉 The exam date has arrived!
             `;
 
@@ -176,7 +158,7 @@ function startCountdown() {
         );
 
         result.innerHTML = `
-            <strong>${escapeHTML(name)}</strong><br>
+            <strong>${name}</strong><br>
             ${days} Days ·
             ${hours} Hours ·
             ${minutes} Minutes ·
@@ -193,24 +175,8 @@ function startCountdown() {
 }
 
 
-
 // =====================================================
-// SMALL SECURITY HELPER
-// =====================================================
-
-function escapeHTML(text) {
-
-    const div = document.createElement("div");
-
-    div.textContent = text;
-
-    return div.innerHTML;
-}
-
-
-
-// =====================================================
-// 3. STUDYHUB - MAGNIFICATION CALCULATOR
+// STUDYHUB - MAGNIFICATION CALCULATOR
 // =====================================================
 
 function calculateMagnification() {
@@ -289,15 +255,16 @@ function calculateMagnification() {
         const answer =
             imageInMicrometres / actualInMicrometres;
 
-        const formattedAnswer =
+        magnificationInput.value =
             Number.isInteger(answer)
                 ? answer
-                : Number(answer.toFixed(2));
-
-        magnificationInput.value = formattedAnswer;
+                : answer.toFixed(2);
 
         result.textContent =
-            "Magnification = ×" + formattedAnswer;
+            "Magnification = ×" +
+            (Number.isInteger(answer)
+                ? answer
+                : answer.toFixed(2));
     }
 
 
@@ -328,16 +295,16 @@ function calculateMagnification() {
         const answer =
             imageInMicrometres / magnification;
 
-        const formattedAnswer =
+        actualInput.value =
             Number.isInteger(answer)
                 ? answer
-                : Number(answer.toFixed(2));
-
-        actualInput.value = formattedAnswer;
+                : answer.toFixed(2);
 
         result.textContent =
             "Actual size = " +
-            formattedAnswer +
+            (Number.isInteger(answer)
+                ? answer
+                : answer.toFixed(2)) +
             " μm";
     }
 
@@ -369,24 +336,26 @@ function calculateMagnification() {
         const answer =
             actualInMicrometres * magnification;
 
-        const formattedAnswer =
+        imageInput.value =
             Number.isInteger(answer)
                 ? answer
-                : Number(answer.toFixed(2));
-
-        imageInput.value = formattedAnswer;
+                : answer.toFixed(2);
 
         result.textContent =
             "Image size = " +
-            formattedAnswer +
+            (Number.isInteger(answer)
+                ? answer
+                : answer.toFixed(2)) +
             " μm";
     }
 }
 
 
-
 // =====================================================
-// 4. CELL BIOLOGY QUIZ
+// STUDYHUB - CELL BIOLOGY QUIZ
+// =====================================================
+// ONE QUIZ SYSTEM ONLY
+// Works with the current cells & microscopy HTML.
 // =====================================================
 
 const cellBiologyQuestions = [
@@ -966,15 +935,13 @@ const cellBiologyQuestions = [
 ];
 
 
-
 // =====================================================
-// CELL BIOLOGY QUIZ VARIABLES
+// QUIZ VARIABLES
 // =====================================================
 
 let cellQuizQuestions = [];
 let currentCellQuestion = 0;
 let cellQuizScore = 0;
-
 
 
 // =====================================================
@@ -1000,26 +967,21 @@ function startCellBiologyQuiz() {
         return;
     }
 
-    let requestedCount =
+    const requestedCount =
         Number(questionCountElement.value);
 
-    if (
-        !Number.isFinite(requestedCount) ||
-        requestedCount <= 0
-    ) {
-        requestedCount = 10;
-    }
-
+    // Never request more questions than exist
     const count =
         Math.min(
             requestedCount,
             cellBiologyQuestions.length
         );
 
+    // Shuffle questions and select requested amount
     cellQuizQuestions =
         [...cellBiologyQuestions]
-            .sort(() => Math.random() - 0.5)
-            .slice(0, count);
+        .sort(() => Math.random() - 0.5)
+        .slice(0, count);
 
     currentCellQuestion = 0;
     cellQuizScore = 0;
@@ -1031,9 +993,8 @@ function startCellBiologyQuiz() {
 }
 
 
-
 // =====================================================
-// SHOW CELL BIOLOGY QUESTION
+// SHOW CELL QUESTION
 // =====================================================
 
 function showCellQuestion() {
@@ -1061,6 +1022,7 @@ function showCellQuestion() {
     const nextButton =
         document.getElementById("nextQuestionButton");
 
+
     if (
         !progress ||
         !score ||
@@ -1071,6 +1033,7 @@ function showCellQuestion() {
     ) {
         return;
     }
+
 
     progress.textContent =
         `Question ${currentCellQuestion + 1} of ${cellQuizQuestions.length}`;
@@ -1087,23 +1050,25 @@ function showCellQuestion() {
 
     nextButton.style.display = "none";
 
+
     question.options.forEach(
         (option, index) => {
 
             const button =
                 document.createElement("button");
 
-            button.textContent = option;
+            button.textContent =
+                option;
 
-            button.className = "quiz-option";
+            button.className =
+                "quiz-option";
 
             button.type = "button";
 
-            button.onclick = function () {
-
-                checkCellAnswer(index);
-
-            };
+            button.onclick =
+                function () {
+                    checkCellAnswer(index);
+                };
 
             options.appendChild(button);
         }
@@ -1111,9 +1076,8 @@ function showCellQuestion() {
 }
 
 
-
 // =====================================================
-// CHECK CELL BIOLOGY ANSWER
+// CHECK ANSWER
 // =====================================================
 
 function checkCellAnswer(selectedAnswer) {
@@ -1129,60 +1093,43 @@ function checkCellAnswer(selectedAnswer) {
         );
 
     buttons.forEach(button => {
-
         button.disabled = true;
-
     });
 
-    const feedback =
-        document.getElementById("quizFeedback");
-
-    if (!feedback) return;
 
     if (selectedAnswer === question.answer) {
 
         cellQuizScore++;
 
-        feedback.textContent =
+        document.getElementById(
+            "quizFeedback"
+        ).textContent =
             "✅ Correct!";
-
-        feedback.className =
-            "quiz-feedback correct-feedback";
 
     } else {
 
-        feedback.textContent =
-            `❌ Not quite. The correct answer is: ${question.options[question.answer]}`;
-
-        feedback.className =
-            "quiz-feedback wrong-feedback";
-    }
-
-    const score =
-        document.getElementById("quizScore");
-
-    if (score) {
-
-        score.textContent =
-            `Score: ${cellQuizScore}`;
-    }
-
-    const nextButton =
         document.getElementById(
-            "nextQuestionButton"
-        );
-
-    if (nextButton) {
-
-        nextButton.style.display =
-            "block";
+            "quizFeedback"
+        ).textContent =
+            `❌ Not quite. The correct answer is: ${question.options[question.answer]}`;
     }
+
+
+    document.getElementById(
+        "quizScore"
+    ).textContent =
+        `Score: ${cellQuizScore}`;
+
+
+    document.getElementById(
+        "nextQuestionButton"
+    ).style.display =
+        "block";
 }
 
 
-
 // =====================================================
-// NEXT CELL BIOLOGY QUESTION
+// NEXT QUESTION
 // =====================================================
 
 function nextCellQuestion() {
@@ -1203,9 +1150,8 @@ function nextCellQuestion() {
 }
 
 
-
 // =====================================================
-// FINISH CELL BIOLOGY QUIZ
+// FINISH QUIZ
 // =====================================================
 
 function finishCellBiologyQuiz() {
@@ -1219,6 +1165,7 @@ function finishCellBiologyQuiz() {
     const finalScore =
         document.getElementById("finalScore");
 
+
     if (
         !quizElement ||
         !finalElement ||
@@ -1227,11 +1174,13 @@ function finishCellBiologyQuiz() {
         return;
     }
 
+
     quizElement.style.display =
         "none";
 
     finalElement.style.display =
         "block";
+
 
     const total =
         cellQuizQuestions.length;
@@ -1243,6 +1192,7 @@ function finishCellBiologyQuiz() {
             )
             : 0;
 
+
     finalScore.innerHTML = `
         You scored
         <strong>
@@ -1251,12 +1201,10 @@ function finishCellBiologyQuiz() {
         (${percentage}%)
     `;
 }
-
-
-
-// =====================================================
-// 5. THE LIVING WORLD QUIZ
-// =====================================================
+/* =========================================================
+   STUDYHUB — THE LIVING WORLD QUIZ
+   50 QUESTIONS
+   ========================================================= */
 
 const livingWorldQuiz = [
 
@@ -1549,12 +1497,7 @@ const livingWorldQuiz = [
 
     {
         question: "Which is a threat to biodiversity?",
-        options: [
-            "Conservation",
-            "Deforestation",
-            "Reforestation",
-            "Afforestation"
-        ],
+        options: ["Conservation", "Deforestation", "Reforestation", "Afforestation"],
         answer: 1
     },
 
@@ -1638,12 +1581,7 @@ const livingWorldQuiz = [
 
     {
         question: "Which process involves the loss of water vapour from plants?",
-        options: [
-            "Evaporation",
-            "Transpiration",
-            "Condensation",
-            "Infiltration"
-        ],
+        options: ["Evaporation", "Transpiration", "Condensation", "Infiltration"],
         answer: 1
     },
 
@@ -1704,23 +1642,13 @@ const livingWorldQuiz = [
 
     {
         question: "What is the main source of energy driving the water cycle?",
-        options: [
-            "The Moon",
-            "The Sun",
-            "The soil",
-            "Wind alone"
-        ],
+        options: ["The Moon", "The Sun", "The soil", "Wind alone"],
         answer: 1
     },
 
     {
         question: "Which process forms clouds when water vapour cools?",
-        options: [
-            "Evaporation",
-            "Condensation",
-            "Runoff",
-            "Infiltration"
-        ],
+        options: ["Evaporation", "Condensation", "Runoff", "Infiltration"],
         answer: 1
     },
 
@@ -1748,277 +1676,111 @@ const livingWorldQuiz = [
 
     {
         question: "Which of these is NOT a major process of the water cycle?",
-        options: [
-            "Evaporation",
-            "Condensation",
-            "Precipitation",
-            "Photosynthesis"
-        ],
+        options: ["Evaporation", "Condensation", "Precipitation", "Photosynthesis"],
         answer: 3
     }
 
 ];
 
 
-
-// =====================================================
-// LIVING WORLD QUIZ VARIABLES
-// =====================================================
-
-let currentLivingWorldQuestion = 0;
-let livingWorldScore = 0;
-let livingWorldAnswered = false;
+let currentQuizQuestion = 0;
+let quizScore = 0;
+let quizAnswered = false;
 
 
+/* Start quiz when the page contains the quiz */
 
-// =====================================================
-// INITIALIZE THE CORRECT QUIZ
-// =====================================================
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        /*
-         * IMPORTANT:
-         *
-         * If the page contains the Cell Biology quiz
-         * launcher, we DO NOT automatically start the
-         * Living World quiz.
-         *
-         * The Living World quiz only initializes when
-         * its specific next button/result system exists.
-         */
-
-        const cellQuiz =
-            document.getElementById("cellQuiz");
-
-        const cellQuestionCount =
-            document.getElementById("quizQuestionCount");
-
-        const livingWorldNext =
-            document.getElementById("nextQuestion");
-
-        const livingWorldResult =
-            document.getElementById("quizResult");
-
-        /*
-         * Living World quiz page
-         */
-        if (
-            !cellQuiz &&
-            (livingWorldNext || livingWorldResult)
-        ) {
-
-            resetLivingWorldQuiz();
-
-        }
-
-    }
-);
-
-
-
-// =====================================================
-// RESET / START LIVING WORLD QUIZ
-// =====================================================
-
-function resetLivingWorldQuiz() {
-
-    currentLivingWorldQuestion = 0;
-
-    livingWorldScore = 0;
-
-    livingWorldAnswered = false;
-
-    const question =
-        document.getElementById("quizQuestion");
-
-    const options =
-        document.getElementById("quizOptions");
-
-    const feedback =
-        document.getElementById("quizFeedback");
-
-    const next =
-        document.getElementById("nextQuestion");
-
-    const result =
-        document.getElementById("quizResult");
-
-    if (!question || !options) return;
-
-    question.style.display = "block";
-
-    options.style.display = "grid";
-
-    if (feedback) {
-
-        feedback.style.display = "block";
+    if (document.getElementById("quizQuestion")) {
+        loadQuizQuestion();
     }
 
-    if (next) {
-
-        next.style.display = "none";
-    }
-
-    if (result) {
-
-        result.style.display = "none";
-    }
-
-    loadLivingWorldQuestion();
-}
+});
 
 
+function loadQuizQuestion() {
 
-// =====================================================
-// LOAD LIVING WORLD QUESTION
-// =====================================================
+    const question = livingWorldQuiz[currentQuizQuestion];
 
-function loadLivingWorldQuestion() {
+    document.getElementById("quizQuestion").textContent =
+        question.question;
 
-    const question =
-        livingWorldQuiz[currentLivingWorldQuestion];
+    document.getElementById("quizProgress").textContent =
+        "Question " + (currentQuizQuestion + 1) + " of 50";
 
-    if (!question) return;
-
-    const questionElement =
-        document.getElementById("quizQuestion");
-
-    const progress =
-        document.getElementById("quizProgress");
-
-    const score =
-        document.getElementById("quizScore");
+    document.getElementById("quizScore").textContent =
+        "Score: " + quizScore;
 
     const optionsContainer =
         document.getElementById("quizOptions");
 
-    const feedback =
-        document.getElementById("quizFeedback");
-
-    const next =
-        document.getElementById("nextQuestion");
-
-    if (
-        !questionElement ||
-        !progress ||
-        !score ||
-        !optionsContainer ||
-        !feedback ||
-        !next
-    ) {
-        return;
-    }
-
-    questionElement.textContent =
-        question.question;
-
-    progress.textContent =
-        "Question " +
-        (currentLivingWorldQuestion + 1) +
-        " of " +
-        livingWorldQuiz.length;
-
-    score.textContent =
-        "Score: " +
-        livingWorldScore;
-
     optionsContainer.innerHTML = "";
 
-    feedback.textContent = "";
+    document.getElementById("quizFeedback").textContent = "";
 
-    feedback.className =
-        "quiz-feedback";
+    document.getElementById("nextQuestion").style.display = "none";
 
-    next.style.display =
-        "none";
+    quizAnswered = false;
 
-    livingWorldAnswered = false;
 
-    question.options.forEach(
-        function (option, index) {
+    question.options.forEach(function (option, index) {
 
-            const button =
-                document.createElement("button");
+        const button = document.createElement("button");
 
-            button.className =
-                "quiz-option";
+        button.className = "quiz-option";
 
-            button.type =
-                "button";
+        button.textContent = option;
 
-            button.textContent =
-                option;
+        button.onclick = function () {
+            selectQuizAnswer(index);
+        };
 
-            button.onclick =
-                function () {
+        optionsContainer.appendChild(button);
 
-                    selectLivingWorldAnswer(index);
+    });
 
-                };
-
-            optionsContainer.appendChild(button);
-        }
-    );
 }
 
 
+function selectQuizAnswer(selectedAnswer) {
 
-// =====================================================
-// SELECT LIVING WORLD ANSWER
-// =====================================================
+    if (quizAnswered) {
+        return;
+    }
 
-function selectLivingWorldAnswer(selectedAnswer) {
+    quizAnswered = true;
 
-    if (livingWorldAnswered) return;
-
-    livingWorldAnswered = true;
-
-    const question =
-        livingWorldQuiz[currentLivingWorldQuestion];
+    const question = livingWorldQuiz[currentQuizQuestion];
 
     const buttons =
-        document.querySelectorAll(
-            "#quizOptions .quiz-option"
-        );
+        document.querySelectorAll(".quiz-option");
 
-    buttons.forEach(
-        function (button, index) {
+    buttons.forEach(function (button, index) {
 
-            button.disabled = true;
+        button.disabled = true;
 
-            if (
-                index === question.answer
-            ) {
-
-                button.classList.add("correct");
-
-            }
-
-            if (
-                index === selectedAnswer &&
-                selectedAnswer !== question.answer
-            ) {
-
-                button.classList.add("wrong");
-
-            }
+        if (index === question.answer) {
+            button.classList.add("correct");
         }
-    );
+
+        if (
+            index === selectedAnswer &&
+            selectedAnswer !== question.answer
+        ) {
+            button.classList.add("wrong");
+        }
+
+    });
+
 
     const feedback =
         document.getElementById("quizFeedback");
 
-    if (!feedback) return;
 
-    if (
-        selectedAnswer ===
-        question.answer
-    ) {
+    if (selectedAnswer === question.answer) {
 
-        livingWorldScore++;
+        quizScore++;
 
         feedback.textContent =
             "✅ Correct!";
@@ -2034,125 +1796,75 @@ function selectLivingWorldAnswer(selectedAnswer) {
 
         feedback.className =
             "quiz-feedback wrong-feedback";
+
     }
 
-    const score =
-        document.getElementById("quizScore");
 
-    if (score) {
+    document.getElementById("quizScore").textContent =
+        "Score: " + quizScore;
 
-        score.textContent =
-            "Score: " +
-            livingWorldScore;
-    }
+    document.getElementById("nextQuestion").style.display =
+        "inline-block";
 
-    const next =
-        document.getElementById("nextQuestion");
-
-    if (next) {
-
-        next.style.display =
-            "inline-block";
-    }
 }
 
-
-
-// =====================================================
-// NEXT LIVING WORLD QUESTION
-// =====================================================
 
 function nextQuizQuestion() {
 
-    if (!livingWorldAnswered) return;
+    currentQuizQuestion++;
 
-    currentLivingWorldQuestion++;
+    if (currentQuizQuestion >= livingWorldQuiz.length) {
 
-    if (
-        currentLivingWorldQuestion >=
-        livingWorldQuiz.length
-    ) {
-
-        showLivingWorldResult();
+        showQuizResult();
 
         return;
     }
 
-    loadLivingWorldQuestion();
+    loadQuizQuestion();
+
 }
 
 
+function showQuizResult() {
 
-// =====================================================
-// SHOW LIVING WORLD RESULT
-// =====================================================
-
-function showLivingWorldResult() {
-
-    const question =
-        document.getElementById("quizQuestion");
-
-    const options =
-        document.getElementById("quizOptions");
-
-    const feedback =
-        document.getElementById("quizFeedback");
-
-    const next =
-        document.getElementById("nextQuestion");
-
-    const result =
-        document.getElementById("quizResult");
-
-    const finalScore =
-        document.getElementById("finalScore");
-
-    if (
-        !question ||
-        !options ||
-        !result ||
-        !finalScore
-    ) {
-        return;
-    }
-
-    question.style.display =
+    document.getElementById("quizQuestion").style.display =
         "none";
 
-    options.style.display =
+    document.getElementById("quizOptions").style.display =
         "none";
 
-    if (feedback) {
+    document.getElementById("quizFeedback").style.display =
+        "none";
 
-        feedback.style.display =
-            "none";
-    }
+    document.getElementById("nextQuestion").style.display =
+        "none";
 
-    if (next) {
-
-        next.style.display =
-            "none";
-    }
-
-    result.style.display =
+    document.getElementById("quizResult").style.display =
         "block";
 
-    finalScore.textContent =
-        "You scored " +
-        livingWorldScore +
-        " out of " +
-        livingWorldQuiz.length +
-        ".";
+    document.getElementById("finalScore").textContent =
+        "You scored " + quizScore + " out of 50.";
 }
 
-
-
-// =====================================================
-// RESTART LIVING WORLD QUIZ
-// =====================================================
 
 function restartQuiz() {
 
-    resetLivingWorldQuiz();
+    currentQuizQuestion = 0;
+    quizScore = 0;
+    quizAnswered = false;
+
+    document.getElementById("quizQuestion").style.display =
+        "block";
+
+    document.getElementById("quizOptions").style.display =
+        "grid";
+
+    document.getElementById("quizFeedback").style.display =
+        "block";
+
+    document.getElementById("quizResult").style.display =
+        "none";
+
+    loadQuizQuestion();
 
 }
