@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -12,25 +13,190 @@
     <title>Respiration | StudyHub</title>
 
     <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* =========================================
+           RESPIRATION PAGE — STUDYHUB VISUAL ENHANCEMENTS
+           ========================================= */
+
+        .note-card h2 {
+            color: #1769aa;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .note-card h3 {
+            color: #16805c;
+            font-weight: 750;
+        }
+
+        .note-card strong {
+            color: #1769aa;
+        }
+
+        .note-card li {
+            margin-bottom: 8px;
+        }
+
+        .topic-intro {
+            border-left: 5px solid #1769aa;
+        }
+
+        .key-box {
+            background: linear-gradient(
+                135deg,
+                #eef7ff,
+                #f8fbff
+            );
+            border-left: 5px solid #1769aa;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 18px 0;
+        }
+
+        .green-box {
+            background: linear-gradient(
+                135deg,
+                #eefbf5,
+                #f9fffc
+            );
+            border-left: 5px solid #16805c;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 18px 0;
+        }
+
+        .warning-box {
+            background: linear-gradient(
+                135deg,
+                #fff8e8,
+                #fffdf7
+            );
+            border-left: 5px solid #e09a16;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 18px 0;
+        }
+
+        .exam-box {
+            background: linear-gradient(
+                135deg,
+                #fff1f1,
+                #fffafa
+            );
+            border-left: 5px solid #d9534f;
+            border-radius: 12px;
+            padding: 16px;
+            margin: 18px 0;
+        }
+
+        .formula-box {
+            background: linear-gradient(
+                135deg,
+                #f1efff,
+                #faf9ff
+            );
+            border: 2px solid #7567c7;
+            border-radius: 14px;
+            padding: 18px;
+            margin: 18px 0;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.05rem;
+        }
+
+        .emoji-title {
+            font-size: 1.05rem;
+            font-weight: 800;
+        }
+
+        .resp-image {
+            width: 100%;
+            max-width: 900px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 14px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.10);
+        }
+
+        .mini-heading {
+            color: #d06b16;
+            font-weight: 800;
+        }
+
+        .check-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .check-list li::before {
+            content: "✅ ";
+        }
+
+        .mistake-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .mistake-list li::before {
+            content: "❌ ";
+        }
+
+        .remember-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .remember-list li::before {
+            content: "⭐ ";
+        }
+
+    </style>
+
 </head>
 
+
 <body>
+
+
+    <!-- HEADER -->
 
     <header class="header">
 
         <div class="logo">
+
             <span class="logo-icon">🎓</span>
+
             StudyHub
+
         </div>
 
+
         <nav class="nav">
-            <a href="index.html">Home</a>
-            <a href="biology.html">Biology</a>
-            <a href="biology-notes.html" class="active">Notes</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="biology.html">
+                Biology
+            </a>
+
+            <a
+                href="biology-notes.html"
+                class="active"
+            >
+                Notes
+            </a>
+
         </nav>
 
     </header>
 
+
+
+    <!-- HERO -->
 
     <section class="subject-hero">
 
@@ -43,251 +209,66 @@
         </h1>
 
         <p class="subtitle">
-            Learn respiration, the human respiratory system, gaseous exchange,
-            breathing, aerobic and anaerobic respiration, fermentation,
+            Understand respiration, breathing, the human respiratory system,
+            gaseous exchange, aerobic and anaerobic respiration,
             exercise and respiratory health.
         </p>
 
     </section>
 
 
+
+    <!-- MAIN CONTENT -->
+
     <main class="section">
 
         <div class="note-content">
 
 
-            <!-- SECTION 1 -->
 
-            <div class="note-card">
+            <!-- 1 -->
+
+            <div class="note-card topic-intro">
 
                 <h2>
-                    1. What is Respiration?
+                    💨 1. What is Respiration?
                 </h2>
 
                 <p>
-                    <strong>Respiration</strong> is the chemical process in
-                    living cells that releases energy from food substances,
+                    <strong>Respiration</strong> is the chemical process that
+                    takes place in living cells to release energy from food,
                     especially glucose.
                 </p>
 
-                <p>
-                    The energy released during respiration is used for
-                    activities such as growth, movement, active transport,
-                    reproduction, repair and maintaining body temperature.
-                </p>
+                <div class="key-box">
+
+                    <p class="emoji-title">
+                        ⚡ Why is respiration important?
+                    </p>
+
+                    <p>
+                        The energy released is used for growth, movement,
+                        active transport, repair, reproduction, cell division
+                        and maintaining body temperature.
+                    </p>
+
+                </div>
 
                 <p>
-                    Respiration takes place continuously in living cells,
+                    Respiration takes place continuously in living organisms,
                     both during the day and at night.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 2 -->
+
+            <!-- 2 -->
 
             <div class="note-card">
 
                 <h2>
-                    2. Respiration and Breathing Are Not the Same
-                </h2>
-
-                <p>
-                    <strong>Breathing</strong> is the physical movement of air
-                    into and out of the lungs.
-                </p>
-
-                <p>
-                    <strong>Respiration</strong> is a chemical process that
-                    occurs inside cells and releases energy from food.
-                </p>
-
-                <p>
-                    Therefore, breathing supplies oxygen needed for aerobic
-                    respiration and removes carbon dioxide produced during
-                    respiration.
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 3 -->
-
-            <div class="note-card">
-
-                <h2>
-                    3. Why is Energy from Respiration Important?
-                </h2>
-
-                <p>
-                    Energy released during respiration is needed for:
-                </p>
-
-                <ul>
-                    <li>Muscle contraction and movement</li>
-                    <li>Active transport</li>
-                    <li>Growth and development</li>
-                    <li>Cell division</li>
-                    <li>Repair of damaged tissues</li>
-                    <li>Maintaining body temperature</li>
-                    <li>Making new substances inside cells</li>
-                    <li>Reproduction</li>
-                </ul>
-
-            </div>
-
-
-            <!-- SECTION 4 -->
-
-            <div class="note-card">
-
-                <h2>
-                    4. Aerobic Respiration
-                </h2>
-
-                <p>
-                    <strong>Aerobic respiration</strong> is respiration that
-                    uses oxygen to release a large amount of energy from
-                    glucose.
-                </p>
-
-                <p>
-                    It occurs in the cells of plants, animals and many other
-                    organisms.
-                </p>
-
-                <p>
-                    <strong>Word equation:</strong>
-                </p>
-
-                <p>
-                    Glucose + Oxygen → Carbon dioxide + Water + Energy
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 5 -->
-
-            <div class="note-card">
-
-                <h2>
-                    5. Balanced Equation for Aerobic Respiration
-                </h2>
-
-                <p>
-                    The balanced chemical equation is:
-                </p>
-
-                <p>
-                    <strong>
-                        C₆H₁₂O₆ + 6O₂ → 6CO₂ + 6H₂O + energy
-                    </strong>
-                </p>
-
-                <p>
-                    The glucose molecule is broken down and oxygen is used
-                    during the process.
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 6 -->
-
-            <div class="note-card">
-
-                <h2>
-                    6. Anaerobic Respiration
-                </h2>
-
-                <p>
-                    <strong>Anaerobic respiration</strong> is respiration that
-                    releases energy from glucose without using oxygen.
-                </p>
-
-                <p>
-                    It releases much less energy than aerobic respiration.
-                </p>
-
-                <p>
-                    Anaerobic respiration occurs in some microorganisms and
-                    can occur temporarily in human muscle cells during
-                    vigorous exercise when oxygen supply cannot meet demand.
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 7 -->
-
-            <div class="note-card">
-
-                <h2>
-                    7. Anaerobic Respiration in Human Muscles
-                </h2>
-
-                <p>
-                    During vigorous exercise, muscles require energy very
-                    quickly.
-                </p>
-
-                <p>
-                    If the oxygen supply is insufficient, glucose can be
-                    broken down anaerobically.
-                </p>
-
-                <p>
-                    <strong>Word equation:</strong>
-                </p>
-
-                <p>
-                    Glucose → Lactic acid + Energy
-                </p>
-
-                <p>
-                    Anaerobic respiration allows muscles to continue working
-                    for a short time, but it leads to the accumulation of
-                    lactic acid.
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 8 -->
-
-            <div class="note-card">
-
-                <h2>
-                    8. Fermentation in Yeast
-                </h2>
-
-                <p>
-                    Yeast can respire anaerobically by fermentation.
-                </p>
-
-                <p>
-                    <strong>Word equation:</strong>
-                </p>
-
-                <p>
-                    Glucose → Ethanol + Carbon dioxide + Energy
-                </p>
-
-                <p>
-                    Fermentation is useful in industries such as bread-making
-                    and the production of some fermented foods and drinks.
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 9 -->
-
-            <div class="note-card">
-
-                <h2>
-                    9. Aerobic and Anaerobic Respiration Compared
+                    🫁 2. Respiration vs Breathing
                 </h2>
 
                 <div class="comparison-table-wrapper">
@@ -295,39 +276,337 @@
                     <table class="comparison-table">
 
                         <tr>
-                            <th>Feature</th>
-                            <th>Aerobic</th>
-                            <th>Anaerobic</th>
+                            <th>Breathing</th>
+                            <th>Respiration</th>
                         </tr>
 
                         <tr>
-                            <td>Oxygen</td>
-                            <td>Requires oxygen</td>
-                            <td>Does not require oxygen</td>
+                            <td>
+                                Physical movement of air into and out of
+                                the lungs.
+                            </td>
+
+                            <td>
+                                Chemical process that releases energy
+                                from food in cells.
+                            </td>
                         </tr>
 
                         <tr>
-                            <td>Energy released</td>
-                            <td>Large amount</td>
-                            <td>Small amount</td>
+                            <td>
+                                Mainly involves the respiratory system.
+                            </td>
+
+                            <td>
+                                Takes place inside living cells.
+                            </td>
                         </tr>
 
                         <tr>
-                            <td>In humans</td>
-                            <td>Occurs normally in cells</td>
-                            <td>Can occur during vigorous exercise</td>
+                            <td>
+                                Does not itself release energy from glucose.
+                            </td>
+
+                            <td>
+                                Releases energy from food.
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="warning-box">
+
+                    <strong>⚠️ Exam warning:</strong>
+
+                    <p>
+                        Never define respiration as simply "breathing".
+                        They are two different processes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 3 -->
+
+            <div class="note-card">
+
+                <h2>
+                    ⚡ 3. Uses of Energy Released by Respiration
+                </h2>
+
+                <ul>
+
+                    <li>💪 Muscle contraction and movement</li>
+
+                    <li>🚚 Active transport</li>
+
+                    <li>🌱 Growth and development</li>
+
+                    <li>🧬 Cell division</li>
+
+                    <li>🩹 Repair of tissues</li>
+
+                    <li>🌡️ Maintaining body temperature</li>
+
+                    <li>🧪 Making substances needed by cells</li>
+
+                    <li>🌸 Reproduction</li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- 4 -->
+
+            <div class="note-card">
+
+                <h2>
+                    🧪 4. Aerobic Respiration
+                </h2>
+
+                <p>
+                    <strong>Aerobic respiration</strong> is respiration that
+                    uses oxygen to release a relatively large amount of energy
+                    from glucose.
+                </p>
+
+                <div class="formula-box">
+
+                    Glucose + Oxygen
+                    →
+                    Carbon dioxide + Water + Energy
+
+                </div>
+
+                <p>
+                    Aerobic respiration occurs in the cells of plants,
+                    animals and many other organisms.
+                </p>
+
+            </div>
+
+
+
+            <!-- 5 -->
+
+            <div class="note-card">
+
+                <h2>
+                    ⚗️ 5. Aerobic Respiration Equation
+                </h2>
+
+                <p>
+                    The balanced chemical equation is:
+                </p>
+
+                <div class="formula-box">
+
+                    C₆H₁₂O₆ + 6O₂
+                    →
+                    6CO₂ + 6H₂O + Energy
+
+                </div>
+
+                <div class="green-box">
+
+                    <strong>🧠 Remember:</strong>
+
+                    <p>
+                        Aerobic respiration requires oxygen and produces
+                        carbon dioxide and water.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 6 -->
+
+            <div class="note-card">
+
+                <h2>
+                    🚫 6. Anaerobic Respiration
+                </h2>
+
+                <p>
+                    <strong>Anaerobic respiration</strong> is respiration
+                    that releases energy from glucose without using oxygen.
+                </p>
+
+                <p>
+                    It releases a relatively small amount of energy compared
+                    with aerobic respiration.
+                </p>
+
+                <p>
+                    Anaerobic respiration can occur in microorganisms and
+                    temporarily in human muscle cells during vigorous exercise.
+                </p>
+
+            </div>
+
+
+
+            <!-- 7 -->
+
+            <div class="note-card">
+
+                <h2>
+                    💪 7. Anaerobic Respiration in Human Muscles
+                </h2>
+
+                <p>
+                    During vigorous exercise, muscles require energy rapidly.
+                    The oxygen supply may not be sufficient to meet this
+                    demand.
+                </p>
+
+                <div class="formula-box">
+
+                    Glucose
+                    →
+                    Lactic acid + Energy
+
+                </div>
+
+                <p>
+                    Anaerobic respiration allows muscles to continue working
+                    for a short period, but lactic acid accumulates.
+                </p>
+
+            </div>
+
+
+
+            <!-- 8 -->
+
+            <div class="note-card">
+
+                <h2>
+                    🦠 8. Fermentation in Yeast
+                </h2>
+
+                <p>
+                    Yeast can obtain energy from glucose without oxygen through
+                    a process called <strong>fermentation</strong>.
+                </p>
+
+                <div class="formula-box">
+
+                    Glucose
+                    →
+                    Ethanol + Carbon dioxide + Energy
+
+                </div>
+
+                <p>
+                    Fermentation is useful in food production, including
+                    bread-making.
+                </p>
+
+            </div>
+
+
+
+            <!-- 9 -->
+
+            <div class="note-card">
+
+                <h2>
+                    ⚖️ 9. Aerobic vs Anaerobic Respiration
+                </h2>
+
+                <div class="comparison-table-wrapper">
+
+                    <table class="comparison-table">
+
+                        <tr>
+
+                            <th>
+                                Feature
+                            </th>
+
+                            <th>
+                                Aerobic
+                            </th>
+
+                            <th>
+                                Anaerobic
+                            </th>
+
                         </tr>
 
                         <tr>
-                            <td>Products in humans</td>
-                            <td>Carbon dioxide and water</td>
-                            <td>Lactic acid</td>
+
+                            <td>
+                                Oxygen
+                            </td>
+
+                            <td>
+                                Required
+                            </td>
+
+                            <td>
+                                Not required
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Products in yeast</td>
-                            <td>Carbon dioxide and water</td>
-                            <td>Ethanol and carbon dioxide</td>
+
+                            <td>
+                                Energy released
+                            </td>
+
+                            <td>
+                                Relatively large amount
+                            </td>
+
+                            <td>
+                                Relatively small amount
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Human muscle products
+                            </td>
+
+                            <td>
+                                Carbon dioxide + water
+                            </td>
+
+                            <td>
+                                Lactic acid
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Yeast products
+                            </td>
+
+                            <td>
+                                Carbon dioxide + water
+                            </td>
+
+                            <td>
+                                Ethanol + carbon dioxide
+                            </td>
+
                         </tr>
 
                     </table>
@@ -337,101 +616,147 @@
             </div>
 
 
-            <!-- SECTION 10 -->
+
+            <!-- 10 -->
 
             <div class="note-card">
 
                 <h2>
-                    10. Respiration in Plants
+                    🌿 10. Respiration in Plants
                 </h2>
 
                 <p>
-                    Plants also respire continuously, both during the day and
-                    at night.
+                    Plants respire continuously, during both daytime and
+                    nighttime.
                 </p>
 
                 <p>
                     During aerobic respiration, plant cells use oxygen and
-                    release carbon dioxide and water.
+                    produce carbon dioxide and water.
+                </p>
+
+                <div class="green-box">
+
+                    <strong>🌱 Important:</strong>
+
+                    <p>
+                        Plants photosynthesise when suitable conditions are
+                        present, but they also respire continuously.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 11 -->
+
+            <div class="note-card">
+
+                <h2>
+                    🔬 11. Respiration Takes Place in Living Cells
+                </h2>
+
+                <p>
+                    Respiration is a cellular process. Cells require the
+                    released energy to carry out their activities.
                 </p>
 
                 <p>
-                    Plants obtain gases by diffusion through structures such
-                    as stomata and through other surfaces.
-                </p>
-
-                <p>
-                    Photosynthesis and respiration are different processes.
-                    Photosynthesis stores energy in glucose, while respiration
-                    releases energy from glucose.
+                    Therefore, respiration occurs in living tissues and
+                    organs of both plants and animals.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 11 -->
+
+            <!-- 12 -->
 
             <div class="note-card">
 
                 <h2>
-                    11. The Human Respiratory System
+                    🫁 12. Human Respiratory System
                 </h2>
 
                 <p>
-                    The human respiratory system is responsible for taking
-                    oxygen into the body and removing carbon dioxide.
+                    The human respiratory system allows the body to take in
+                    oxygen and remove carbon dioxide.
                 </p>
 
                 <p>
-                    The major structures include:
+                    Major structures include:
                 </p>
 
                 <ul>
-                    <li>Nasal cavity</li>
-                    <li>Mouth</li>
-                    <li>Pharynx</li>
-                    <li>Larynx</li>
-                    <li>Trachea</li>
-                    <li>Bronchi</li>
-                    <li>Bronchioles</li>
-                    <li>Lungs</li>
-                    <li>Alveoli</li>
-                    <li>Diaphragm</li>
-                    <li>Intercostal muscles</li>
-                    <li>Ribs</li>
+
+                    <li>👃 Nasal cavity</li>
+
+                    <li>👄 Mouth</li>
+
+                    <li>➡️ Pharynx</li>
+
+                    <li>🎤 Larynx</li>
+
+                    <li>🔵 Trachea</li>
+
+                    <li>🌿 Bronchi</li>
+
+                    <li>🌿 Bronchioles</li>
+
+                    <li>🫁 Lungs</li>
+
+                    <li>🫧 Alveoli</li>
+
+                    <li>💪 Intercostal muscles</li>
+
+                    <li>🫁 Diaphragm</li>
+
+                    <li>🦴 Ribs</li>
+
                 </ul>
 
             </div>
 
 
-            <!-- SECTION 12 -->
+
+            <!-- 13 -->
 
             <div class="note-card">
 
                 <h2>
-                    12. Human Respiratory System Diagram
+                    🖼️ 13. Labelled Human Respiratory System
                 </h2>
 
                 <img
                     src="543C78DD-8DC2-464C-822F-4B36B0B8C1CB.png"
-                    alt="Labelled diagram of the human respiratory system"
-                    style="width: 100%; max-width: 900px; display: block; margin: 20px auto; border-radius: 12px;"
+                    alt="Labelled human respiratory system diagram"
+                    class="resp-image"
                 >
 
-                <p>
-                    Study the position and function of each labelled structure.
-                    Diagram-label questions are common in Biology examinations.
-                </p>
+                <div class="exam-box">
+
+                    <strong>🎯 O/L Exam Tip:</strong>
+
+                    <p>
+                        Practise drawing and labelling the respiratory system.
+                        You should be able to identify the trachea, bronchi,
+                        bronchioles, lungs, alveoli, ribs and diaphragm.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 13 -->
+
+            <!-- 14 -->
 
             <div class="note-card">
 
                 <h2>
-                    13. The Nose and Nasal Cavity
+                    👃 14. Nose and Nasal Cavity
                 </h2>
 
                 <p>
@@ -440,55 +765,57 @@
                 </p>
 
                 <p>
-                    The nasal cavity:
+                    The nasal cavity helps:
                 </p>
 
                 <ul>
-                    <li>Filters dust and microorganisms</li>
-                    <li>Warms incoming air</li>
-                    <li>Adds moisture to the air</li>
-                    <li>Helps protect the respiratory system</li>
+
+                    <li>🌡️ Warm incoming air</li>
+
+                    <li>💧 Add moisture to air</li>
+
+                    <li>🧹 Trap dust particles</li>
+
+                    <li>🦠 Trap some microorganisms</li>
+
                 </ul>
 
                 <p>
-                    Hairs and mucus trap many particles present in inhaled air.
+                    Hairs and mucus help filter inhaled air.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 14 -->
+
+            <!-- 15 -->
 
             <div class="note-card">
 
                 <h2>
-                    14. Pharynx and Larynx
+                    🗣️ 15. Pharynx and Larynx
                 </h2>
 
                 <p>
-                    The <strong>pharynx</strong> is a passage through which air
-                    travels from the nose or mouth towards the larynx.
+                    The <strong>pharynx</strong> is a passage through which
+                    air travels towards the larynx.
                 </p>
 
                 <p>
-                    The <strong>larynx</strong>, commonly called the voice box,
+                    The <strong>larynx</strong>, also known as the voice box,
                     connects the pharynx to the trachea.
-                </p>
-
-                <p>
-                    The larynx also contains structures involved in producing
-                    sound.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 15 -->
+
+            <!-- 16 -->
 
             <div class="note-card">
 
                 <h2>
-                    15. Trachea
+                    🔵 16. Trachea
                 </h2>
 
                 <p>
@@ -497,48 +824,56 @@
                 </p>
 
                 <p>
-                    It contains rings of cartilage that help prevent the
-                    airway from collapsing.
+                    It contains rings of cartilage that help prevent it from
+                    collapsing.
                 </p>
 
-                <p>
-                    Its lining contains mucus-producing cells and cilia.
-                </p>
+                <div class="key-box">
+
+                    <strong>🧹 Protection:</strong>
+
+                    <p>
+                        Mucus traps particles while cilia move mucus towards
+                        the throat.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 16 -->
+
+            <!-- 17 -->
 
             <div class="note-card">
 
                 <h2>
-                    16. Cilia and Mucus
+                    🧹 17. Cilia and Mucus
                 </h2>
 
                 <p>
-                    Mucus traps dust particles and microorganisms.
+                    <strong>Mucus</strong> traps dust and microorganisms.
                 </p>
 
                 <p>
-                    Cilia are tiny hair-like structures that move mucus
-                    towards the throat, where it can be removed from the
-                    respiratory system.
+                    <strong>Cilia</strong> are tiny hair-like structures that
+                    move mucus towards the throat.
                 </p>
 
                 <p>
-                    This helps protect the lungs from harmful particles.
+                    This protects deeper parts of the respiratory system.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 17 -->
+
+            <!-- 18 -->
 
             <div class="note-card">
 
                 <h2>
-                    17. Bronchi
+                    🌿 18. Bronchi
                 </h2>
 
                 <p>
@@ -550,19 +885,16 @@
                     One bronchus enters each lung.
                 </p>
 
-                <p>
-                    The bronchi divide repeatedly into smaller airways.
-                </p>
-
             </div>
 
 
-            <!-- SECTION 18 -->
+
+            <!-- 19 -->
 
             <div class="note-card">
 
                 <h2>
-                    18. Bronchioles
+                    🌿 19. Bronchioles
                 </h2>
 
                 <p>
@@ -572,18 +904,30 @@
 
                 <p>
                     They distribute air throughout the lungs and eventually
-                    lead to groups of alveoli.
+                    lead towards the alveoli.
                 </p>
+
+                <div class="warning-box">
+
+                    <strong>⚠️ Don't confuse them:</strong>
+
+                    <p>
+                        Bronchi are the larger branches from the trachea.
+                        Bronchioles are the smaller branches inside the lungs.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 19 -->
+
+            <!-- 20 -->
 
             <div class="note-card">
 
                 <h2>
-                    19. Lungs
+                    🫁 20. Lungs
                 </h2>
 
                 <p>
@@ -592,29 +936,25 @@
                 </p>
 
                 <p>
-                    The lungs are protected by the rib cage and are involved
-                    in gaseous exchange.
-                </p>
-
-                <p>
-                    The right and left lungs are supplied with their own
-                    bronchial branches and blood vessels.
+                    They are protected by the rib cage and are the major
+                    organs involved in gaseous exchange.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 20 -->
+
+            <!-- 21 -->
 
             <div class="note-card">
 
                 <h2>
-                    20. Alveoli
+                    🫧 21. Alveoli
                 </h2>
 
                 <p>
                     <strong>Alveoli</strong> are tiny air sacs where gaseous
-                    exchange takes place between the air and the blood.
+                    exchange takes place between air and blood.
                 </p>
 
                 <p>
@@ -625,83 +965,90 @@
             </div>
 
 
-            <!-- SECTION 21 -->
+
+            <!-- 22 -->
 
             <div class="note-card">
 
                 <h2>
-                    21. Adaptations of Alveoli
+                    ⭐ 22. Adaptations of Alveoli
                 </h2>
 
                 <p>
-                    Alveoli are well adapted for efficient gaseous exchange.
+                    Alveoli are adapted for rapid and efficient gaseous
+                    exchange.
                 </p>
 
                 <ul>
+
                     <li>
-                        <strong>Large surface area:</strong>
-                        Millions of alveoli provide a large exchange surface.
+                        📏 <strong>Large surface area</strong> —
+                        millions of alveoli provide a large exchange surface.
                     </li>
 
                     <li>
-                        <strong>Thin walls:</strong>
-                        Their walls are only about one cell thick, giving a
-                        short diffusion distance.
+                        🧱 <strong>Thin walls</strong> —
+                        the walls are about one cell thick, giving a short
+                        diffusion distance.
                     </li>
 
                     <li>
-                        <strong>Good blood supply:</strong>
-                        A dense network of capillaries maintains concentration
-                        gradients.
+                        🩸 <strong>Rich blood supply</strong> —
+                        many capillaries surround each alveolus.
                     </li>
 
                     <li>
-                        <strong>Moist surface:</strong>
-                        Gases can dissolve before diffusing across the surface.
+                        💧 <strong>Moist surface</strong> —
+                        gases can dissolve before diffusing.
                     </li>
 
                     <li>
-                        <strong>Ventilation:</strong>
-                        Continuous breathing replaces the air in the alveoli.
+                        🔄 <strong>Continuous ventilation</strong> —
+                        fresh air continually reaches the alveoli.
                     </li>
+
                 </ul>
 
             </div>
 
 
-            <!-- SECTION 22 -->
+
+            <!-- 23 -->
 
             <div class="note-card">
 
                 <h2>
-                    22. Characteristics of a Good Respiratory Surface
+                    🔄 23. Characteristics of a Good Respiratory Surface
                 </h2>
 
                 <p>
-                    An efficient respiratory surface should have:
+                    A good respiratory surface should have:
                 </p>
 
                 <ul>
-                    <li>A large surface area</li>
-                    <li>A thin surface</li>
-                    <li>A moist surface</li>
-                    <li>A good blood supply</li>
-                    <li>A mechanism for maintaining a concentration gradient</li>
-                </ul>
 
-                <p>
-                    These features increase the rate of diffusion of gases.
-                </p>
+                    <li>📏 Large surface area</li>
+
+                    <li>🧱 Thin surface</li>
+
+                    <li>💧 Moist surface</li>
+
+                    <li>🩸 Good blood supply</li>
+
+                    <li>🔄 A mechanism for maintaining concentration gradients</li>
+
+                </ul>
 
             </div>
 
 
-            <!-- SECTION 23 -->
+
+            <!-- 24 -->
 
             <div class="note-card">
 
                 <h2>
-                    23. Gaseous Exchange by Diffusion
+                    ↔️ 24. Gaseous Exchange by Diffusion
                 </h2>
 
                 <p>
@@ -710,88 +1057,111 @@
                     concentration.
                 </p>
 
-                <p>
-                    In the lungs:
-                </p>
+                <div class="green-box">
 
-                <ul>
-                    <li>
-                        Oxygen diffuses from the alveoli into the blood.
-                    </li>
+                    <p>
+                        🫁 At the alveoli:
+                    </p>
 
-                    <li>
-                        Carbon dioxide diffuses from the blood into the alveoli.
-                    </li>
-                </ul>
+                    <ul>
+
+                        <li>
+                            Oxygen moves from alveolar air into the blood.
+                        </li>
+
+                        <li>
+                            Carbon dioxide moves from the blood into the
+                            alveoli.
+                        </li>
+
+                    </ul>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 24 -->
+
+            <!-- 25 -->
 
             <div class="note-card">
 
                 <h2>
-                    24. Pathway of Oxygen into the Body
+                    ➡️ 25. Pathway of Oxygen
+                </h2>
+
+                <div class="formula-box">
+
+                    Nose/Mouth
+                    →
+                    Pharynx
+                    →
+                    Larynx
+                    →
+                    Trachea
+                    →
+                    Bronchi
+                    →
+                    Bronchioles
+                    →
+                    Alveoli
+                    →
+                    Blood
+
+                </div>
+
+                <p>
+                    Oxygen is then transported by the blood to body tissues,
+                    where cells use it during aerobic respiration.
+                </p>
+
+            </div>
+
+
+
+            <!-- 26 -->
+
+            <div class="note-card">
+
+                <h2>
+                    ⬅️ 26. Pathway of Carbon Dioxide
                 </h2>
 
                 <p>
-                    A simplified route for inhaled oxygen is:
+                    Carbon dioxide produced by respiring cells is transported
+                    in the blood to the lungs.
                 </p>
 
-                <p>
-                    <strong>
-                        Nose/Mouth → Pharynx → Larynx → Trachea →
-                        Bronchi → Bronchioles → Alveoli → Blood
-                    </strong>
-                </p>
+                <div class="formula-box">
 
-                <p>
-                    From the blood, oxygen is transported to body tissues,
-                    where it is used by cells during aerobic respiration.
-                </p>
+                    Body Cells
+                    →
+                    Blood
+                    →
+                    Lung Capillaries
+                    →
+                    Alveoli
+                    →
+                    Bronchioles
+                    →
+                    Bronchi
+                    →
+                    Trachea
+                    →
+                    Nose/Mouth
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 25 -->
+
+            <!-- 27 -->
 
             <div class="note-card">
 
                 <h2>
-                    25. Pathway of Carbon Dioxide Out of the Body
-                </h2>
-
-                <p>
-                    Carbon dioxide produced by cells is transported in the
-                    blood to the lungs.
-                </p>
-
-                <p>
-                    It then diffuses into the alveoli and is breathed out.
-                </p>
-
-                <p>
-                    The pathway is approximately:
-                </p>
-
-                <p>
-                    <strong>
-                        Body cells → Blood → Lung capillaries →
-                        Alveoli → Bronchioles → Bronchi →
-                        Trachea → Larynx → Nose/Mouth
-                    </strong>
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 26 -->
-
-            <div class="note-card">
-
-                <h2>
-                    26. Ventilation
+                    🔄 27. Ventilation
                 </h2>
 
                 <p>
@@ -799,29 +1169,33 @@
                     and out of the lungs.
                 </p>
 
-                <p>
-                    It consists of:
-                </p>
-
                 <ul>
-                    <li><strong>Inspiration</strong> — breathing in</li>
-                    <li><strong>Expiration</strong> — breathing out</li>
+
+                    <li>
+                        🫁 <strong>Inspiration</strong> — breathing in.
+                    </li>
+
+                    <li>
+                        💨 <strong>Expiration</strong> — breathing out.
+                    </li>
+
                 </ul>
 
                 <p>
-                    Ventilation keeps replacing the air in the alveoli and
-                    helps maintain concentration gradients for diffusion.
+                    Ventilation continually replaces the air in the alveoli,
+                    helping maintain concentration gradients for diffusion.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 27 -->
+
+            <!-- 28 -->
 
             <div class="note-card">
 
                 <h2>
-                    27. Inspiration
+                    ⬇️ 28. Inspiration
                 </h2>
 
                 <p>
@@ -829,23 +1203,43 @@
                 </p>
 
                 <ol>
-                    <li>The diaphragm contracts and flattens.</li>
-                    <li>The external intercostal muscles contract.</li>
-                    <li>The ribs move upwards and outwards.</li>
-                    <li>The volume of the thoracic cavity increases.</li>
-                    <li>The pressure inside the lungs decreases.</li>
-                    <li>Air moves into the lungs.</li>
+
+                    <li>
+                        The diaphragm contracts and flattens.
+                    </li>
+
+                    <li>
+                        External intercostal muscles contract.
+                    </li>
+
+                    <li>
+                        The ribs move upwards and outwards.
+                    </li>
+
+                    <li>
+                        The volume of the thoracic cavity increases.
+                    </li>
+
+                    <li>
+                        Pressure inside the lungs decreases.
+                    </li>
+
+                    <li>
+                        Air moves into the lungs.
+                    </li>
+
                 </ol>
 
             </div>
 
 
-            <!-- SECTION 28 -->
+
+            <!-- 29 -->
 
             <div class="note-card">
 
                 <h2>
-                    28. Expiration
+                    ⬆️ 29. Expiration
                 </h2>
 
                 <p>
@@ -853,61 +1247,107 @@
                 </p>
 
                 <ol>
-                    <li>The diaphragm relaxes and becomes dome-shaped.</li>
-                    <li>The intercostal muscles relax.</li>
-                    <li>The ribs move downwards and inwards.</li>
-                    <li>The volume of the thoracic cavity decreases.</li>
-                    <li>The pressure inside the lungs increases.</li>
-                    <li>Air moves out of the lungs.</li>
+
+                    <li>
+                        The diaphragm relaxes and becomes dome-shaped.
+                    </li>
+
+                    <li>
+                        The intercostal muscles relax.
+                    </li>
+
+                    <li>
+                        The ribs move downwards and inwards.
+                    </li>
+
+                    <li>
+                        The volume of the thoracic cavity decreases.
+                    </li>
+
+                    <li>
+                        Pressure inside the lungs increases.
+                    </li>
+
+                    <li>
+                        Air moves out of the lungs.
+                    </li>
+
                 </ol>
 
             </div>
 
 
-            <!-- SECTION 29 -->
+
+            <!-- 30 -->
 
             <div class="note-card">
 
                 <h2>
-                    29. Role of the Diaphragm
+                    💪 30. Role of the Diaphragm
                 </h2>
-
-                <p>
-                    The <strong>diaphragm</strong> is a sheet of muscle below
-                    the lungs.
-                </p>
-
-                <p>
-                    It changes the volume of the chest cavity during breathing.
-                </p>
 
                 <div class="comparison-table-wrapper">
 
                     <table class="comparison-table">
 
                         <tr>
-                            <th>Inspiration</th>
-                            <th>Expiration</th>
+
+                            <th>
+                                Inspiration 🫁
+                            </th>
+
+                            <th>
+                                Expiration 💨
+                            </th>
+
                         </tr>
 
                         <tr>
-                            <td>Diaphragm contracts</td>
-                            <td>Diaphragm relaxes</td>
+
+                            <td>
+                                Contracts
+                            </td>
+
+                            <td>
+                                Relaxes
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Moves down and flattens</td>
-                            <td>Moves up and becomes dome-shaped</td>
+
+                            <td>
+                                Flattens
+                            </td>
+
+                            <td>
+                                Becomes dome-shaped
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Chest volume increases</td>
-                            <td>Chest volume decreases</td>
+
+                            <td>
+                                Moves downward
+                            </td>
+
+                            <td>
+                                Moves upward
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Air enters</td>
-                            <td>Air leaves</td>
+
+                            <td>
+                                Chest volume increases
+                            </td>
+
+                            <td>
+                                Chest volume decreases
+                            </td>
+
                         </tr>
 
                     </table>
@@ -917,12 +1357,13 @@
             </div>
 
 
-            <!-- SECTION 30 -->
+
+            <!-- 31 -->
 
             <div class="note-card">
 
                 <h2>
-                    30. Role of Ribs and Intercostal Muscles
+                    🦴 31. Ribs and Intercostal Muscles
                 </h2>
 
                 <p>
@@ -930,7 +1371,8 @@
                 </p>
 
                 <p>
-                    Intercostal muscles are found between the ribs.
+                    <strong>Intercostal muscles</strong> are muscles found
+                    between the ribs.
                 </p>
 
                 <p>
@@ -941,12 +1383,13 @@
             </div>
 
 
-            <!-- SECTION 31 -->
+
+            <!-- 32 -->
 
             <div class="note-card">
 
                 <h2>
-                    31. Breathing Rate and Depth
+                    🏃 32. Breathing Rate and Depth
                 </h2>
 
                 <p>
@@ -956,7 +1399,7 @@
 
                 <p>
                     <strong>Depth of breathing</strong> refers to the amount
-                    of air moved in and out during each breath.
+                    of air moved during each breath.
                 </p>
 
                 <p>
@@ -966,12 +1409,13 @@
             </div>
 
 
-            <!-- SECTION 32 -->
+
+            <!-- 33 -->
 
             <div class="note-card">
 
                 <h2>
-                    32. Effect of Exercise on Breathing
+                    🏃‍♂️ 33. Effect of Exercise on Breathing
                 </h2>
 
                 <p>
@@ -979,61 +1423,104 @@
                     more energy.
                 </p>
 
-                <p>
-                    Therefore:
-                </p>
-
                 <ul>
-                    <li>Breathing rate increases.</li>
-                    <li>Breathing becomes deeper.</li>
-                    <li>Heart rate increases.</li>
-                    <li>More oxygen is delivered to muscles.</li>
-                    <li>More carbon dioxide is removed.</li>
+
+                    <li>
+                        💨 Breathing rate increases.
+                    </li>
+
+                    <li>
+                        🫁 Breathing becomes deeper.
+                    </li>
+
+                    <li>
+                        ❤️ Heart rate increases.
+                    </li>
+
+                    <li>
+                        🩸 More oxygen is delivered to muscles.
+                    </li>
+
+                    <li>
+                        🌫️ More carbon dioxide is removed.
+                    </li>
+
                 </ul>
 
             </div>
 
 
-            <!-- SECTION 33 -->
+
+            <!-- 34 -->
 
             <div class="note-card">
 
                 <h2>
-                    33. Inspired and Expired Air
+                    🌬️ 34. Inspired and Expired Air
                 </h2>
-
-                <p>
-                    The composition of air changes as it passes through the
-                    respiratory system.
-                </p>
 
                 <div class="comparison-table-wrapper">
 
                     <table class="comparison-table">
 
                         <tr>
-                            <th>Inspired Air</th>
-                            <th>Expired Air</th>
+
+                            <th>
+                                Inspired Air
+                            </th>
+
+                            <th>
+                                Expired Air
+                            </th>
+
                         </tr>
 
                         <tr>
-                            <td>More oxygen</td>
-                            <td>Less oxygen</td>
+
+                            <td>
+                                More oxygen
+                            </td>
+
+                            <td>
+                                Less oxygen
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Less carbon dioxide</td>
-                            <td>More carbon dioxide</td>
+
+                            <td>
+                                Less carbon dioxide
+                            </td>
+
+                            <td>
+                                More carbon dioxide
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Less water vapour</td>
-                            <td>More water vapour</td>
+
+                            <td>
+                                Less water vapour
+                            </td>
+
+                            <td>
+                                More water vapour
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Usually cooler</td>
-                            <td>Usually warmer</td>
+
+                            <td>
+                                Usually cooler
+                            </td>
+
+                            <td>
+                                Usually warmer
+                            </td>
+
                         </tr>
 
                     </table>
@@ -1043,62 +1530,69 @@
             </div>
 
 
-            <!-- SECTION 34 -->
+
+            <!-- 35 -->
 
             <div class="note-card">
 
                 <h2>
-                    34. Why Does Expired Air Contain More Carbon Dioxide?
+                    🧪 35. Why Does Expired Air Contain More CO₂?
                 </h2>
 
                 <p>
                     Carbon dioxide is produced during aerobic respiration in
-                    cells.
+                    body cells.
                 </p>
 
                 <p>
-                    It is transported by the blood to the lungs and then
-                    diffuses into the alveoli.
+                    It is transported by the blood to the lungs.
                 </p>
 
                 <p>
-                    It is removed from the body during expiration.
+                    Carbon dioxide then diffuses from the blood into the
+                    alveoli and is removed during expiration.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 35 -->
+
+            <!-- 36 -->
 
             <div class="note-card">
 
                 <h2>
-                    35. Testing for Carbon Dioxide
+                    🧪 36. Test for Carbon Dioxide
                 </h2>
 
                 <p>
-                    Carbon dioxide can be tested using <strong>limewater</strong>.
+                    Carbon dioxide can be tested using
+                    <strong>limewater</strong>.
                 </p>
 
-                <p>
-                    When carbon dioxide is passed through limewater, the
-                    limewater turns <strong>milky/cloudy</strong>.
-                </p>
+                <div class="key-box">
+
+                    <p>
+                        🧪 When carbon dioxide is bubbled through limewater,
+                        the limewater turns <strong>milky/cloudy</strong>.
+                    </p>
+
+                </div>
 
                 <p>
-                    This provides evidence that carbon dioxide is present in
-                    the gas being tested.
+                    This indicates the presence of carbon dioxide.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 36 -->
+
+            <!-- 37 -->
 
             <div class="note-card">
 
                 <h2>
-                    36. Experiment: Respiration Produces Carbon Dioxide
+                    🔬 37. Experiment: Respiration Produces Carbon Dioxide
                 </h2>
 
                 <p>
@@ -1106,11 +1600,12 @@
                     carbon dioxide production.
                 </p>
 
-                <p>
-                    <strong>Basic procedure:</strong>
+                <p class="mini-heading">
+                    🧪 Basic procedure:
                 </p>
 
                 <ol>
+
                     <li>
                         Place actively respiring material in a suitable
                         container.
@@ -1123,52 +1618,54 @@
                     <li>
                         Observe the limewater.
                     </li>
+
                 </ol>
 
-                <p>
-                    <strong>Observation:</strong>
-                    The limewater turns milky.
-                </p>
+                <div class="green-box">
 
-                <p>
-                    <strong>Conclusion:</strong>
-                    Carbon dioxide is produced during respiration.
-                </p>
+                    <strong>👀 Observation:</strong>
+
+                    <p>
+                        Limewater turns milky.
+                    </p>
+
+                    <strong>🧠 Conclusion:</strong>
+
+                    <p>
+                        Carbon dioxide is produced during respiration.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 37 -->
+
+            <!-- 38 -->
 
             <div class="note-card">
 
                 <h2>
-                    37. Experiment: Respiration Releases Heat
+                    🌡️ 38. Experiment: Respiration Releases Heat
                 </h2>
 
                 <p>
-                    Energy released during respiration can be demonstrated by
-                    measuring temperature changes in actively respiring
-                    material.
+                    Germinating seeds can be used to demonstrate that
+                    respiration releases energy partly as heat.
                 </p>
 
-                <p>
-                    Germinating seeds are commonly used because they are
-                    actively respiring.
-                </p>
-
-                <p>
-                    <strong>Basic experiment:</strong>
+                <p class="mini-heading">
+                    🧪 Procedure:
                 </p>
 
                 <ol>
+
                     <li>
                         Place germinating seeds in an insulated container.
                     </li>
 
                     <li>
-                        Insert a thermometer without allowing it to directly
-                        affect the seeds.
+                        Insert a thermometer.
                     </li>
 
                     <li>
@@ -1182,130 +1679,178 @@
                     <li>
                         Record the final temperature.
                     </li>
+
                 </ol>
 
-                <p>
-                    If the temperature rises, this provides evidence that
-                    energy released during respiration has been transferred
-                    partly as heat.
-                </p>
+                <div class="green-box">
+
+                    <strong>👀 Expected observation:</strong>
+
+                    <p>
+                        The temperature of the actively respiring material
+                        increases.
+                    </p>
+
+                    <strong>🧠 Conclusion:</strong>
+
+                    <p>
+                        Energy released during respiration is partly
+                        transferred as heat.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 38 -->
+
+            <!-- 39 -->
 
             <div class="note-card">
 
                 <h2>
-                    38. Importance of a Control in the Heat Experiment
+                    ⚖️ 39. Importance of a Control
                 </h2>
 
                 <p>
-                    A control setup is needed to show that the temperature
-                    change is caused by respiration rather than another factor.
+                    A control setup helps show that the temperature change
+                    is caused by respiration rather than another factor.
                 </p>
 
                 <p>
-                    A suitable control could contain non-germinating or
+                    A suitable control can contain non-germinating or
                     inactive material under otherwise similar conditions.
                 </p>
 
-                <p>
-                    Both setups should be treated in the same way and their
-                    temperatures compared.
-                </p>
+                <div class="exam-box">
+
+                    <strong>🎯 Exam point:</strong>
+
+                    <p>
+                        The experimental and control setups should be kept
+                        under the same conditions except for the factor being
+                        investigated.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 39 -->
+
+            <!-- 40 -->
 
             <div class="note-card">
 
                 <h2>
-                    39. Lactic Acid and Vigorous Exercise
+                    🏃‍♂️ 40. Lactic Acid During Vigorous Exercise
                 </h2>
 
                 <p>
                     During vigorous exercise, muscles may not receive enough
-                    oxygen to meet their energy demands.
+                    oxygen to meet their energy requirements.
                 </p>
 
                 <p>
-                    Anaerobic respiration can then occur, producing lactic
-                    acid.
+                    Anaerobic respiration can then occur and produces
+                    <strong>lactic acid</strong>.
                 </p>
 
                 <p>
-                    Lactic acid accumulation is associated with muscle
-                    fatigue.
+                    The accumulation of lactic acid is associated with
+                    muscle fatigue.
                 </p>
 
             </div>
 
 
-            <!-- SECTION 40 -->
+
+            <!-- 41 -->
 
             <div class="note-card">
 
                 <h2>
-                    40. Oxygen Debt
+                    🔄 41. Oxygen Debt
                 </h2>
 
                 <p>
-                    After vigorous exercise, breathing and heart rate can
+                    After vigorous exercise, breathing and heart rate may
                     remain high for some time.
                 </p>
 
                 <p>
-                    This helps supply additional oxygen needed by the body
+                    This helps provide additional oxygen needed by the body
                     after exercise.
                 </p>
 
                 <p>
-                    The additional oxygen helps deal with products of
-                    anaerobic respiration and supports the body's return
-                    towards normal conditions.
+                    The additional oxygen helps the body deal with products
+                    of anaerobic respiration and return towards normal
+                    conditions.
                 </p>
+
+                <div class="key-box">
+
+                    <strong>🧠 Remember:</strong>
+
+                    <p>
+                        Oxygen debt is linked to the additional oxygen required
+                        after vigorous exercise.
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 41 -->
+
+            <!-- 42 -->
 
             <div class="note-card">
 
                 <h2>
-                    41. Respiratory Diseases
+                    🦠 42. Respiratory Diseases
                 </h2>
 
                 <p>
-                    Diseases and conditions affecting the respiratory system
-                    can interfere with breathing or gaseous exchange.
-                </p>
-
-                <p>
-                    Examples include:
+                    Respiratory diseases can interfere with breathing or
+                    gaseous exchange.
                 </p>
 
                 <ul>
-                    <li>Asthma</li>
-                    <li>Bronchitis</li>
-                    <li>Pneumonia</li>
-                    <li>Tuberculosis (TB)</li>
-                    <li>Emphysema</li>
+
+                    <li>
+                        🫁 <strong>Asthma</strong>
+                    </li>
+
+                    <li>
+                        🦠 <strong>Bronchitis</strong>
+                    </li>
+
+                    <li>
+                        🦠 <strong>Pneumonia</strong>
+                    </li>
+
+                    <li>
+                        🦠 <strong>Tuberculosis (TB)</strong>
+                    </li>
+
+                    <li>
+                        🫁 <strong>Emphysema</strong>
+                    </li>
+
                 </ul>
 
             </div>
 
 
-            <!-- SECTION 42 -->
+
+            <!-- 43 -->
 
             <div class="note-card">
 
                 <h2>
-                    42. Effects of Smoking on the Respiratory System
+                    🚭 43. Effects of Smoking
                 </h2>
 
                 <p>
@@ -1313,43 +1858,55 @@
                     the respiratory system.
                 </p>
 
-                <p>
-                    Important harmful substances include:
-                </p>
-
                 <ul>
+
                     <li>
-                        <strong>Tar:</strong>
-                        Can damage lung tissue and contains carcinogenic
+                        🟤 <strong>Tar</strong> —
+                        can damage lung tissue and contains carcinogenic
                         substances.
                     </li>
 
                     <li>
-                        <strong>Carbon monoxide:</strong>
-                        Reduces the blood's ability to transport oxygen
+                        ☁️ <strong>Carbon monoxide</strong> —
+                        reduces the blood's ability to transport oxygen
                         efficiently.
                     </li>
 
                     <li>
-                        <strong>Nicotine:</strong>
-                        Is addictive and affects the cardiovascular system.
+                        ⚠️ <strong>Nicotine</strong> —
+                        is addictive and affects the cardiovascular system.
                     </li>
+
                 </ul>
 
-                <p>
-                    Smoking can damage cilia, increase the risk of respiratory
-                    disease and reduce lung efficiency.
-                </p>
+                <div class="warning-box">
+
+                    <strong>🚭 Smoking can:</strong>
+
+                    <ul>
+
+                        <li>Damage cilia</li>
+
+                        <li>Increase risk of respiratory disease</li>
+
+                        <li>Damage lung tissue</li>
+
+                        <li>Reduce efficiency of gaseous exchange</li>
+
+                    </ul>
+
+                </div>
 
             </div>
 
 
-            <!-- SECTION 43 -->
+
+            <!-- 44 -->
 
             <div class="note-card">
 
                 <h2>
-                    43. Respiration vs Photosynthesis
+                    🌱 44. Respiration vs Photosynthesis
                 </h2>
 
                 <div class="comparison-table-wrapper">
@@ -1357,33 +1914,76 @@
                     <table class="comparison-table">
 
                         <tr>
-                            <th>Respiration</th>
-                            <th>Photosynthesis</th>
+
+                            <th>
+                                Respiration 💨
+                            </th>
+
+                            <th>
+                                Photosynthesis 🌿
+                            </th>
+
                         </tr>
 
                         <tr>
-                            <td>Releases energy from glucose</td>
-                            <td>Stores energy in glucose</td>
+
+                            <td>
+                                Releases energy from glucose.
+                            </td>
+
+                            <td>
+                                Stores energy in glucose.
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Occurs in living cells</td>
-                            <td>Occurs in chlorophyll-containing cells</td>
+
+                            <td>
+                                Occurs in living cells.
+                            </td>
+
+                            <td>
+                                Occurs in chlorophyll-containing cells.
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Occurs day and night</td>
-                            <td>Requires suitable light conditions</td>
+
+                            <td>
+                                Occurs day and night.
+                            </td>
+
+                            <td>
+                                Requires suitable light conditions.
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Uses glucose in aerobic respiration</td>
-                            <td>Produces glucose</td>
+
+                            <td>
+                                Uses glucose during aerobic respiration.
+                            </td>
+
+                            <td>
+                                Produces glucose.
+                            </td>
+
                         </tr>
 
                         <tr>
-                            <td>Produces carbon dioxide in aerobic respiration</td>
-                            <td>Uses carbon dioxide</td>
+
+                            <td>
+                                Produces carbon dioxide during aerobic
+                                respiration.
+                            </td>
+
+                            <td>
+                                Uses carbon dioxide.
+                            </td>
+
                         </tr>
 
                     </table>
@@ -1393,20 +1993,21 @@
             </div>
 
 
-            <!-- SECTION 44 -->
+
+            <!-- 45 -->
 
             <div class="note-card">
 
                 <h2>
-                    44. Important Respiration Definitions
+                    📚 45. Important Definitions
                 </h2>
 
                 <ul>
 
                     <li>
                         <strong>Respiration:</strong>
-                        Chemical process in cells that releases energy from
-                        food.
+                        Chemical process in cells that releases energy
+                        from food.
                     </li>
 
                     <li>
@@ -1426,20 +2027,19 @@
 
                     <li>
                         <strong>Fermentation:</strong>
-                        Anaerobic breakdown of glucose in microorganisms such
-                        as yeast, producing ethanol and carbon dioxide.
+                        Anaerobic breakdown of glucose in microorganisms
+                        such as yeast.
                     </li>
 
                     <li>
                         <strong>Alveolus:</strong>
-                        A tiny air sac in the lungs where gaseous exchange
-                        occurs.
+                        A tiny air sac where gaseous exchange occurs.
                     </li>
 
                     <li>
                         <strong>Diffusion:</strong>
-                        Net movement of particles from higher concentration to
-                        lower concentration.
+                        Net movement of particles from higher concentration
+                        to lower concentration.
                     </li>
 
                     <li>
@@ -1447,154 +2047,217 @@
                         Movement of air into and out of the lungs.
                     </li>
 
-                </ul>
-
-            </div>
-
-
-            <!-- SECTION 45 -->
-
-            <div class="note-card">
-
-                <h2>
-                    45. Key Equations to Memorise
-                </h2>
-
-                <p>
-                    <strong>Aerobic respiration:</strong>
-                </p>
-
-                <p>
-                    Glucose + Oxygen → Carbon dioxide + Water + Energy
-                </p>
-
-                <p>
-                    <strong>Human anaerobic respiration:</strong>
-                </p>
-
-                <p>
-                    Glucose → Lactic acid + Energy
-                </p>
-
-                <p>
-                    <strong>Yeast fermentation:</strong>
-                </p>
-
-                <p>
-                    Glucose → Ethanol + Carbon dioxide + Energy
-                </p>
-
-            </div>
-
-
-            <!-- SECTION 46 -->
-
-            <div class="note-card">
-
-                <h2>
-                    46. O/L GCE Exam Focus
-                </h2>
-
-                <p>
-                    Be prepared to answer questions involving:
-                </p>
-
-                <ul>
-
-                    <li>Definition of respiration</li>
-
-                    <li>Difference between respiration and breathing</li>
-
-                    <li>Aerobic and anaerobic respiration</li>
-
-                    <li>Word equations for respiration</li>
-
-                    <li>Fermentation in yeast</li>
-
-                    <li>Structure of the human respiratory system</li>
-
-                    <li>Labelling respiratory-system diagrams</li>
-
-                    <li>Functions of the trachea, bronchi, bronchioles and alveoli</li>
-
-                    <li>Adaptations of alveoli for gaseous exchange</li>
-
-                    <li>Diffusion of oxygen and carbon dioxide</li>
-
-                    <li>Mechanism of inspiration and expiration</li>
-
-                    <li>Roles of the diaphragm, ribs and intercostal muscles</li>
-
-                    <li>Changes in breathing during exercise</li>
-
-                    <li>Differences between inspired and expired air</li>
-
-                    <li>Testing for carbon dioxide using limewater</li>
-
-                    <li>Experiments demonstrating heat release during respiration</li>
-
-                    <li>Lactic acid and anaerobic respiration during exercise</li>
-
-                    <li>Effects of smoking and respiratory diseases</li>
+                    <li>
+                        <strong>Oxygen debt:</strong>
+                        Additional oxygen required after vigorous exercise
+                        to help the body recover.
+                    </li>
 
                 </ul>
 
             </div>
 
 
-            <!-- SECTION 47 -->
+
+            <!-- 46 -->
 
             <div class="note-card">
 
                 <h2>
-                    47. Common O/L Mistakes
+                    📝 46. Key Equations to Memorise
                 </h2>
 
-                <ul>
+                <div class="formula-box">
+
+                    💨 Aerobic respiration
+
+                    <br><br>
+
+                    Glucose + Oxygen
+                    →
+                    Carbon dioxide + Water + Energy
+
+                </div>
+
+                <div class="formula-box">
+
+                    💪 Anaerobic respiration in humans
+
+                    <br><br>
+
+                    Glucose
+                    →
+                    Lactic acid + Energy
+
+                </div>
+
+                <div class="formula-box">
+
+                    🦠 Fermentation in yeast
+
+                    <br><br>
+
+                    Glucose
+                    →
+                    Ethanol + Carbon dioxide + Energy
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 47 -->
+
+            <div class="note-card">
+
+                <h2>
+                    🎯 47. O/L GCE Exam Focus
+                </h2>
+
+                <div class="exam-box">
+
+                    <p>
+                        These are the areas you should be especially ready
+                        to answer in an examination:
+                    </p>
+
+                    <ul>
+
+                        <li>
+                            Define respiration.
+                        </li>
+
+                        <li>
+                            Distinguish between respiration and breathing.
+                        </li>
+
+                        <li>
+                            Define aerobic and anaerobic respiration.
+                        </li>
+
+                        <li>
+                            State respiration word equations.
+                        </li>
+
+                        <li>
+                            Explain fermentation in yeast.
+                        </li>
+
+                        <li>
+                            Label the human respiratory system.
+                        </li>
+
+                        <li>
+                            State functions of respiratory structures.
+                        </li>
+
+                        <li>
+                            Explain adaptations of alveoli.
+                        </li>
+
+                        <li>
+                            Explain gaseous exchange by diffusion.
+                        </li>
+
+                        <li>
+                            Describe inspiration and expiration.
+                        </li>
+
+                        <li>
+                            Explain the roles of ribs, diaphragm and
+                            intercostal muscles.
+                        </li>
+
+                        <li>
+                            Explain changes in breathing during exercise.
+                        </li>
+
+                        <li>
+                            Compare inspired and expired air.
+                        </li>
+
+                        <li>
+                            Explain the limewater test for carbon dioxide.
+                        </li>
+
+                        <li>
+                            Describe an experiment showing heat release
+                            during respiration.
+                        </li>
+
+                        <li>
+                            Explain anaerobic respiration and lactic acid.
+                        </li>
+
+                        <li>
+                            Explain oxygen debt.
+                        </li>
+
+                        <li>
+                            State respiratory diseases and effects of smoking.
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- 48 -->
+
+            <div class="note-card">
+
+                <h2>
+                    ⚠️ 48. Common O/L Mistakes
+                </h2>
+
+                <ul class="mistake-list">
 
                     <li>
-                        ❌ Saying respiration means breathing.
+                        Saying respiration means breathing.
                     </li>
 
                     <li>
-                        ❌ Saying plants do not respire.
+                        Saying plants do not respire.
                     </li>
 
                     <li>
-                        ❌ Saying aerobic respiration occurs only in animals.
+                        Saying aerobic respiration occurs only in animals.
                     </li>
 
                     <li>
-                        ❌ Saying anaerobic respiration produces more energy
+                        Saying anaerobic respiration releases more energy
                         than aerobic respiration.
                     </li>
 
                     <li>
-                        ❌ Confusing bronchi with bronchioles.
+                        Confusing bronchi with bronchioles.
                     </li>
 
                     <li>
-                        ❌ Saying oxygen moves from the blood into the alveoli
-                        during normal gaseous exchange.
+                        Reversing oxygen and carbon dioxide movement at
+                        the alveoli.
                     </li>
 
                     <li>
-                        ❌ Forgetting that alveoli have thin walls and a good
-                        blood supply.
+                        Forgetting that alveoli have thin walls and a
+                        rich blood supply.
                     </li>
 
                     <li>
-                        ❌ Reversing the movements of the diaphragm during
-                        inspiration and expiration.
+                        Reversing the movements of the diaphragm.
                     </li>
 
                     <li>
-                        ❌ Forgetting that carbon dioxide is produced during
+                        Forgetting that carbon dioxide is produced during
                         aerobic respiration.
                     </li>
 
                     <li>
-                        ❌ Confusing fermentation in yeast with anaerobic
+                        Confusing fermentation in yeast with anaerobic
                         respiration in human muscles.
                     </li>
 
@@ -1603,62 +2266,67 @@
             </div>
 
 
-            <!-- SECTION 48 -->
+
+            <!-- 49 -->
 
             <div class="note-card">
 
                 <h2>
-                    48. Quick Revision
+                    ⭐ 49. Quick Revision
                 </h2>
 
-                <p>
-                    Remember the core ideas:
-                </p>
-
-                <ul>
+                <ul class="remember-list">
 
                     <li>
-                        💨 Respiration releases energy from food in cells.
+                        Respiration releases energy from food in cells.
                     </li>
 
                     <li>
-                        🫁 Breathing moves air into and out of the lungs.
+                        Breathing moves air into and out of the lungs.
                     </li>
 
                     <li>
-                        🧪 Aerobic respiration uses oxygen.
+                        Aerobic respiration uses oxygen.
                     </li>
 
                     <li>
-                        ⚡ Aerobic respiration releases a relatively large
+                        Aerobic respiration releases a relatively large
                         amount of energy.
                     </li>
 
                     <li>
-                        🔋 Anaerobic respiration releases less energy.
+                        Anaerobic respiration releases less energy.
                     </li>
 
                     <li>
-                        🦠 Yeast produces ethanol and carbon dioxide during
+                        Yeast produces ethanol and carbon dioxide during
                         fermentation.
                     </li>
 
                     <li>
-                        💪 Human muscles can produce lactic acid during
+                        Human muscles can produce lactic acid during
                         anaerobic respiration.
                     </li>
 
                     <li>
-                        🫁 Alveoli are the main gaseous-exchange surfaces.
+                        Alveoli are the main gaseous-exchange surfaces.
                     </li>
 
                     <li>
-                        🔄 Oxygen enters the blood while carbon dioxide leaves
-                        it at the alveoli.
+                        Oxygen diffuses into the blood at the alveoli.
                     </li>
 
                     <li>
-                        🫀 Exercise increases breathing and heart rate.
+                        Carbon dioxide diffuses into the alveoli.
+                    </li>
+
+                    <li>
+                        Exercise increases breathing and heart rate.
+                    </li>
+
+                    <li>
+                        Germinating seeds can demonstrate heat release
+                        during respiration.
                     </li>
 
                 </ul>
@@ -1666,67 +2334,139 @@
             </div>
 
 
-            <!-- SECTION 49 -->
+
+            <!-- 50 -->
 
             <div class="note-card">
 
                 <h2>
-                    49. Final O/L Exam Checklist
+                    ✅ 50. Final O/L Exam Checklist
                 </h2>
 
                 <p>
-                    Before leaving this topic, make sure you can:
+                    Before considering Respiration completely studied,
+                    make sure you can:
                 </p>
 
-                <ul>
+                <ul class="check-list">
 
-                    <li>☐ Define respiration.</li>
+                    <li>
+                        Define respiration.
+                    </li>
 
-                    <li>☐ Explain the difference between breathing and respiration.</li>
+                    <li>
+                        Explain the difference between breathing and
+                        respiration.
+                    </li>
 
-                    <li>☐ State the word equation for aerobic respiration.</li>
+                    <li>
+                        Write the aerobic respiration equation.
+                    </li>
 
-                    <li>☐ State the word equation for anaerobic respiration in humans.</li>
+                    <li>
+                        Write the anaerobic respiration equation in humans.
+                    </li>
 
-                    <li>☐ State the word equation for fermentation in yeast.</li>
+                    <li>
+                        Write the fermentation equation in yeast.
+                    </li>
 
-                    <li>☐ Compare aerobic and anaerobic respiration.</li>
+                    <li>
+                        Compare aerobic and anaerobic respiration.
+                    </li>
 
-                    <li>☐ Label the human respiratory system.</li>
+                    <li>
+                        Label the human respiratory system.
+                    </li>
 
-                    <li>☐ State the functions of the main respiratory structures.</li>
+                    <li>
+                        State functions of the main respiratory structures.
+                    </li>
 
-                    <li>☐ Explain why alveoli are efficient exchange surfaces.</li>
+                    <li>
+                        Explain why alveoli are efficient respiratory
+                        surfaces.
+                    </li>
 
-                    <li>☐ Explain gaseous exchange by diffusion.</li>
+                    <li>
+                        Explain gaseous exchange by diffusion.
+                    </li>
 
-                    <li>☐ Describe inspiration.</li>
+                    <li>
+                        Describe inspiration.
+                    </li>
 
-                    <li>☐ Describe expiration.</li>
+                    <li>
+                        Describe expiration.
+                    </li>
 
-                    <li>☐ Explain the roles of the diaphragm and intercostal muscles.</li>
+                    <li>
+                        Explain the role of the diaphragm.
+                    </li>
 
-                    <li>☐ Explain why breathing rate increases during exercise.</li>
+                    <li>
+                        Explain the role of the intercostal muscles.
+                    </li>
 
-                    <li>☐ Compare inspired and expired air.</li>
+                    <li>
+                        Explain why breathing changes during exercise.
+                    </li>
 
-                    <li>☐ Explain how limewater tests for carbon dioxide.</li>
+                    <li>
+                        Compare inspired and expired air.
+                    </li>
 
-                    <li>☐ Describe an experiment showing that respiration releases heat.</li>
+                    <li>
+                        Explain the limewater test for carbon dioxide.
+                    </li>
 
-                    <li>☐ Explain anaerobic respiration and lactic acid during exercise.</li>
+                    <li>
+                        Describe the germinating-seed heat experiment.
+                    </li>
 
-                    <li>☐ State important respiratory diseases and effects of smoking.</li>
+                    <li>
+                        Explain lactic acid formation during vigorous exercise.
+                    </li>
+
+                    <li>
+                        Explain oxygen debt.
+                    </li>
+
+                    <li>
+                        State major respiratory diseases.
+                    </li>
+
+                    <li>
+                        Explain harmful effects of smoking.
+                    </li>
 
                 </ul>
 
+                <div class="green-box">
+
+                    <strong>
+                        🎓 StudyHub Final Reminder
+                    </strong>
+
+                    <p>
+                        Master the diagrams, definitions, equations,
+                        experiments and comparison questions. These are
+                        especially important for O/L Biology examinations.
+                    </p>
+
+                </div>
+
             </div>
+
 
 
         </div>
 
     </main>
 
+
+
+    <!-- FOOTER -->
 
     <footer class="footer">
 
@@ -1739,6 +2479,7 @@
         </div>
 
     </footer>
+
 
 </body>
 
