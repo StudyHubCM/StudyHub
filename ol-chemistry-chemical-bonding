@@ -1,1 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemical Bonding | StudyHub Chemistry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header class="header">
+    <div class="logo">
+        <span class="logo-icon">🎓</span> StudyHub
+    </div>
+
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="chemistry.html">Chemistry</a>
+        <a href="chemistry-notes.html" class="active">Notes</a>
+    </nav>
+</header>
+
+<section class="subject-hero">
+    <h1>🧪 Chemical Bonding</h1>
+    <p>O/L Chemistry — 0515</p>
+    <p class="subtitle">
+        Learn why atoms combine, how ionic, covalent and metallic bonds
+        form, how to represent bonding, and how bonding determines the
+        properties of substances.
+    </p>
+</section>
+
+<main class="section">
+    <div class="note-content">
+
+        <!-- 1 -->
+        <section class="note-card">
+            <h2>1. 🔗 Introduction to Chemical Bonding</h2>
+
+            <p>
+                A <strong>chemical bond</strong> is an attractive force that
+                holds atoms or ions together in a substance.
+            </p>
+
+            <p>
+                Atoms form bonds because bonded arrangements can be more
+                stable than the separate atoms.
+            </p>
+
+            <p>
+                Chemical bonding mainly involves the
+                <strong>outer-shell electrons</strong>, also called
+                <strong>valence electrons</strong>.
+            </p>
+
+            <div class="note-card">
+                <h3>⭐ Three important types of bonding</h3>
+                <ul>
+                    <li>🧂 Ionic bonding</li>
+                    <li>🤝 Covalent bonding</li>
+                    <li>🔩 Metallic bonding</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 2 -->
+        <section class="note-card">
+            <h2>2. ⚛️ Why Do Atoms Form Bonds?</h2>
+
+            <p>
+                Atoms often form bonds to obtain a more stable arrangement
+                of electrons.
+            </p>
+
+            <p>
+                For many main-group elements, stability is associated with
+                having a full outer electron shell.
+            </p>
+
+            <p>
+                This is sometimes described using the
+                <strong>octet rule</strong>.
+            </p>
+
+            <div class="note-card">
+                <h3>🧠 Octet rule</h3>
+                <p>
+                    Many atoms tend to gain, lose or share electrons so that
+                    their outer shell contains eight electrons.
+                </p>
+            </div>
+
+            <p>
+                Hydrogen and helium are important exceptions because the
+                first electron shell can contain a maximum of two electrons.
+            </p>
+        </section>
+
+        <!-- 3 -->
+        <section class="note-card">
+            <h2>3. 🧠 Valence Electrons</h2>
+
+            <p>
+                <strong>Valence electrons</strong> are electrons found in the
+                outermost occupied electron shell of an atom.
+            </p>
+
+            <p>
+                They are especially important because they are involved in
+                chemical bonding and reactions.
+            </p>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Element</th>
+                            <th>Electronic Configuration</th>
+                            <th>Valence Electrons</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Li</td>
+                            <td>2,1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Na</td>
+                            <td>2,8,1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>Mg</td>
+                            <td>2,8,2</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td>C</td>
+                            <td>2,4</td>
+                            <td>4</td>
+                        </tr>
+                        <tr>
+                            <td>O</td>
+                            <td>2,6</td>
+                            <td>6</td>
+                        </tr>
+                        <tr>
+                            <td>Cl</td>
+                            <td>2,8,7</td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td>Ne</td>
+                            <td>2,8</td>
+                            <td>8</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4 -->
+        <section class="note-card">
+            <h2>4. 🧂 Ionic Bonding</h2>
+
+            <p>
+                <strong>Ionic bonding</strong> is the strong electrostatic
+                attraction between oppositely charged ions.
+            </p>
+
+            <p>
+                Ionic compounds usually form when electrons are transferred
+                from one atom to another.
+            </p>
+
+            <p>
+                Typically:
+            </p>
+
+            <ul>
+                <li>Metal atoms lose electrons and form positive ions.</li>
+                <li>Non-metal atoms gain electrons and form negative ions.</li>
+                <li>The oppositely charged ions attract each other.</li>
+            </ul>
+        </section>
+
+        <!-- 5 -->
+        <section class="note-card">
+            <h2>5. ⚡ Formation of Sodium Chloride</h2>
+
+            <p>
+                Sodium has electronic configuration
+                <strong>2,8,1</strong>.
+            </p>
+
+            <p>
+                Chlorine has electronic configuration
+                <strong>2,8,7</strong>.
+            </p>
+
+            <p>
+                Sodium loses one electron while chlorine gains one electron.
+            </p>
+
+            <p><strong>Electron representation:</strong></p>
+
+            <p>
+                Na → Na⁺ + e⁻
+            </p>
+
+            <p>
+                Cl + e⁻ → Cl⁻
+            </p>
+
+            <p>
+                The resulting Na⁺ and Cl⁻ ions attract one another.
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Sodium + chlorine → sodium chloride
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                2Na + Cl₂ → 2NaCl
+            </p>
+
+            <div class="note-card">
+                <h3>⭐ Key point</h3>
+                <p>
+                    Ionic bonding itself is the electrostatic attraction
+                    between the positive and negative ions.
+                </p>
+            </div>
+        </section>
+
+        <!-- 6 -->
+        <section class="note-card">
+            <h2>6. ➕ Positive Ions</h2>
+
+            <p>
+                A positive ion is called a <strong>cation</strong>.
+            </p>
+
+            <p>
+                Metals commonly form positive ions by losing electrons.
+            </p>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Atom</th>
+                            <th>Electron Change</th>
+                            <th>Ion Formed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Na</td>
+                            <td>Loses 1 electron</td>
+                            <td>Na⁺</td>
+                        </tr>
+                        <tr>
+                            <td>Mg</td>
+                            <td>Loses 2 electrons</td>
+                            <td>Mg²⁺</td>
+                        </tr>
+                        <tr>
+                            <td>Al</td>
+                            <td>Loses 3 electrons</td>
+                            <td>Al³⁺</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 7 -->
+        <section class="note-card">
+            <h2>7. ➖ Negative Ions</h2>
+
+            <p>
+                A negative ion is called an <strong>anion</strong>.
+            </p>
+
+            <p>
+                Non-metals commonly form negative ions by gaining electrons.
+            </p>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Atom</th>
+                            <th>Electron Change</th>
+                            <th>Ion Formed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>F</td>
+                            <td>Gains 1 electron</td>
+                            <td>F⁻</td>
+                        </tr>
+                        <tr>
+                            <td>O</td>
+                            <td>Gains 2 electrons</td>
+                            <td>O²⁻</td>
+                        </tr>
+                        <tr>
+                            <td>N</td>
+                            <td>Gains 3 electrons</td>
+                            <td>N³⁻</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 8 -->
+        <section class="note-card">
+            <h2>8. 🔢 Common Ionic Charges</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Group</th>
+                            <th>Typical Ion</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>+1</td>
+                            <td>Loses 1 electron</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>+2</td>
+                            <td>Loses 2 electrons</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>+3</td>
+                            <td>Commonly loses 3 electrons</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>−3</td>
+                            <td>Commonly gains 3 electrons</td>
+                        </tr>
+                        <tr>
+                            <td>16</td>
+                            <td>−2</td>
+                            <td>Commonly gains 2 electrons</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>−1</td>
+                            <td>Commonly gains 1 electron</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                These are common charges for main-group ions and are useful
+                when writing formulae of ionic compounds.
+            </p>
+        </section>
+
+        <!-- 9 -->
+        <section class="note-card">
+            <h2>9. 🧮 Writing Ionic Formulae</h2>
+
+            <p>
+                An ionic compound must have an overall electrical charge of
+                zero.
+            </p>
+
+            <h3>Example: Magnesium chloride</h3>
+
+            <p>
+                Magnesium forms Mg²⁺.
+                Chlorine forms Cl⁻.
+            </p>
+
+            <p>
+                One Mg²⁺ ion requires two Cl⁻ ions:
+            </p>
+
+            <p>
+                <strong>MgCl₂</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Magnesium + chlorine → magnesium chloride
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                Mg + Cl₂ → MgCl₂
+            </p>
+
+            <h3>Example: Aluminium oxide</h3>
+
+            <p>
+                Aluminium forms Al³⁺ and oxygen forms O²⁻.
+            </p>
+
+            <p>
+                The smallest whole-number ratio that balances the charges is
+                2 aluminium ions to 3 oxide ions.
+            </p>
+
+            <p>
+                Formula:
+                <strong>Al₂O₃</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Aluminium + oxygen → aluminium oxide
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                4Al + 3O₂ → 2Al₂O₃
+            </p>
+        </section>
+
+        <!-- 10 -->
+        <section class="note-card">
+            <h2>10. 🏗️ Giant Ionic Structures</h2>
+
+            <p>
+                Ionic compounds do not usually consist of separate molecules.
+                Instead, their ions form a giant three-dimensional lattice.
+            </p>
+
+            <p>
+                Each positive ion is surrounded by negative ions and each
+                negative ion is surrounded by positive ions.
+            </p>
+
+            <div class="note-card">
+                <h3>🧱 Ionic lattice</h3>
+                <p>
+                    A giant, regular arrangement of oppositely charged ions
+                    held together by strong electrostatic attractions.
+                </p>
+            </div>
+        </section>
+
+        <!-- 11 -->
+        <section class="note-card">
+            <h2>11. 🔥 Properties of Ionic Compounds</h2>
+
+            <ul>
+                <li>
+                    They usually have high melting and boiling points.
+                </li>
+                <li>
+                    They are usually hard and brittle.
+                </li>
+                <li>
+                    They do not conduct electricity when solid.
+                </li>
+                <li>
+                    They conduct electricity when molten.
+                </li>
+                <li>
+                    They conduct electricity when dissolved in water if the
+                    ions are free to move.
+                </li>
+                <li>
+                    Many are soluble in water, although not all ionic
+                    compounds are soluble.
+                </li>
+            </ul>
+        </section>
+
+        <!-- 12 -->
+        <section class="note-card">
+            <h2>12. ⚡ Why Solid Ionic Compounds Do Not Conduct</h2>
+
+            <p>
+                In a solid ionic lattice, the ions are held in fixed
+                positions.
+            </p>
+
+            <p>
+                Because the ions cannot move freely through the solid,
+                there are no mobile charged particles available to carry
+                electric current.
+            </p>
+        </section>
+
+        <!-- 13 -->
+        <section class="note-card">
+            <h2>13. 🔥 Why Molten Ionic Compounds Conduct</h2>
+
+            <p>
+                When an ionic compound melts, its regular lattice breaks down
+                enough for the ions to move.
+            </p>
+
+            <p>
+                The mobile ions can carry electric charge through the molten
+                substance.
+            </p>
+        </section>
+
+        <!-- 14 -->
+        <section class="note-card">
+            <h2>14. 💧 Ionic Compounds in Solution</h2>
+
+            <p>
+                When a soluble ionic compound dissolves in water, its ions
+                become separated and can move through the solution.
+            </p>
+
+            <p>
+                For example:
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Sodium chloride → sodium ions + chloride ions
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                NaCl(s) → Na⁺(aq) + Cl⁻(aq)
+            </p>
+
+            <p>
+                The ions in solution allow the solution to conduct electricity.
+            </p>
+        </section>
+
+        <!-- 15 -->
+        <section class="note-card">
+            <h2>15. 🤝 Covalent Bonding</h2>
+
+            <p>
+                A <strong>covalent bond</strong> is formed when atoms share
+                one or more pairs of electrons.
+            </p>
+
+            <p>
+                Covalent bonding normally occurs between
+                <strong>non-metal atoms</strong>.
+            </p>
+
+            <p>
+                The shared electrons are attracted to the nuclei of the
+                bonded atoms.
+            </p>
+        </section>
+
+        <!-- 16 -->
+        <section class="note-card">
+            <h2>16. 🔵 Single Covalent Bond</h2>
+
+            <p>
+                A single covalent bond consists of
+                <strong>one shared pair of electrons</strong>.
+            </p>
+
+            <p>
+                Hydrogen is a simple example.
+            </p>
+
+            <p>
+                Each hydrogen atom contributes one electron to the shared
+                pair.
+            </p>
+
+            <p>
+                The molecule formed is H₂.
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Hydrogen atoms → hydrogen molecule
+            </p>
+
+            <p><strong>Symbol representation:</strong></p>
+            <p>
+                H + H → H₂
+            </p>
+
+            <p>
+                The H—H bond represents the shared pair of electrons.
+            </p>
+        </section>
+
+        <!-- 17 -->
+        <section class="note-card">
+            <h2>17. 🔵 Covalent Bond in Chlorine</h2>
+
+            <p>
+                Each chlorine atom has seven valence electrons and needs one
+                more electron to complete its outer shell.
+            </p>
+
+            <p>
+                Two chlorine atoms share one pair of electrons.
+            </p>
+
+            <p>
+                The result is a chlorine molecule, Cl₂.
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Chlorine atoms → chlorine molecule
+            </p>
+
+            <p><strong>Symbol representation:</strong></p>
+            <p>
+                Cl + Cl → Cl₂
+            </p>
+
+            <p>
+                Structural representation:
+                <strong>Cl—Cl</strong>
+            </p>
+        </section>
+
+        <!-- 18 -->
+        <section class="note-card">
+            <h2>18. 🧪 Covalent Bonding in Hydrogen Chloride</h2>
+
+            <p>
+                Hydrogen has one valence electron while chlorine has seven.
+            </p>
+
+            <p>
+                They share one pair of electrons to form hydrogen chloride.
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Hydrogen + chlorine → hydrogen chloride
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                H₂ + Cl₂ → 2HCl
+            </p>
+
+            <p>
+                Each HCl molecule contains one H—Cl covalent bond.
+            </p>
+        </section>
+
+        <!-- 19 -->
+        <section class="note-card">
+            <h2>19. 🟢 Double Covalent Bond</h2>
+
+            <p>
+                A <strong>double covalent bond</strong> contains two shared
+                pairs of electrons.
+            </p>
+
+            <p>
+                Oxygen molecules contain a double bond.
+            </p>
+
+            <p>
+                Each oxygen atom has six valence electrons and shares two
+                pairs with the other oxygen atom.
+            </p>
+
+            <p>
+                Structural representation:
+                <strong>O=O</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Oxygen atoms → oxygen molecule
+            </p>
+
+            <p><strong>Symbol representation:</strong></p>
+            <p>
+                O + O → O₂
+            </p>
+        </section>
+
+        <!-- 20 -->
+        <section class="note-card">
+            <h2>20. 🟣 Triple Covalent Bond</h2>
+
+            <p>
+                A <strong>triple covalent bond</strong> contains three shared
+                pairs of electrons.
+            </p>
+
+            <p>
+                Nitrogen molecules contain a triple bond.
+            </p>
+
+            <p>
+                Structural representation:
+                <strong>N≡N</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Nitrogen atoms → nitrogen molecule
+            </p>
+
+            <p><strong>Symbol representation:</strong></p>
+            <p>
+                N + N → N₂
+            </p>
+        </section>
+
+        <!-- 21 -->
+        <section class="note-card">
+            <h2>21. 🧬 Covalent Bonding in Water</h2>
+
+            <p>
+                A water molecule contains two O—H covalent bonds.
+            </p>
+
+            <p>
+                Oxygen shares one pair of electrons with each hydrogen atom.
+            </p>
+
+            <p>
+                Structural representation:
+                <strong>H—O—H</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Hydrogen + oxygen → water
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                2H₂ + O₂ → 2H₂O
+            </p>
+        </section>
+
+        <!-- 22 -->
+        <section class="note-card">
+            <h2>22. 🌬️ Covalent Bonding in Carbon Dioxide</h2>
+
+            <p>
+                Carbon dioxide contains one carbon atom bonded to two oxygen
+                atoms.
+            </p>
+
+            <p>
+                Each carbon-oxygen connection is represented as a double
+                covalent bond in the simple structural model.
+            </p>
+
+            <p>
+                Structural representation:
+                <strong>O=C=O</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Carbon + oxygen → carbon dioxide
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                C + O₂ → CO₂
+            </p>
+        </section>
+
+        <!-- 23 -->
+        <section class="note-card">
+            <h2>23. 🧱 Simple Molecular Substances</h2>
+
+            <p>
+                Some covalent substances consist of small, separate molecules.
+                These are called <strong>simple molecular substances</strong>.
+            </p>
+
+            <p>
+                Examples include:
+            </p>
+
+            <ul>
+                <li>Hydrogen — H₂</li>
+                <li>Oxygen — O₂</li>
+                <li>Nitrogen — N₂</li>
+                <li>Chlorine — Cl₂</li>
+                <li>Water — H₂O</li>
+                <li>Carbon dioxide — CO₂</li>
+                <li>Methane — CH₄</li>
+            </ul>
+        </section>
+
+        <!-- 24 -->
+        <section class="note-card">
+            <h2>24. 🌡️ Properties of Simple Molecular Substances</h2>
+
+            <p>
+                Simple molecular substances generally have:
+            </p>
+
+            <ul>
+                <li>Low melting points</li>
+                <li>Low boiling points</li>
+                <li>Poor electrical conductivity</li>
+            </ul>
+
+            <p>
+                The covalent bonds within each molecule can be strong, but
+                the forces between separate molecules are generally much
+                weaker.
+            </p>
+
+            <div class="note-card">
+                <h3>🧠 Important distinction</h3>
+                <p>
+                    Melting a simple molecular substance usually involves
+                    overcoming forces between molecules, not breaking the
+                    covalent bonds within the molecules.
+                </p>
+            </div>
+        </section>
+
+        <!-- 25 -->
+        <section class="note-card">
+            <h2>25. 🧱 Giant Covalent Structures</h2>
+
+            <p>
+                Some covalent substances form enormous structures containing
+                many atoms joined by covalent bonds.
+            </p>
+
+            <p>
+                These are called <strong>giant covalent structures</strong>
+                or <strong>giant covalent lattices</strong>.
+            </p>
+
+            <p>
+                Important examples include:
+            </p>
+
+            <ul>
+                <li>💎 Diamond</li>
+                <li>✏️ Graphite</li>
+                <li>🔬 Silicon dioxide</li>
+            </ul>
+        </section>
+
+        <!-- 26 -->
+        <section class="note-card">
+            <h2>26. 💎 Diamond</h2>
+
+            <p>
+                In diamond, each carbon atom forms strong covalent bonds with
+                four other carbon atoms.
+            </p>
+
+            <p>
+                This creates a strong three-dimensional giant structure.
+            </p>
+
+            <h3>Properties of diamond</h3>
+
+            <ul>
+                <li>Extremely hard</li>
+                <li>Very high melting point</li>
+                <li>Does not conduct electricity</li>
+                <li>Strong covalent bonds throughout the structure</li>
+            </ul>
+
+            <p>
+                Diamond is used for cutting and drilling because of its high
+                hardness.
+            </p>
+        </section>
+
+        <!-- 27 -->
+        <section class="note-card">
+            <h2>27. ✏️ Graphite</h2>
+
+            <p>
+                Graphite is another form of carbon.
+            </p>
+
+            <p>
+                Each carbon atom is covalently bonded to three other carbon
+                atoms, forming layers.
+            </p>
+
+            <p>
+                The layers can slide over one another more easily than the
+                strong covalent bonds within a layer can be broken.
+            </p>
+
+            <h3>Properties of graphite</h3>
+
+            <ul>
+                <li>Soft compared with diamond</li>
+                <li>High melting point</li>
+                <li>Conducts electricity</li>
+                <li>Can act as a lubricant</li>
+            </ul>
+
+            <div class="note-card">
+                <h3>⚡ Why does graphite conduct?</h3>
+                <p>
+                    Graphite has electrons that are able to move through its
+                    structure, allowing it to conduct electricity.
+                </p>
+            </div>
+        </section>
+
+        <!-- 28 -->
+        <section class="note-card">
+            <h2>28. 🔬 Silicon Dioxide</h2>
+
+            <p>
+                Silicon dioxide, SiO₂, forms a giant covalent structure.
+            </p>
+
+            <p>
+                It contains silicon and oxygen atoms connected by strong
+                covalent bonds throughout the structure.
+            </p>
+
+            <h3>General properties</h3>
+
+            <ul>
+                <li>High melting point</li>
+                <li>Hard</li>
+                <li>Does not conduct electricity under ordinary conditions</li>
+            </ul>
+        </section>
+
+        <!-- 29 -->
+        <section class="note-card">
+            <h2>29. 🔩 Metallic Bonding</h2>
+
+            <p>
+                <strong>Metallic bonding</strong> is the strong electrostatic
+                attraction between positive metal ions and delocalised
+                electrons.
+            </p>
+
+            <p>
+                In a metal, the outer electrons are not confined to individual
+                atoms. They can move through the metallic structure.
+            </p>
+
+            <div class="note-card">
+                <h3>🧠 Model of a metal</h3>
+                <p>
+                    Positive metal ions arranged in a lattice are surrounded
+                    by a sea of delocalised electrons.
+                </p>
+            </div>
+        </section>
+
+        <!-- 30 -->
+        <section class="note-card">
+            <h2>30. ⚡ Why Metals Conduct Electricity</h2>
+
+            <p>
+                Metals contain delocalised electrons that can move through
+                the structure.
+            </p>
+
+            <p>
+                When a potential difference is applied, these mobile
+                electrons can carry electric charge.
+            </p>
+        </section>
+
+        <!-- 31 -->
+        <section class="note-card">
+            <h2>31. 🔥 Why Metals Conduct Heat</h2>
+
+            <p>
+                Metals conduct heat efficiently because energy can be
+                transferred through the lattice, with mobile electrons
+                contributing to the transfer of energy.
+            </p>
+        </section>
+
+        <!-- 32 -->
+        <section class="note-card">
+            <h2>32. 🔨 Malleability and Ductility of Metals</h2>
+
+            <p>
+                <strong>Malleability</strong> is the ability of a material to
+                be hammered or pressed into sheets without breaking.
+            </p>
+
+            <p>
+                <strong>Ductility</strong> is the ability of a material to
+                be drawn into wires.
+            </p>
+
+            <p>
+                Metallic bonding is non-directional, so layers of metal ions
+                can move past one another while the attraction to the
+                delocalised electrons remains.
+            </p>
+        </section>
+
+        <!-- 33 -->
+        <section class="note-card">
+            <h2>33. 🔥 Melting Points of Metals</h2>
+
+            <p>
+                Metals often have relatively high melting points because
+                strong metallic bonding holds the particles together.
+            </p>
+
+            <p>
+                However, the strength of metallic bonding varies between
+                metals, so melting points are not all the same.
+            </p>
+        </section>
+
+        <!-- 34 -->
+        <section class="note-card">
+            <h2>34. 📊 Comparing the Three Main Bonding Types</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Ionic</th>
+                            <th>Covalent</th>
+                            <th>Metallic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Usually between</td>
+                            <td>Metal + non-metal</td>
+                            <td>Non-metal + non-metal</td>
+                            <td>Metal atoms</td>
+                        </tr>
+                        <tr>
+                            <td>Main particles</td>
+                            <td>Ions</td>
+                            <td>Atoms or molecules</td>
+                            <td>Positive ions + delocalised electrons</td>
+                        </tr>
+                        <tr>
+                            <td>What happens to electrons?</td>
+                            <td>Transferred</td>
+                            <td>Shared</td>
+                            <td>Delocalised</td>
+                        </tr>
+                        <tr>
+                            <td>Electrical conduction</td>
+                            <td>When molten or in suitable solution</td>
+                            <td>Generally poor</td>
+                            <td>Good</td>
+                        </tr>
+                        <tr>
+                            <td>Typical structure</td>
+                            <td>Giant ionic lattice</td>
+                            <td>Simple molecules or giant covalent structure</td>
+                            <td>Metallic lattice</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 35 -->
+        <section class="note-card">
+            <h2>35. 🧪 Polar Covalent Bonds</h2>
+
+            <p>
+                When two different atoms form a covalent bond, the shared
+                electrons may be attracted more strongly by one atom than
+                the other.
+            </p>
+
+            <p>
+                This produces a <strong>polar covalent bond</strong>.
+            </p>
+
+            <p>
+                Hydrogen chloride, HCl, is an example of a molecule containing
+                a polar covalent bond.
+            </p>
+
+            <p>
+                The chlorine atom attracts the shared electrons more strongly
+                than the hydrogen atom.
+            </p>
+        </section>
+
+        <!-- 36 -->
+        <section class="note-card">
+            <h2>36. 💧 Water as a Polar Molecule</h2>
+
+            <p>
+                The O—H bonds in water are polar because oxygen attracts the
+                bonding electrons more strongly than hydrogen.
+            </p>
+
+            <p>
+                The bent shape of the water molecule means the bond
+                polarities do not cancel completely.
+            </p>
+
+            <p>
+                Therefore water is a <strong>polar molecule</strong>.
+            </p>
+        </section>
+
+        <!-- 37 -->
+        <section class="note-card">
+            <h2>37. 🧲 Electronegativity</h2>
+
+            <p>
+                <strong>Electronegativity</strong> is the ability of an atom
+                in a molecule to attract bonding electrons towards itself.
+            </p>
+
+            <p>
+                Electronegativity helps explain why some covalent bonds are
+                polar.
+            </p>
+
+            <p>
+                Fluorine is the most electronegative element.
+            </p>
+        </section>
+
+        <!-- 38 -->
+        <section class="note-card">
+            <h2>38. 🧮 Lewis / Dot-and-Cross Representations</h2>
+
+            <p>
+                Dot-and-cross diagrams can be used to show how valence
+                electrons are shared or transferred.
+            </p>
+
+            <p>
+                Different symbols can be used for electrons originally
+                supplied by different atoms.
+            </p>
+
+            <div class="note-card">
+                <h3>📌 What to show</h3>
+                <ul>
+                    <li>Outer-shell electrons</li>
+                    <li>Shared electron pairs</li>
+                    <li>Transferred electrons where appropriate</li>
+                    <li>Charges on ions</li>
+                    <li>Complete outer shells where appropriate</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 39 -->
+        <section class="note-card">
+            <h2>39. 🧂 Ionic vs Covalent Bond Formation</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Ionic Bonding</th>
+                            <th>Covalent Bonding</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Electrons are transferred.</td>
+                            <td>Electrons are shared.</td>
+                        </tr>
+                        <tr>
+                            <td>Usually involves metals and non-metals.</td>
+                            <td>Usually involves non-metals.</td>
+                        </tr>
+                        <tr>
+                            <td>Forms positive and negative ions.</td>
+                            <td>Forms covalently bonded atoms.</td>
+                        </tr>
+                        <tr>
+                            <td>Ions form a giant lattice.</td>
+                            <td>May form simple molecules or giant structures.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 40 -->
+        <section class="note-card">
+            <h2>40. 🧱 Simple Molecular vs Giant Covalent</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Simple Molecular</th>
+                            <th>Giant Covalent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Structure</td>
+                            <td>Separate small molecules</td>
+                            <td>Huge network of atoms</td>
+                        </tr>
+                        <tr>
+                            <td>Within particles</td>
+                            <td>Strong covalent bonds</td>
+                            <td>Strong covalent bonds throughout</td>
+                        </tr>
+                        <tr>
+                            <td>Melting point</td>
+                            <td>Usually low</td>
+                            <td>Usually very high</td>
+                        </tr>
+                        <tr>
+                            <td>Electrical conductivity</td>
+                            <td>Usually poor</td>
+                            <td>Usually poor, with graphite as an important exception</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 41 -->
+        <section class="note-card">
+            <h2>41. 🔬 Intermolecular Forces</h2>
+
+            <p>
+                <strong>Intermolecular forces</strong> are attractions between
+                separate molecules.
+            </p>
+
+            <p>
+                They are different from the covalent bonds holding atoms
+                together within a molecule.
+            </p>
+
+            <p>
+                In simple molecular substances, intermolecular forces help
+                determine physical properties such as boiling point.
+            </p>
+
+            <div class="note-card">
+                <h3>⚠️ Exam warning</h3>
+                <p>
+                    Do not say that the covalent bonds inside molecules are
+                    broken when a simple molecular substance boils.
+                </p>
+            </div>
+        </section>
+
+        <!-- 42 -->
+        <section class="note-card">
+            <h2>42. 💧 Hydrogen Bonding</h2>
+
+            <p>
+                <strong>Hydrogen bonding</strong> is a particularly strong
+                type of intermolecular attraction that occurs when hydrogen
+                is bonded to a highly electronegative atom such as oxygen,
+                nitrogen or fluorine.
+            </p>
+
+            <p>
+                Hydrogen bonding is important in substances such as water.
+            </p>
+
+            <p>
+                It helps explain why water has a relatively high boiling
+                point compared with other small molecules of similar size.
+            </p>
+        </section>
+
+        <!-- 43 -->
+        <section class="note-card">
+            <h2>43. 🌡️ Bonding and Melting Point</h2>
+
+            <p>
+                The type and strength of attractive forces in a substance
+                influence how much energy is needed to separate its
+                particles.
+            </p>
+
+            <ul>
+                <li>
+                    Strong ionic attractions generally require considerable
+                    energy to overcome.
+                </li>
+                <li>
+                    Strong covalent networks require considerable energy to
+                    break.
+                </li>
+                <li>
+                    Simple molecular substances usually have weaker forces
+                    between molecules.
+                </li>
+                <li>
+                    Metals have strong metallic bonding in their structures.
+                </li>
+            </ul>
+        </section>
+
+        <!-- 44 -->
+        <section class="note-card">
+            <h2>44. ⚡ Bonding and Electrical Conductivity</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Substance</th>
+                            <th>Conductivity</th>
+                            <th>Reason</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Solid ionic compound</td>
+                            <td>Poor</td>
+                            <td>Ions are fixed in position.</td>
+                        </tr>
+                        <tr>
+                            <td>Molten ionic compound</td>
+                            <td>Good</td>
+                            <td>Ions can move.</td>
+                        </tr>
+                        <tr>
+                            <td>Ionic solution</td>
+                            <td>Good if ions are present and mobile</td>
+                            <td>Mobile ions carry charge.</td>
+                        </tr>
+                        <tr>
+                            <td>Metal</td>
+                            <td>Good</td>
+                            <td>Delocalised electrons carry charge.</td>
+                        </tr>
+                        <tr>
+                            <td>Simple molecular substance</td>
+                            <td>Usually poor</td>
+                            <td>No mobile charged particles.</td>
+                        </tr>
+                        <tr>
+                            <td>Graphite</td>
+                            <td>Good</td>
+                            <td>Has mobile electrons.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 45 -->
+        <section class="note-card">
+            <h2>45. 🧠 Predicting Bond Type</h2>
+
+            <p>
+                The elements involved can often give a useful first clue
+                about the type of bonding.
+            </p>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Elements Involved</th>
+                            <th>Likely Bonding</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Metal + non-metal</td>
+                            <td>Ionic</td>
+                        </tr>
+                        <tr>
+                            <td>Non-metal + non-metal</td>
+                            <td>Covalent</td>
+                        </tr>
+                        <tr>
+                            <td>Metal atoms</td>
+                            <td>Metallic</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p>
+                This is a useful introductory rule, but the actual structure
+                of a substance should always be considered when answering
+                detailed questions.
+            </p>
+        </section>
+
+        <!-- 46 -->
+        <section class="note-card">
+            <h2>46. 🧪 Bonding and Chemical Reactions</h2>
+
+            <p>
+                Chemical reactions involve changes in the arrangement of
+                atoms and their bonding.
+            </p>
+
+            <p>
+                Existing bonds may be broken and new bonds may be formed.
+            </p>
+
+            <h3>Example: Formation of water</h3>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Hydrogen + oxygen → water
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                2H₂ + O₂ → 2H₂O
+            </p>
+
+            <p>
+                In this reaction, the atoms are rearranged and new
+                O—H bonds are formed.
+            </p>
+        </section>
+
+        <!-- 47 -->
+        <section class="note-card">
+            <h2>47. 🧂 Bonding in Sodium Oxide</h2>
+
+            <p>
+                Sodium is a Group 1 metal and tends to form Na⁺ ions.
+                Oxygen is a Group 16 non-metal and tends to form O²⁻ ions.
+            </p>
+
+            <p>
+                Two Na⁺ ions are required for every O²⁻ ion.
+            </p>
+
+            <p>
+                Formula:
+                <strong>Na₂O</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Sodium + oxygen → sodium oxide
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                4Na + O₂ → 2Na₂O
+            </p>
+        </section>
+
+        <!-- 48 -->
+        <section class="note-card">
+            <h2>48. 🧪 Bonding in Magnesium Oxide</h2>
+
+            <p>
+                Magnesium forms Mg²⁺ and oxygen forms O²⁻.
+            </p>
+
+            <p>
+                Their charges balance in a 1:1 ratio.
+            </p>
+
+            <p>
+                Formula:
+                <strong>MgO</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Magnesium + oxygen → magnesium oxide
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                2Mg + O₂ → 2MgO
+            </p>
+        </section>
+
+        <!-- 49 -->
+        <section class="note-card">
+            <h2>49. 🔬 Bonding in Methane</h2>
+
+            <p>
+                Methane has the formula CH₄.
+            </p>
+
+            <p>
+                Carbon has four valence electrons and shares electrons with
+                four hydrogen atoms.
+            </p>
+
+            <p>
+                Each C—H connection is a covalent bond.
+            </p>
+
+            <p>
+                Structural representation:
+                <strong>CH₄</strong>
+            </p>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Carbon + hydrogen → methane
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                C + 2H₂ → CH₄
+            </p>
+        </section>
+
+        <!-- 50 -->
+        <section class="note-card">
+            <h2>50. 📚 Key Definitions</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th>Definition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Chemical bond</td>
+                            <td>An attractive force holding atoms or ions together.</td>
+                        </tr>
+                        <tr>
+                            <td>Ionic bonding</td>
+                            <td>Electrostatic attraction between oppositely charged ions.</td>
+                        </tr>
+                        <tr>
+                            <td>Covalent bond</td>
+                            <td>A bond formed by sharing a pair of electrons.</td>
+                        </tr>
+                        <tr>
+                            <td>Metallic bonding</td>
+                            <td>Attraction between positive metal ions and delocalised electrons.</td>
+                        </tr>
+                        <tr>
+                            <td>Cation</td>
+                            <td>A positively charged ion.</td>
+                        </tr>
+                        <tr>
+                            <td>Anion</td>
+                            <td>A negatively charged ion.</td>
+                        </tr>
+                        <tr>
+                            <td>Valence electrons</td>
+                            <td>Electrons in the outermost occupied shell.</td>
+                        </tr>
+                        <tr>
+                            <td>Electronegativity</td>
+                            <td>The ability of an atom to attract bonding electrons towards itself.</td>
+                        </tr>
+                        <tr>
+                            <td>Malleability</td>
+                            <td>Ability to be hammered or pressed into sheets.</td>
+                        </tr>
+                        <tr>
+                            <td>Ductility</td>
+                            <td>Ability to be drawn into wires.</td>
+                        </tr>
+                        <tr>
+                            <td>Simple molecular substance</td>
+                            <td>A substance consisting of separate small molecules.</td>
+                        </tr>
+                        <tr>
+                            <td>Giant covalent structure</td>
+                            <td>A large network of atoms joined by covalent bonds.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 51 -->
+        <section class="note-card">
+            <h2>51. ⚠️ Common Mistakes to Avoid</h2>
+
+            <ul>
+                <li>
+                    ❌ Saying ionic bonding means simply "transfer of electrons".
+                    <br>
+                    ✅ Electron transfer produces ions; ionic bonding is the
+                    attraction between the oppositely charged ions.
+                </li>
+
+                <li>
+                    ❌ Saying covalent bonding involves transfer of electrons.
+                    <br>
+                    ✅ Covalent bonding involves sharing electron pairs.
+                </li>
+
+                <li>
+                    ❌ Saying solid ionic compounds conduct electricity well.
+                    <br>
+                    ✅ Their ions are fixed in position when solid.
+                </li>
+
+                <li>
+                    ❌ Saying all covalent substances have low melting points.
+                    <br>
+                    ✅ Simple molecular substances generally have low melting
+                    points, while giant covalent structures generally have
+                    very high melting points.
+                </li>
+
+                <li>
+                    ❌ Saying graphite cannot conduct electricity.
+                    <br>
+                    ✅ Graphite conducts electricity because it has mobile
+                    electrons.
+                </li>
+
+                <li>
+                    ❌ Confusing an ion with an atom.
+                    <br>
+                    ✅ An ion has gained or lost electrons and therefore has
+                    a net charge.
+                </li>
+
+                <li>
+                    ❌ Forgetting charges when writing ionic formulae.
+                    <br>
+                    ✅ Make sure the total positive and negative charges
+                    balance.
+                </li>
+
+                <li>
+                    ❌ Confusing a covalent bond with an intermolecular force.
+                    <br>
+                    ✅ A covalent bond holds atoms together within a molecule;
+                    intermolecular forces act between molecules.
+                </li>
+            </ul>
+        </section>
+
+        <!-- 52 -->
+        <section class="note-card">
+            <h2>52. 🎯 Exam Focus</h2>
+
+            <p>
+                For O/L Chemistry, make sure you can:
+            </p>
+
+            <ul>
+                <li>☑️ Define chemical bonding.</li>
+                <li>☑️ Explain the importance of valence electrons.</li>
+                <li>☑️ Explain ionic bonding.</li>
+                <li>☑️ Explain how positive and negative ions form.</li>
+                <li>☑️ Write common ionic formulae.</li>
+                <li>☑️ Describe the giant ionic lattice.</li>
+                <li>☑️ Explain the properties of ionic compounds.</li>
+                <li>☑️ Explain covalent bonding.</li>
+                <li>☑️ Distinguish single, double and triple covalent bonds.</li>
+                <li>☑️ Give examples of simple molecular substances.</li>
+                <li>☑️ Explain the properties of simple molecular substances.</li>
+                <li>☑️ Describe giant covalent structures.</li>
+                <li>☑️ Compare diamond and graphite.</li>
+                <li>☑️ Explain metallic bonding.</li>
+                <li>☑️ Explain why metals conduct electricity.</li>
+                <li>☑️ Explain malleability and ductility.</li>
+                <li>☑️ Distinguish bonding from intermolecular forces.</li>
+                <li>☑️ Relate structure and bonding to physical properties.</li>
+                <li>☑️ Write both word and symbol equations for relevant reactions.</li>
+            </ul>
+        </section>
+
+        <!-- 53 -->
+        <section class="note-card">
+            <h2>53. 🧠 Quick Revision Table</h2>
+
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Bonding Type</th>
+                            <th>Electron Behaviour</th>
+                            <th>Particles</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ionic</td>
+                            <td>Electrons transferred</td>
+                            <td>Positive and negative ions</td>
+                            <td>NaCl</td>
+                        </tr>
+                        <tr>
+                            <td>Covalent</td>
+                            <td>Electrons shared</td>
+                            <td>Atoms / molecules</td>
+                            <td>H₂O</td>
+                        </tr>
+                        <tr>
+                            <td>Metallic</td>
+                            <td>Electrons delocalised</td>
+                            <td>Metal ions + electrons</td>
+                            <td>Cu</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- 54 -->
+        <section class="note-card">
+            <h2>54. 🧪 Reaction Summary</h2>
+
+            <h3>🧂 Sodium chloride</h3>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Sodium + chlorine → sodium chloride
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                2Na + Cl₂ → 2NaCl
+            </p>
+
+            <h3>🔥 Magnesium oxide</h3>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Magnesium + oxygen → magnesium oxide
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                2Mg + O₂ → 2MgO
+            </p>
+
+            <h3>💧 Water</h3>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Hydrogen + oxygen → water
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                2H₂ + O₂ → 2H₂O
+            </p>
+
+            <h3>🧪 Aluminium oxide</h3>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Aluminium + oxygen → aluminium oxide
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                4Al + 3O₂ → 2Al₂O₃
+            </p>
+
+            <h3>🟢 Methane</h3>
+
+            <p><strong>Word equation:</strong></p>
+            <p>
+                Carbon + hydrogen → methane
+            </p>
+
+            <p><strong>Symbol equation:</strong></p>
+            <p>
+                C + 2H₂ → CH₄
+            </p>
+        </section>
+
+        <!-- 55 -->
+        <section class="note-card">
+            <h2>55. ✅ Chemical Bonding Checklist</h2>
+
+            <p>
+                You should now be able to explain:
+            </p>
+
+            <ul>
+                <li>☑️ Why atoms form bonds</li>
+                <li>☑️ The role of valence electrons</li>
+                <li>☑️ Ionic bonding</li>
+                <li>☑️ Cations and anions</li>
+                <li>☑️ Ionic lattices</li>
+                <li>☑️ Properties of ionic compounds</li>
+                <li>☑️ Covalent bonding</li>
+                <li>☑️ Single, double and triple bonds</li>
+                <li>☑️ Simple molecular substances</li>
+                <li>☑️ Giant covalent structures</li>
+                <li>☑️ Diamond and graphite</li>
+                <li>☑️ Metallic bonding</li>
+                <li>☑️ Conductivity of metals and ionic compounds</li>
+                <li>☑️ Malleability and ductility</li>
+                <li>☑️ Intermolecular forces</li>
+                <li>☑️ Polar covalent bonds</li>
+                <li>☑️ How bonding affects physical properties</li>
+                <li>☑️ Word and symbol equations for relevant reactions</li>
+            </ul>
+        </section>
+
+        <!-- 56 -->
+        <section class="note-card">
+            <h2>56. 🌟 Final Takeaway</h2>
+
+            <p>
+                Chemical bonding explains how atoms combine and why
+                substances have different properties.
+            </p>
+
+            <div class="note-card">
+                <p>
+                    🧂 <strong>Ionic bonding:</strong>
+                    attraction between oppositely charged ions.
+                </p>
+
+                <p>
+                    🤝 <strong>Covalent bonding:</strong>
+                    atoms share electron pairs.
+                </p>
+
+                <p>
+                    🔩 <strong>Metallic bonding:</strong>
+                    positive metal ions are attracted to delocalised
+                    electrons.
+                </p>
+            </div>
+
+            <p>
+                The most important exam skill is to connect
+                <strong>structure → bonding → particles → properties</strong>.
+            </p>
+
+            <p>
+                Once you can make that connection, questions about melting
+                point, electrical conductivity, hardness, solubility and
+                physical state become much easier to explain. 🧪⚛️📚
+            </p>
+        </section>
+
+    </div>
+</main>
+
+<footer class="footer">
+    <div class="footer-bottom">
+        <p>© 2026 StudyHub. Built for students. 🎓</p>
+    </div>
+</footer>
+
+</body>
+</html>
