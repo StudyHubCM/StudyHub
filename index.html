@@ -3,51 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta
         name="description"
-        content="StudyHub — A modern learning platform helping students study smarter with notes, past questions and useful study tools."
+        content="StudyHub — A modern learning platform for students with study notes, past questions, revision materials and useful study tools."
     >
+
+    <meta name="theme-color" content="#3157d5">
+
     <title>StudyHub | Study Smarter. Learn Better.</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <!-- ================= HEADER ================= -->
+
     <header class="header">
-        <a href="#home" class="logo">
+
+        <a href="#home" class="logo" aria-label="StudyHub Home">
+
             <span class="logo-icon">🎓</span>
+
             <span>StudyHub</span>
+
         </a>
-        <nav class="nav">
-            <a href="#home" class="active">Home</a>
-            <a href="#resources">Resources</a>
-            <a href="#subjects">Subjects</a>
-            <a href="#tools">Tools</a>
+
+
+        <nav class="nav" aria-label="Main navigation">
+
+            <a href="#home" class="active">
+                Home
+            </a>
+
+            <a href="#resources">
+                Resources
+            </a>
+
+            <a href="#subjects">
+                Subjects
+            </a>
+
+            <a href="#tools">
+                Tools
+            </a>
+
         </nav>
+
+
         <a href="#resources" class="header-button">
             Start Studying
         </a>
+
     </header>
+
 
     <main>
 
         <!-- ================= HERO ================= -->
+
         <section id="home" class="hero">
+
             <div class="hero-content">
+
                 <div class="hero-badge">
                     🚀 Built for students
                 </div>
+
 
                 <h1>
                     Study smarter.<br>
                     <span>Learn better.</span>
                 </h1>
 
+
                 <p class="hero-text">
                     Everything you need to understand your subjects,
                     practice for exams and keep your studies on track.
                 </p>
 
+
                 <div class="hero-buttons">
+
                     <a href="#resources" class="primary-button">
                         Explore Resources →
                     </a>
@@ -55,65 +93,129 @@
                     <a href="#tools" class="secondary-button">
                         Explore Tools
                     </a>
+
                 </div>
+
 
                 <div class="hero-trust">
+
                     <div class="trust-item">
+
                         <strong>📚</strong>
-                        <span>Study Resources</span>
+
+                        <span>
+                            Study Resources
+                        </span>
+
                     </div>
 
+
                     <div class="trust-item">
+
                         <strong>🧠</strong>
-                        <span>Learn Smarter</span>
+
+                        <span>
+                            Learn Smarter
+                        </span>
+
                     </div>
 
+
                     <div class="trust-item">
+
                         <strong>🎯</strong>
-                        <span>Exam Focused</span>
+
+                        <span>
+                            Exam Focused
+                        </span>
+
                     </div>
+
                 </div>
+
             </div>
 
+
             <div class="hero-visual">
+
                 <div class="study-card main-study-card">
+
                     <div class="study-card-top">
+
                         <span>📖</span>
-                        <span class="online-dot">●</span>
+
+                        <span
+                            class="online-dot"
+                            aria-label="StudyHub is ready"
+                        >
+                            ●
+                        </span>
+
                     </div>
 
-                    <h3>Your learning journey</h3>
+
+                    <h3>
+                        Your learning journey
+                    </h3>
+
 
                     <p>
                         Learn, practice and improve.
                     </p>
 
-                    <div class="progress-bar">
+
+                    <!--
+                        This is currently a visual element.
+                        It is intentionally not presented as a real
+                        72% progress value until StudyHub has a real
+                        progress-tracking system.
+                    -->
+
+                    <div
+                        class="progress-bar"
+                        role="progressbar"
+                        aria-label="Your learning journey"
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        aria-valuenow="0"
+                    >
                         <div class="progress"></div>
                     </div>
+
 
                     <small>
                         Ready to start studying?
                     </small>
+
                 </div>
+
 
                 <div class="floating-card floating-one">
                     🧬 Biology
                 </div>
 
+
                 <div class="floating-card floating-two">
                     🧮 Grade Calculator
                 </div>
+
             </div>
+
         </section>
 
 
+
         <!-- ================= RESOURCES ================= -->
-        <section id="resources" class="section resources-section">
+
+        <section
+            id="resources"
+            class="section resources-section"
+        >
 
             <div class="section-heading">
 
                 <div>
+
                     <p class="section-label">
                         LEARN & PRACTICE
                     </p>
@@ -121,7 +223,9 @@
                     <h2>
                         Everything you need to study
                     </h2>
+
                 </div>
+
 
                 <p>
                     Find useful resources designed to make
@@ -133,13 +237,21 @@
 
             <div class="cards">
 
-                <a href="study-notes.html" class="card resource-card">
+
+                <!-- ================= STUDY NOTES ================= -->
+
+                <a
+                    href="study-notes.html"
+                    class="card resource-card"
+                >
 
                     <div class="card-icon notes-icon">
                         📚
                     </div>
 
+
                     <div>
+
                         <h3>
                             Study Notes
                         </h3>
@@ -148,22 +260,32 @@
                             Organized notes to help you understand
                             important topics faster.
                         </p>
+
                     </div>
 
-                    <span class="card-arrow">
+
+                    <span class="card-arrow" aria-hidden="true">
                         →
                     </span>
 
                 </a>
 
 
-                <a href="past-questions.html" class="resource-card">
+
+                <!-- ================= PAST QUESTIONS ================= -->
+
+                <a
+                    href="past-questions.html"
+                    class="card resource-card"
+                >
 
                     <div class="card-icon questions-icon">
                         📝
                     </div>
 
+
                     <div>
+
                         <h3>
                             Past Questions
                         </h3>
@@ -172,22 +294,32 @@
                             Practice with examination questions
                             and prepare with confidence.
                         </p>
+
                     </div>
 
-                    <span class="card-arrow">
+
+                    <span class="card-arrow" aria-hidden="true">
                         →
                     </span>
 
                 </a>
 
 
-                <a href="revision-materials.html" class="resource-card">
+
+                <!-- ================= REVISION MATERIALS ================= -->
+
+                <a
+                    href="revision-materials.html"
+                    class="card resource-card"
+                >
 
                     <div class="card-icon revision-icon">
                         🧠
                     </div>
 
+
                     <div>
+
                         <h3>
                             Revision Materials
                         </h3>
@@ -196,22 +328,32 @@
                             Helpful materials for reviewing topics
                             before your exams.
                         </p>
+
                     </div>
 
-                    <span class="card-arrow">
+
+                    <span class="card-arrow" aria-hidden="true">
                         →
                     </span>
 
                 </a>
 
 
-                <a href="#subjects" class="card resource-card">
+
+                <!-- ================= EXPLORE SUBJECTS ================= -->
+
+                <a
+                    href="#subjects"
+                    class="card resource-card"
+                >
 
                     <div class="card-icon subjects-icon">
                         🎓
                     </div>
 
+
                     <div>
+
                         <h3>
                             Explore Subjects
                         </h3>
@@ -220,9 +362,11 @@
                             Find resources organized by your
                             favorite school subjects.
                         </p>
+
                     </div>
 
-                    <span class="card-arrow">
+
+                    <span class="card-arrow" aria-hidden="true">
                         →
                     </span>
 
@@ -233,8 +377,13 @@
         </section>
 
 
+
         <!-- ================= SUBJECTS ================= -->
-        <section id="subjects" class="section subjects-section">
+
+        <section
+            id="subjects"
+            class="section subjects-section"
+        >
 
             <div class="section-heading centered">
 
@@ -258,19 +407,27 @@
 
                 <!-- ================= BIOLOGY ================= -->
 
-                <a href="biology.html" class="subject-card biology">
+                <a
+                    href="biology.html"
+                    class="subject-card biology"
+                >
 
                     <span class="subject-icon">
+
                         <img
                             src="F956585C-FF4C-4546-A180-EF52124BD152.png"
                             alt="Biology"
                             width="70"
                             height="70"
+                            loading="lazy"
                             style="width:70px;height:70px;object-fit:contain;"
                         >
+
                     </span>
 
+
                     <div>
+
                         <h3>
                             Biology
                         </h3>
@@ -278,30 +435,44 @@
                         <p>
                             Explore Biology resources
                         </p>
+
                     </div>
 
-                    <span class="subject-arrow">
+
+                    <span
+                        class="subject-arrow"
+                        aria-hidden="true"
+                    >
                         →
                     </span>
 
                 </a>
 
 
+
                 <!-- ================= CHEMISTRY ================= -->
 
-                <a href="#" class="subject-card chemistry">
+                <a
+                    href="chemistry.html"
+                    class="subject-card chemistry"
+                >
 
                     <span class="subject-icon">
+
                         <img
                             src="3CC24239-714F-409D-9CA9-9A7FF1479919.png"
                             alt="Chemistry"
                             width="70"
                             height="70"
+                            loading="lazy"
                             style="width:70px;height:70px;object-fit:contain;"
                         >
+
                     </span>
 
+
                     <div>
+
                         <h3>
                             Chemistry
                         </h3>
@@ -309,30 +480,44 @@
                         <p>
                             Explore Chemistry resources
                         </p>
+
                     </div>
 
-                    <span class="subject-arrow">
+
+                    <span
+                        class="subject-arrow"
+                        aria-hidden="true"
+                    >
                         →
                     </span>
 
                 </a>
 
 
+
                 <!-- ================= HISTORY ================= -->
 
-                <a href="#" class="subject-card history">
+                <a
+                    href="history.html"
+                    class="subject-card history"
+                >
 
                     <span class="subject-icon">
+
                         <img
                             src="B7436AFA-CE6D-4301-BDBB-26CF3584861F.png"
                             alt="History"
                             width="70"
                             height="70"
+                            loading="lazy"
                             style="width:70px;height:70px;object-fit:contain;"
                         >
+
                     </span>
 
+
                     <div>
+
                         <h3>
                             History
                         </h3>
@@ -340,30 +525,44 @@
                         <p>
                             Explore History resources
                         </p>
+
                     </div>
 
-                    <span class="subject-arrow">
+
+                    <span
+                        class="subject-arrow"
+                        aria-hidden="true"
+                    >
                         →
                     </span>
 
                 </a>
 
 
+
                 <!-- ================= ACCOUNTING ================= -->
 
-                <a href="#" class="subject-card accounting">
+                <a
+                    href="accounting.html"
+                    class="subject-card accounting"
+                >
 
                     <span class="subject-icon">
+
                         <img
                             src="09BB41F4-91CD-4746-9E3F-AE9826298331.png"
                             alt="Accounting"
                             width="70"
                             height="70"
+                            loading="lazy"
                             style="width:70px;height:70px;object-fit:contain;"
                         >
+
                     </span>
 
+
                     <div>
+
                         <h3>
                             Accounting
                         </h3>
@@ -371,9 +570,14 @@
                         <p>
                             Explore Accounting resources
                         </p>
+
                     </div>
 
-                    <span class="subject-arrow">
+
+                    <span
+                        class="subject-arrow"
+                        aria-hidden="true"
+                    >
                         →
                     </span>
 
@@ -385,8 +589,13 @@
         </section>
 
 
+
         <!-- ================= TOOLS ================= -->
-        <section id="tools" class="section tools-section">
+
+        <section
+            id="tools"
+            class="section tools-section"
+        >
 
             <div class="section-heading centered">
 
@@ -417,6 +626,7 @@
                         🧮
                     </div>
 
+
                     <div class="calculator-content">
 
                         <h3>
@@ -427,9 +637,20 @@
                             Enter your score to calculate your grade.
                         </p>
 
+
                         <div class="calculator-input">
 
-                            <select id="gradingSystem">
+                            <label
+                                for="gradingSystem"
+                                class="sr-only"
+                            >
+                                Grading system
+                            </label>
+
+                            <select
+                                id="gradingSystem"
+                                aria-label="Choose grading system"
+                            >
 
                                 <option value="general">
                                     General Percentage
@@ -445,23 +666,40 @@
 
                             </select>
 
+
+                            <label
+                                for="score"
+                                class="sr-only"
+                            >
+                                Score
+                            </label>
+
                             <input
                                 type="number"
                                 id="score"
                                 placeholder="Enter score (0–100)"
                                 min="0"
                                 max="100"
+                                step="0.01"
+                                inputmode="decimal"
+                                aria-label="Enter your score"
                             >
 
-                            <button onclick="calculateGrade()">
+
+                            <button
+                                type="button"
+                                onclick="calculateGrade()"
+                            >
                                 Calculate
                             </button>
 
                         </div>
 
+
                         <div
                             id="gradeResult"
                             class="grade-result"
+                            aria-live="polite"
                         >
                             Your result will appear here.
                         </div>
@@ -471,6 +709,7 @@
                 </div>
 
 
+
                 <!-- ================= EXAM COUNTDOWN ================= -->
 
                 <div class="tool-card countdown-card">
@@ -478,6 +717,7 @@
                     <div class="tool-icon">
                         ⏳
                     </div>
+
 
                     <div class="countdown-content">
 
@@ -490,28 +730,51 @@
                             of the time remaining.
                         </p>
 
+
                         <div class="countdown-input">
+
+                            <label
+                                for="examName"
+                                class="sr-only"
+                            >
+                                Exam name
+                            </label>
 
                             <input
                                 type="text"
                                 id="examName"
                                 placeholder="Exam name"
+                                autocomplete="off"
                             >
+
+
+                            <label
+                                for="examDate"
+                                class="sr-only"
+                            >
+                                Exam date and time
+                            </label>
 
                             <input
                                 type="datetime-local"
                                 id="examDate"
                             >
 
-                            <button onclick="startCountdown()">
+
+                            <button
+                                type="button"
+                                onclick="startCountdown()"
+                            >
                                 Start Countdown
                             </button>
 
                         </div>
 
+
                         <div
                             id="countdownResult"
                             class="countdown-result"
+                            aria-live="polite"
                         >
                             Choose an exam date to begin.
                         </div>
@@ -519,6 +782,7 @@
                     </div>
 
                 </div>
+
 
 
                 <!-- ================= QUIZ CENTER ================= -->
@@ -531,6 +795,7 @@
                     <div class="tool-icon">
                         📝
                     </div>
+
 
                     <div>
 
@@ -545,7 +810,8 @@
 
                     </div>
 
-                    <span>
+
+                    <span aria-hidden="true">
                         →
                     </span>
 
@@ -555,6 +821,7 @@
             </div>
 
         </section>
+
 
 
         <!-- ================= WHY STUDYHUB ================= -->
@@ -567,10 +834,12 @@
                     WHY STUDYHUB?
                 </p>
 
+
                 <h2>
                     Your study life,<br>
                     made simpler.
                 </h2>
+
 
                 <p>
                     StudyHub brings useful learning resources and
@@ -578,7 +847,11 @@
                     spend less time searching and more time learning.
                 </p>
 
-                <a href="#resources" class="primary-button">
+
+                <a
+                    href="#resources"
+                    class="primary-button"
+                >
                     Start Exploring →
                 </a>
 
@@ -587,11 +860,13 @@
 
             <div class="benefits">
 
+
                 <div class="benefit">
 
                     <span>
                         01
                     </span>
+
 
                     <div>
 
@@ -609,11 +884,13 @@
                 </div>
 
 
+
                 <div class="benefit">
 
                     <span>
                         02
                     </span>
+
 
                     <div>
 
@@ -631,11 +908,13 @@
                 </div>
 
 
+
                 <div class="benefit">
 
                     <span>
                         03
                     </span>
+
 
                     <div>
 
@@ -652,11 +931,13 @@
 
                 </div>
 
+
             </div>
 
         </section>
 
     </main>
+
 
 
     <!-- ================= FOOTER ================= -->
@@ -665,9 +946,14 @@
 
         <div class="footer-main">
 
+
             <div class="footer-brand">
 
-                <a href="#home" class="logo">
+                <a
+                    href="#home"
+                    class="logo"
+                    aria-label="StudyHub Home"
+                >
 
                     <span class="logo-icon">
                         🎓
@@ -679,6 +965,7 @@
 
                 </a>
 
+
                 <p>
                     Study smarter. Learn better.
                 </p>
@@ -686,7 +973,11 @@
             </div>
 
 
+
             <div class="footer-links">
+
+
+                <!-- ================= EXPLORE ================= -->
 
                 <div>
 
@@ -694,17 +985,21 @@
                         Explore
                     </h4>
 
+
                     <a href="#home">
                         Home
                     </a>
+
 
                     <a href="#resources">
                         Resources
                     </a>
 
+
                     <a href="#subjects">
                         Subjects
                     </a>
+
 
                     <a href="#tools">
                         Tools
@@ -713,33 +1008,42 @@
                 </div>
 
 
+
+                <!-- ================= SUBJECTS ================= -->
+
                 <div>
 
                     <h4>
                         Subjects
                     </h4>
 
-                    <a href="#">
+
+                    <a href="biology.html">
                         Biology
                     </a>
 
-                    <a href="#">
+
+                    <a href="chemistry.html">
                         Chemistry
                     </a>
 
-                    <a href="#">
-                        Physics
+
+                    <a href="history.html">
+                        History
                     </a>
 
-                    <a href="#">
-                        Mathematics
+
+                    <a href="accounting.html">
+                        Accounting
                     </a>
 
                 </div>
 
+
             </div>
 
         </div>
+
 
 
         <div class="footer-bottom">
@@ -747,6 +1051,7 @@
             <p>
                 © 2026 StudyHub. Built for students. 🎓
             </p>
+
 
             <p>
                 Learn • Practice • Improve
@@ -756,6 +1061,32 @@
 
     </footer>
 
+
+
+    <!-- ================= ACCESSIBILITY ================= -->
+
+    <!--
+        This class is used for labels that should be available
+        to screen readers without being visually displayed.
+    -->
+
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+
+
+
+    <!-- ================= JAVASCRIPT ================= -->
 
     <script src="script.js"></script>
 
