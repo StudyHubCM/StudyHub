@@ -3,6 +3,11 @@
    Modern + Professional
    ========================= */
 
+
+/* =========================
+   RESET
+   ========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -25,6 +30,48 @@ a {
     text-decoration: none;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+
+/* =========================
+   ACCESSIBILITY
+   ========================= */
+
+.sr-only {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+
+    padding: 0;
+    margin: -1px;
+
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    white-space: nowrap;
+
+    border: 0;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+    outline: 3px solid rgba(49, 87, 213, 0.35);
+    outline-offset: 3px;
+}
+
 
 /* =========================
    HEADER
@@ -42,6 +89,7 @@ a {
     padding: 16px 7%;
 
     background: rgba(255, 255, 255, 0.94);
+
     backdrop-filter: blur(12px);
 
     border-bottom: 1px solid #e8ebf2;
@@ -50,10 +98,12 @@ a {
 .logo {
     display: flex;
     align-items: center;
+
     gap: 8px;
 
     font-size: 22px;
     font-weight: 800;
+
     color: #172033;
 }
 
@@ -64,6 +114,7 @@ a {
 .nav {
     display: flex;
     align-items: center;
+
     gap: 28px;
 }
 
@@ -71,6 +122,7 @@ a {
     position: relative;
 
     color: #596579;
+
     font-size: 14px;
     font-weight: 600;
 
@@ -86,6 +138,7 @@ a {
     content: "";
 
     position: absolute;
+
     left: 0;
     right: 0;
     bottom: -8px;
@@ -93,6 +146,7 @@ a {
     height: 2px;
 
     background: #3157d5;
+
     border-radius: 10px;
 }
 
@@ -107,13 +161,16 @@ a {
     font-size: 14px;
     font-weight: 700;
 
-    transition: transform 0.2s ease,
-                box-shadow 0.2s ease;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .header-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(49, 87, 213, 0.22);
+
+    box-shadow:
+        0 8px 20px rgba(49, 87, 213, 0.22);
 }
 
 
@@ -123,11 +180,15 @@ a {
 
 .hero {
     position: relative;
+
     overflow: hidden;
 
     display: grid;
+
     grid-template-columns: 1.1fr 0.9fr;
+
     align-items: center;
+
     gap: 50px;
 
     min-height: 620px;
@@ -167,6 +228,7 @@ a {
 
 .hero-content {
     position: relative;
+
     z-index: 2;
 
     max-width: 650px;
@@ -176,12 +238,15 @@ a {
     display: inline-block;
 
     margin-bottom: 20px;
+
     padding: 8px 13px;
 
     border: 1px solid #dce3ff;
+
     border-radius: 50px;
 
     background: #eef2ff;
+
     color: #3157d5;
 
     font-size: 13px;
@@ -192,7 +257,9 @@ a {
     margin-bottom: 22px;
 
     font-size: clamp(45px, 6vw, 72px);
+
     line-height: 1.03;
+
     letter-spacing: -2px;
 }
 
@@ -212,7 +279,9 @@ a {
 
 .hero-buttons {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 13px;
 
     margin-bottom: 35px;
@@ -221,6 +290,7 @@ a {
 .primary-button,
 .secondary-button {
     display: inline-flex;
+
     align-items: center;
     justify-content: center;
 
@@ -238,13 +308,16 @@ a {
 
 .primary-button {
     background: #3157d5;
+
     color: white;
 
-    box-shadow: 0 8px 20px rgba(49, 87, 213, 0.18);
+    box-shadow:
+        0 8px 20px rgba(49, 87, 213, 0.18);
 }
 
 .secondary-button {
     background: white;
+
     color: #26334b;
 
     border: 1px solid #dfe4ed;
@@ -256,18 +329,23 @@ a {
 }
 
 .primary-button:hover {
-    box-shadow: 0 12px 28px rgba(49, 87, 213, 0.25);
+    box-shadow:
+        0 12px 28px rgba(49, 87, 213, 0.25);
 }
 
 .hero-trust {
     display: flex;
+
     flex-wrap: wrap;
+
     gap: 22px;
 }
 
 .trust-item {
     display: flex;
+
     align-items: center;
+
     gap: 8px;
 
     color: #687386;
@@ -291,6 +369,7 @@ a {
     min-height: 390px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
@@ -300,7 +379,8 @@ a {
 
     border: 1px solid #e6eaf2;
 
-    box-shadow: 0 25px 60px rgba(28, 45, 85, 0.12);
+    box-shadow:
+        0 25px 60px rgba(28, 45, 85, 0.12);
 }
 
 .main-study-card {
@@ -315,6 +395,7 @@ a {
 
 .study-card-top {
     display: flex;
+
     align-items: center;
     justify-content: space-between;
 
@@ -325,6 +406,7 @@ a {
 
 .online-dot {
     color: #36b37e;
+
     font-size: 11px;
 }
 
@@ -338,11 +420,13 @@ a {
     margin-bottom: 25px;
 
     color: #758095;
+
     font-size: 14px;
 }
 
 .progress-bar {
     width: 100%;
+
     height: 9px;
 
     margin-bottom: 10px;
@@ -356,6 +440,7 @@ a {
 
 .progress {
     width: 72%;
+
     height: 100%;
 
     background: #3157d5;
@@ -378,7 +463,8 @@ a {
 
     border-radius: 12px;
 
-    box-shadow: 0 15px 35px rgba(28, 45, 85, 0.1);
+    box-shadow:
+        0 15px 35px rgba(28, 45, 85, 0.1);
 
     font-size: 12px;
     font-weight: 700;
@@ -399,6 +485,7 @@ a {
 }
 
 @keyframes float {
+
     0%,
     100% {
         transform: translateY(0);
@@ -424,8 +511,11 @@ a {
 
 .section-heading {
     display: flex;
+
     align-items: flex-end;
+
     justify-content: space-between;
+
     gap: 30px;
 
     margin-bottom: 38px;
@@ -435,6 +525,7 @@ a {
     max-width: 420px;
 
     color: #707b8f;
+
     font-size: 14px;
 }
 
@@ -443,7 +534,9 @@ a {
     max-width: 650px;
 
     font-size: clamp(29px, 4vw, 40px);
+
     line-height: 1.15;
+
     letter-spacing: -0.8px;
 }
 
@@ -474,20 +567,32 @@ a {
 
 
 /* =========================
-   RESOURCE CARDS
+   HOMEPAGE RESOURCE CARDS
    ========================= */
 
 .cards {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 18px;
 }
 
-.card {
+/*
+   IMPORTANT:
+   These rules are intentionally scoped to .cards.
+
+   This prevents the subject-page .resource-card
+   styles from overriding homepage resource cards.
+*/
+
+.cards .resource-card {
     position: relative;
 
     display: flex;
+
     align-items: flex-start;
+
     gap: 17px;
 
     padding: 25px;
@@ -495,9 +600,46 @@ a {
     background: white;
 
     border: 1px solid #e4e8f0;
+
     border-radius: 18px;
 
-    box-shadow: 0 5px 20px rgba(35, 50, 80, 0.035);
+    box-shadow:
+        0 5px 20px rgba(35, 50, 80, 0.035);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.cards .resource-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #d2daf7;
+
+    box-shadow:
+        0 15px 35px rgba(35, 50, 80, 0.09);
+}
+
+.card {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 17px;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #e4e8f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(35, 50, 80, 0.035);
 
     transition:
         transform 0.25s ease,
@@ -510,13 +652,15 @@ a {
 
     border-color: #d2daf7;
 
-    box-shadow: 0 15px 35px rgba(35, 50, 80, 0.09);
+    box-shadow:
+        0 15px 35px rgba(35, 50, 80, 0.09);
 }
 
 .card-icon {
     flex-shrink: 0;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -552,6 +696,7 @@ a {
 
 .card p {
     color: #6d778a;
+
     font-size: 13px;
 }
 
@@ -578,13 +723,17 @@ a {
 
 .subjects-grid {
     display: grid;
+
     grid-template-columns: repeat(2, 1fr);
+
     gap: 17px;
 }
 
 .subject-card {
     display: flex;
+
     align-items: center;
+
     gap: 17px;
 
     padding: 22px;
@@ -592,6 +741,7 @@ a {
     background: white;
 
     border: 1px solid #e4e8f0;
+
     border-radius: 17px;
 
     transition:
@@ -602,11 +752,13 @@ a {
 .subject-card:hover {
     transform: translateY(-4px);
 
-    box-shadow: 0 15px 35px rgba(35, 50, 80, 0.08);
+    box-shadow:
+        0 15px 35px rgba(35, 50, 80, 0.08);
 }
 
 .subject-icon {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -668,18 +820,23 @@ a {
 
 .tools-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 17px;
 }
 
 .tool-card {
     display: flex;
+
     align-items: flex-start;
+
     gap: 15px;
 
     padding: 24px;
 
     background: #172033;
+
     color: white;
 
     border-radius: 18px;
@@ -692,11 +849,13 @@ a {
 .tool-card:hover {
     transform: translateY(-5px);
 
-    box-shadow: 0 18px 35px rgba(23, 32, 51, 0.2);
+    box-shadow:
+        0 18px 35px rgba(23, 32, 51, 0.2);
 }
 
 .tool-icon {
     display: flex;
+
     align-items: center;
     justify-content: center;
 
@@ -739,7 +898,9 @@ a {
 
 .why-section {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 60px;
 
     padding: 90px 10%;
@@ -755,6 +916,7 @@ a {
     margin-bottom: 18px;
 
     font-size: clamp(32px, 4vw, 48px);
+
     line-height: 1.1;
 }
 
@@ -768,12 +930,15 @@ a {
 
 .benefits {
     display: flex;
+
     flex-direction: column;
+
     gap: 16px;
 }
 
 .benefit {
     display: flex;
+
     gap: 18px;
 
     padding: 21px;
@@ -781,6 +946,7 @@ a {
     background: white;
 
     border: 1px solid #e0e5f2;
+
     border-radius: 16px;
 }
 
@@ -812,12 +978,15 @@ a {
     padding: 55px 7% 25px;
 
     background: #111827;
+
     color: white;
 }
 
 .footer-main {
     display: flex;
+
     justify-content: space-between;
+
     gap: 50px;
 
     max-width: 1150px;
@@ -826,7 +995,8 @@ a {
 
     padding-bottom: 40px;
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-brand p {
@@ -839,12 +1009,15 @@ a {
 
 .footer-links {
     display: flex;
+
     gap: 80px;
 }
 
 .footer-links div {
     display: flex;
+
     flex-direction: column;
+
     gap: 9px;
 }
 
@@ -868,7 +1041,9 @@ a {
 
 .footer-bottom {
     display: flex;
+
     justify-content: space-between;
+
     gap: 20px;
 
     max-width: 1150px;
@@ -878,6 +1053,692 @@ a {
     color: #788397;
 
     font-size: 11px;
+}
+
+
+/* =========================
+   GRADE CALCULATOR
+   ========================= */
+
+.calculator-card {
+    grid-column: span 2;
+
+    align-items: flex-start;
+}
+
+.calculator-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.calculator-content h3 {
+    margin-bottom: 5px;
+}
+
+.calculator-input {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.calculator-input input,
+.calculator-input select {
+    min-width: 0;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dfe4ed;
+
+    border-radius: 10px;
+
+    background: #f8f9fc;
+
+    color: #172033;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.calculator-input input {
+    flex: 1;
+}
+
+.calculator-input select {
+    flex: 1;
+
+    cursor: pointer;
+
+    appearance: auto;
+}
+
+.calculator-input input:focus,
+.calculator-input select:focus {
+    border-color: #3157d5;
+
+    box-shadow:
+        0 0 0 3px rgba(49, 87, 213, 0.1);
+}
+
+.calculator-input button {
+    padding: 12px 17px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #3157d5;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.calculator-input button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(49, 87, 213, 0.2);
+}
+
+.calculator-input button:active {
+    transform: translateY(0);
+}
+
+.grade-result {
+    margin-top: 13px;
+
+    padding: 10px 13px;
+
+    border-radius: 9px;
+
+    background: #f0f3ff;
+
+    color: #3157d5;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   EXAM COUNTDOWN
+   ========================= */
+
+.countdown-card {
+    grid-column: span 2;
+
+    align-items: flex-start;
+}
+
+.countdown-content {
+    flex: 1;
+
+    min-width: 0;
+}
+
+.countdown-content h3 {
+    margin-bottom: 5px;
+}
+
+.countdown-input {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.countdown-input input {
+    flex: 1;
+
+    min-width: 150px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #dfe4ed;
+
+    border-radius: 10px;
+
+    background: #f8f9fc;
+
+    color: #172033;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.countdown-input input:focus {
+    border-color: #3157d5;
+
+    box-shadow:
+        0 0 0 3px rgba(49, 87, 213, 0.1);
+}
+
+.countdown-input button {
+    padding: 12px 17px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #3157d5;
+
+    color: white;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.countdown-input button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(49, 87, 213, 0.2);
+}
+
+.countdown-input button:active {
+    transform: translateY(0);
+}
+
+.countdown-result {
+    margin-top: 15px;
+
+    padding: 13px 15px;
+
+    border-radius: 10px;
+
+    background: #f0f3ff;
+
+    color: #3157d5;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+/* =========================
+   SUBJECT PAGE
+   ========================= */
+
+.subject-hero {
+    text-align: center;
+
+    padding: 70px 7% 50px;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.subject-hero h1 {
+    font-size: 42px;
+
+    line-height: 1.15;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   SUBJECT PAGE RESOURCE CARDS
+   ========================= */
+
+/*
+   These styles are intentionally scoped to .resource-grid.
+
+   This prevents them from interfering with the
+   homepage resource cards.
+*/
+
+.resource-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+.resource-grid .resource-card {
+    display: block;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    border: 1px solid #e5e7eb;
+
+    text-decoration: none;
+
+    color: #172033;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.resource-grid .resource-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 30px rgba(23, 32, 51, 0.08);
+}
+
+.resource-icon {
+    font-size: 32px;
+
+    margin-bottom: 12px;
+}
+
+.resource-grid .resource-card h3 {
+    margin-bottom: 8px;
+}
+
+.resource-grid .resource-card p {
+    color: #687386;
+
+    margin-bottom: 15px;
+}
+
+.resource-grid .resource-card span {
+    color: #3157d5;
+
+    font-weight: 700;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   BIOLOGY TOPICS
+   ========================= */
+
+.topic-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 15px;
+}
+
+.topic {
+    background: white;
+
+    padding: 18px;
+
+    border-radius: 14px;
+
+    border: 1px solid #e5e7eb;
+
+    text-align: center;
+
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.topic:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(23, 32, 51, 0.06);
+}
+
+
+/* =========================
+   STUDY NOTES
+   ========================= */
+
+.note-content {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 18px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 10px 30px rgba(23, 32, 51, 0.05);
+}
+
+.note-content h2 {
+    text-align: left;
+
+    margin-top: 30px;
+
+    margin-bottom: 12px;
+
+    font-size: 24px;
+}
+
+.note-content h2:first-child {
+    margin-top: 0;
+}
+
+.note-content p {
+    color: #5f6878;
+
+    margin-bottom: 18px;
+
+    font-size: 16px;
+}
+
+.note-card {
+    margin: 25px 0;
+
+    padding: 20px;
+
+    border-radius: 14px;
+
+    background: #f0f3ff;
+
+    border: 1px solid #dfe5ff;
+}
+
+.note-card h3 {
+    margin-bottom: 12px;
+
+    color: #3157d5;
+}
+
+.note-card ul {
+    padding-left: 20px;
+
+    color: #5f6878;
+}
+
+.note-card li {
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   COMPARISON TABLE
+   ========================= */
+
+.comparison-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    margin: 25px 0;
+}
+
+.comparison-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    min-width: 600px;
+
+    background: white;
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 14px;
+
+    border: 1px solid #e5e7eb;
+
+    text-align: left;
+}
+
+.comparison-table th {
+    font-weight: bold;
+
+    background: #f0f3ff;
+}
+
+.comparison-table td:first-child {
+    font-weight: bold;
+}
+
+.comparison-table tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+
+/* =========================
+   QUIZ
+   ========================= */
+
+.quiz-container {
+    max-width: 800px;
+
+    margin: 40px auto;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid #e5e7eb;
+}
+
+.quiz-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-weight: 700;
+}
+
+#quizProgress {
+    color: #555;
+}
+
+#quizScore {
+    color: #2563eb;
+}
+
+.quiz-question {
+    margin-bottom: 25px;
+}
+
+.quiz-question h3 {
+    font-size: 1.3rem;
+
+    line-height: 1.5;
+
+    margin: 0;
+}
+
+.quiz-options {
+    display: grid;
+
+    gap: 12px;
+}
+
+.quiz-option {
+    width: 100%;
+
+    padding: 15px 18px;
+
+    background: #f8fafc;
+
+    border: 2px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    text-align: left;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: #2563eb;
+
+    background: #eff6ff;
+
+    transform: translateY(-1px);
+}
+
+.quiz-option:disabled {
+    cursor: default;
+}
+
+.quiz-option.correct {
+    border-color: #16a34a;
+
+    background: #dcfce7;
+}
+
+.quiz-option.wrong {
+    border-color: #dc2626;
+
+    background: #fee2e2;
+}
+
+.quiz-feedback {
+    margin-top: 20px;
+
+    padding: 14px 16px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+.correct-feedback {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.wrong-feedback {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+.quiz-next {
+    margin-top: 20px;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+.quiz-result {
+    text-align: center;
+
+    padding: 30px 10px;
+}
+
+.quiz-result h3 {
+    font-size: 1.7rem;
+
+    margin-bottom: 15px;
+}
+
+#finalScore {
+    font-size: 1.2rem;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   BIOLOGY DIAGRAMS
+   ========================= */
+
+.diagram-container {
+    margin: 35px 0;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    text-align: center;
+
+    box-shadow:
+        0 10px 30px rgba(23, 32, 51, 0.05);
+}
+
+.biology-diagram {
+    display: block;
+
+    width: 100%;
+
+    max-width: 650px;
+
+    height: auto;
+
+    margin: 0 auto;
+
+    border-radius: 12px;
+}
+
+.diagram-caption {
+    margin-top: 15px;
+
+    color: #687386;
+
+    font-size: 13px;
+
+    font-weight: 600;
 }
 
 
@@ -901,6 +1762,9 @@ a {
         font-size: 12px;
     }
 
+
+    /* HERO */
+
     .hero {
         grid-template-columns: 1fr;
 
@@ -917,6 +1781,7 @@ a {
 
     .hero-text {
         margin-left: auto;
+
         margin-right: auto;
     }
 
@@ -940,6 +1805,9 @@ a {
         left: 0;
     }
 
+
+    /* SECTIONS */
+
     .section {
         padding: 65px 5%;
     }
@@ -954,14 +1822,53 @@ a {
         margin: 15px auto 0;
     }
 
+
+    /* CARDS */
+
     .cards,
     .subjects-grid {
         grid-template-columns: 1fr;
     }
 
+
+    /* TOOLS */
+
     .tools-grid {
         grid-template-columns: 1fr;
     }
+
+    .calculator-card,
+    .countdown-card {
+        grid-column: span 1;
+    }
+
+
+    /* CALCULATOR */
+
+    .calculator-input {
+        flex-direction: column;
+    }
+
+    .calculator-input input,
+    .calculator-input select,
+    .calculator-input button {
+        width: 100%;
+    }
+
+
+    /* COUNTDOWN */
+
+    .countdown-input {
+        flex-direction: column;
+    }
+
+    .countdown-input input,
+    .countdown-input button {
+        width: 100%;
+    }
+
+
+    /* WHY STUDYHUB */
 
     .why-section {
         grid-template-columns: 1fr;
@@ -970,6 +1877,25 @@ a {
 
         gap: 35px;
     }
+
+
+    /* SUBJECT PAGES */
+
+    .subject-hero {
+        padding: 55px 5% 40px;
+    }
+
+    .subject-hero h1 {
+        font-size: 34px;
+    }
+
+    .resource-grid,
+    .topic-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* FOOTER */
 
     .footer-main {
         flex-direction: column;
@@ -985,6 +1911,10 @@ a {
 }
 
 
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
 @media (max-width: 500px) {
 
     .logo {
@@ -998,6 +1928,9 @@ a {
     .header-button {
         font-size: 11px;
     }
+
+
+    /* HERO */
 
     .hero {
         padding-top: 55px;
@@ -1054,7 +1987,11 @@ a {
         bottom: 35px;
     }
 
-    .card {
+
+    /* CARDS */
+
+    .card,
+    .cards .resource-card {
         padding: 20px;
     }
 
@@ -1062,431 +1999,8 @@ a {
         right: 17px;
     }
 
-    .footer-links {
-        gap: 35px;
-    }
-}
-/* =========================
-   GRADE CALCULATOR
-   ========================= */
 
-.calculator-card {
-    grid-column: span 2;
-    align-items: flex-start;
-}
-
-.calculator-content {
-    flex: 1;
-}
-
-.calculator-content h3 {
-    margin-bottom: 5px;
-}
-
-.calculator-input {
-    display: flex;
-    gap: 10px;
-    margin-top: 18px;
-}
-
-.calculator-input input {
-    flex: 1;
-    min-width: 0;
-
-    padding: 12px 14px;
-
-    border: 1px solid #dfe4ed;
-    border-radius: 10px;
-
-    background: #f8f9fc;
-    color: #172033;
-
-    font-size: 13px;
-    outline: none;
-}
-
-.calculator-input input:focus {
-    border-color: #3157d5;
-
-    box-shadow: 0 0 0 3px rgba(49, 87, 213, 0.1);
-}
-
-.calculator-input button {
-    padding: 12px 17px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #3157d5;
-    color: white;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.calculator-input button:hover {
-    transform: translateY(-2px);
-
-    box-shadow: 0 8px 18px rgba(49, 87, 213, 0.2);
-}
-
-.grade-result {
-    margin-top: 13px;
-
-    padding: 10px 13px;
-
-    border-radius: 9px;
-
-    background: #f0f3ff;
-    color: #3157d5;
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-
-/* =========================
-   CALCULATOR MOBILE
-   ========================= */
-
-@media (max-width: 850px) {
-
-    .calculator-card {
-        grid-column: span 1;
-    }
-
-    .calculator-input {
-        flex-direction: column;
-    }
-
-    .calculator-input button {
-        width: 100%;
-    }
-}
-/* =========================
-   EXAM COUNTDOWN
-   ========================= */
-
-.countdown-card {
-    grid-column: span 2;
-    align-items: flex-start;
-}
-
-.countdown-content {
-    flex: 1;
-}
-
-.countdown-content h3 {
-    margin-bottom: 5px;
-}
-
-.countdown-input {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-
-    margin-top: 18px;
-}
-
-.countdown-input input {
-    flex: 1;
-    min-width: 150px;
-
-    padding: 12px 14px;
-
-    border: 1px solid #dfe4ed;
-    border-radius: 10px;
-
-    background: #f8f9fc;
-    color: #172033;
-
-    font-size: 13px;
-
-    outline: none;
-}
-
-.countdown-input input:focus {
-    border-color: #3157d5;
-
-    box-shadow:
-        0 0 0 3px rgba(49, 87, 213, 0.1);
-}
-
-.countdown-input button {
-    padding: 12px 17px;
-
-    border: none;
-    border-radius: 10px;
-
-    background: #3157d5;
-    color: white;
-
-    font-size: 13px;
-    font-weight: 700;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.countdown-input button:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 18px rgba(49, 87, 213, 0.2);
-}
-
-.countdown-result {
-    margin-top: 15px;
-
-    padding: 13px 15px;
-
-    border-radius: 10px;
-
-    background: #f0f3ff;
-    color: #3157d5;
-
-    font-size: 13px;
-    font-weight: 700;
-}
-
-
-/* =========================
-   COUNTDOWN MOBILE
-   ========================= */
-
-@media (max-width: 850px) {
-
-    .countdown-card {
-        grid-column: span 1;
-    }
-
-    .countdown-input {
-        flex-direction: column;
-    }
-
-    .countdown-input input,
-    .countdown-input button {
-        width: 100%;
-    }
-}
-/* =========================
-   SUBJECT PAGE
-   ========================= */
-
-.subject-hero {
-    text-align: center;
-    padding: 70px 7% 50px;
-    background: white;
-    border-bottom: 1px solid #e5e7eb;
-}
-
-.subject-hero h1 {
-    font-size: 42px;
-    line-height: 1.15;
-    margin-bottom: 15px;
-}
-
-
-/* =========================
-   RESOURCE CARDS
-   ========================= */
-
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.resource-card {
-    display: block;
-
-    background: white;
-
-    padding: 25px;
-
-    border-radius: 16px;
-
-    border: 1px solid #e5e7eb;
-
-    text-decoration: none;
-
-    color: #172033;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.resource-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 12px 30px rgba(23, 32, 51, 0.08);
-}
-
-.resource-icon {
-    font-size: 32px;
-    margin-bottom: 12px;
-}
-
-.resource-card h3 {
-    margin-bottom: 8px;
-}
-
-.resource-card p {
-    color: #687386;
-    margin-bottom: 15px;
-}
-
-.resource-card span {
-    color: #3157d5;
-    font-weight: 700;
-    font-size: 14px;
-}
-
-
-/* =========================
-   BIOLOGY TOPICS
-   ========================= */
-
-.topic-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 15px;
-}
-
-.topic {
-    background: white;
-
-    padding: 18px;
-
-    border-radius: 14px;
-
-    border: 1px solid #e5e7eb;
-
-    text-align: center;
-
-    font-weight: 700;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.topic:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 8px 20px rgba(23, 32, 51, 0.06);
-}
-
-
-/* =========================
-   SUBJECT PAGE MOBILE
-   ========================= */
-
-@media (max-width: 850px) {
-
-    .subject-hero {
-        padding: 55px 5% 40px;
-    }
-
-    .subject-hero h1 {
-        font-size: 34px;
-    }
-
-    .resource-grid,
-    .topic-grid {
-        grid-template-columns: 1fr;
-    }
-
-}
-/* =========================
-   STUDY NOTES
-   ========================= */
-
-.note-content {
-    max-width: 800px;
-    margin: 0 auto;
-
-    background: white;
-
-    padding: 35px;
-
-    border-radius: 18px;
-
-    border: 1px solid #e5e7eb;
-
-    box-shadow:
-        0 10px 30px rgba(23, 32, 51, 0.05);
-}
-
-.note-content h2 {
-    text-align: left;
-
-    margin-top: 30px;
-    margin-bottom: 12px;
-
-    font-size: 24px;
-}
-
-.note-content h2:first-child {
-    margin-top: 0;
-}
-
-.note-content p {
-    color: #5f6878;
-
-    margin-bottom: 18px;
-
-    font-size: 16px;
-}
-
-.note-card {
-    margin: 25px 0;
-
-    padding: 20px;
-
-    border-radius: 14px;
-
-    background: #f0f3ff;
-
-    border: 1px solid #dfe5ff;
-}
-
-.note-card h3 {
-    margin-bottom: 12px;
-
-    color: #3157d5;
-}
-
-.note-card ul {
-    padding-left: 20px;
-
-    color: #5f6878;
-}
-
-.note-card li {
-    margin-bottom: 8px;
-}
-
-
-/* =========================
-   NOTES MOBILE
-   ========================= */
-
-@media (max-width: 600px) {
+    /* NOTES */
 
     .note-content {
         padding: 22px;
@@ -1502,173 +2016,14 @@ a {
         font-size: 15px;
     }
 
-}
-/* =========================
-   BIOLOGY COMPARISON TABLE
-   ========================= */
 
-.comparison-table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    margin: 25px 0;
-}
-
-.comparison-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 600px;
-    background: white;
-}
-
-.comparison-table th,
-.comparison-table td {
-    padding: 14px;
-    border: 1px solid #e5e7eb;
-    text-align: left;
-}
-
-.comparison-table th {
-    font-weight: bold;
-    background: #f0f3ff;
-}
-
-.comparison-table td:first-child {
-    font-weight: bold;
-}
-
-.comparison-table tr:nth-child(even) {
-    background: #f9fafb;
-}
-/* =========================================================
-   STUDYHUB — LIVING WORLD QUIZ
-   ========================================================= */
-
-.quiz-container {
-    max-width: 800px;
-    margin: 40px auto;
-    padding: 28px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e5e7eb;
-}
-
-.quiz-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #e5e7eb;
-    font-weight: 700;
-}
-
-#quizProgress {
-    color: #555;
-}
-
-#quizScore {
-    color: #2563eb;
-}
-
-.quiz-question {
-    margin-bottom: 25px;
-}
-
-.quiz-question h3 {
-    font-size: 1.3rem;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.quiz-options {
-    display: grid;
-    gap: 12px;
-}
-
-.quiz-option {
-    width: 100%;
-    padding: 15px 18px;
-    background: #f8fafc;
-    border: 2px solid #e2e8f0;
-    border-radius: 12px;
-    text-align: left;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.quiz-option:hover:not(:disabled) {
-    border-color: #2563eb;
-    background: #eff6ff;
-    transform: translateY(-1px);
-}
-
-.quiz-option:disabled {
-    cursor: default;
-}
-
-.quiz-option.correct {
-    border-color: #16a34a;
-    background: #dcfce7;
-}
-
-.quiz-option.wrong {
-    border-color: #dc2626;
-    background: #fee2e2;
-}
-
-.quiz-feedback {
-    margin-top: 20px;
-    padding: 14px 16px;
-    border-radius: 10px;
-    font-weight: 700;
-    line-height: 1.5;
-}
-
-.correct-feedback {
-    background: #dcfce7;
-    color: #166534;
-}
-
-.wrong-feedback {
-    background: #fee2e2;
-    color: #991b1b;
-}
-
-.quiz-next {
-    margin-top: 20px;
-    border: none;
-    cursor: pointer;
-}
-
-.quiz-result {
-    text-align: center;
-    padding: 30px 10px;
-}
-
-.quiz-result h3 {
-    font-size: 1.7rem;
-    margin-bottom: 15px;
-}
-
-#finalScore {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-
-/* =========================================================
-   MOBILE QUIZ
-   ========================================================= */
-
-@media (max-width: 600px) {
+    /* QUIZ */
 
     .quiz-container {
         margin: 25px 10px;
+
         padding: 20px;
+
         border-radius: 16px;
     }
 
@@ -1682,59 +2037,12 @@ a {
 
     .quiz-option {
         padding: 14px;
+
         font-size: 0.95rem;
     }
 
-}
-/* =========================
-   BIOLOGY DIAGRAMS
-   ========================= */
 
-.diagram-container {
-    margin: 35px 0;
-
-    padding: 25px;
-
-    background: #ffffff;
-
-    border: 1px solid #e5e7eb;
-
-    border-radius: 18px;
-
-    text-align: center;
-
-    box-shadow:
-        0 10px 30px rgba(23, 32, 51, 0.05);
-}
-
-.biology-diagram {
-    display: block;
-
-    width: 100%;
-    max-width: 650px;
-
-    height: auto;
-
-    margin: 0 auto;
-
-    border-radius: 12px;
-}
-
-.diagram-caption {
-    margin-top: 15px;
-
-    color: #687386;
-
-    font-size: 13px;
-    font-weight: 600;
-}
-
-
-/* =========================
-   DIAGRAM MOBILE
-   ========================= */
-
-@media (max-width: 600px) {
+    /* DIAGRAMS */
 
     .diagram-container {
         padding: 15px;
@@ -1752,4 +2060,34 @@ a {
         font-size: 12px;
     }
 
+
+    /* FOOTER */
+
+    .footer-links {
+        gap: 35px;
+    }
+}
+
+
+/* =========================
+   REDUCED MOTION
+   ========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
 }
