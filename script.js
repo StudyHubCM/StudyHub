@@ -1,4 +1,38 @@
 // =====================================================
+// STUDYHUB - MAIN JAVASCRIPT
+// =====================================================
+
+
+// =====================================================
+// SHARED HELPERS
+// =====================================================
+
+function formatNumber(value) {
+    if (!Number.isFinite(value)) {
+        return "0";
+    }
+
+    if (Number.isInteger(value)) {
+        return String(value);
+    }
+
+    return value.toFixed(2).replace(/\.?0+$/, "");
+}
+
+
+function setResult(element, message) {
+    if (!element) return;
+
+    element.textContent = message;
+}
+
+
+function isValidPositiveNumber(value) {
+    return Number.isFinite(value) && value > 0;
+}
+
+
+// =====================================================
 // STUDYHUB - GRADE CALCULATOR
 // =====================================================
 
@@ -8,83 +42,110 @@ function calculateGrade() {
     const gradingSystem = document.getElementById("gradingSystem");
     const result = document.getElementById("gradeResult");
 
-    if (!scoreInput || !gradingSystem || !result) return;
+    if (!scoreInput || !gradingSystem || !result) {
+        return;
+    }
 
-    const score = Number(scoreInput.value);
+    const rawScore = scoreInput.value.trim();
+    const score = Number(rawScore);
     const system = gradingSystem.value;
 
-    // Check input
-    if (scoreInput.value === "" || isNaN(score)) {
-        result.textContent = "Please enter a score.";
+    // -------------------------------------------------
+    // CHECK INPUT
+    // -------------------------------------------------
+
+    if (rawScore === "" || !Number.isFinite(score)) {
+        setResult(result, "Please enter a valid score.");
         return;
     }
 
     if (score < 0 || score > 100) {
-        result.textContent = "Score must be between 0 and 100.";
+        setResult(result, "Score must be between 0 and 100.");
         return;
     }
 
-    let grade;
 
-    // General percentage scale
-    if (system === "general") {
+    // -------------------------------------------------
+    // GRADING SCALES
+    // -------------------------------------------------
 
-        if (score >= 80) {
-            grade = "A";
-        } else if (score >= 70) {
-            grade = "B";
-        } else if (score >= 60) {
-            grade = "C";
-        } else if (score >= 50) {
-            grade = "D";
-        } else if (score >= 40) {
-            grade = "E";
-        } else {
-            grade = "F";
-        }
+    const gradingScales = {
 
-        result.textContent = `General Grade: ${grade}`;
+        // General percentage scale
+        general: [
+            { min: 80, grade: "A" },
+            { min: 70, grade: "B" },
+            { min: 60, grade: "C" },
+            { min: 50, grade: "D" },
+            { min: 40, grade: "E" },
+            { min: 0, grade: "F" }
+        ],
+
+        // Cameroon GCE O/L
+        "gce-ol": [
+            { min: 75, grade: "A" },
+            { min: 65, grade: "B" },
+            { min: 55, grade: "C" },
+            { min: 45, grade: "D" },
+            { min: 35, grade: "E" },
+            { min: 0, grade: "F" }
+        ],
+
+        // Cameroon GCE A/L
+        "gce-al": [
+            { min: 75, grade: "A" },
+            { min: 65, grade: "B" },
+            { min: 55, grade: "C" },
+            { min: 45, grade: "D" },
+            { min: 35, grade: "E" },
+            { min: 0, grade: "F" }
+        ]
+    };
+
+
+    const scale = gradingScales[system];
+
+
+    // -------------------------------------------------
+    // CHECK GRADING SYSTEM
+    // -------------------------------------------------
+
+    if (!scale) {
+        setResult(result, "Please select a valid grading system.");
+        return;
     }
 
-    // Cameroon GCE O/L
-    else if (system === "gce-ol") {
 
-        if (score >= 75) {
-            grade = "A";
-        } else if (score >= 65) {
-            grade = "B";
-        } else if (score >= 55) {
-            grade = "C";
-        } else if (score >= 45) {
-            grade = "D";
-        } else if (score >= 35) {
-            grade = "E";
-        } else {
-            grade = "F";
-        }
+    // -------------------------------------------------
+    // FIND GRADE
+    // -------------------------------------------------
 
-        result.textContent = `GCE O/L Grade: ${grade}`;
+    const gradeEntry = scale.find(item => score >= item.min);
+
+    if (!gradeEntry) {
+        setResult(result, "Unable to calculate grade.");
+        return;
     }
 
-    // Cameroon GCE A/L
-    else if (system === "gce-al") {
+    const grade = gradeEntry.grade;
 
-        if (score >= 75) {
-            grade = "A";
-        } else if (score >= 65) {
-            grade = "B";
-        } else if (score >= 55) {
-            grade = "C";
-        } else if (score >= 45) {
-            grade = "D";
-        } else if (score >= 35) {
-            grade = "E";
-        } else {
-            grade = "F";
-        }
 
-        result.textContent = `GCE A/L Grade: ${grade}`;
-    }
+    // -------------------------------------------------
+    // DISPLAY RESULT
+    // -------------------------------------------------
+
+    const systemNames = {
+        general: "General Grade",
+        "gce-ol": "GCE O/L Grade",
+        "gce-al": "GCE A/L Grade"
+    };
+
+    const systemName = systemNames[system];
+
+    setResult(
+        result,
+        `${systemName}: ${grade}`
+    );
 }
 
 
@@ -92,82 +153,159 @@ function calculateGrade() {
 // STUDYHUB - EXAM COUNTDOWN
 // =====================================================
 
-let countdownTimer;
+let countdownTimer = null;
+
 
 function startCountdown() {
 
-    const examName = document.getElementById("examName");
-    const examDate = document.getElementById("examDate");
+    const examNameInput = document.getElementById("examName");
+    const examDateInput = document.getElementById("examDate");
     const result = document.getElementById("countdownResult");
 
-    if (!examName || !examDate || !result) return;
+    if (!examNameInput || !examDateInput || !result) {
+        return;
+    }
 
-    const name = examName.value.trim();
-    const date = examDate.value;
+    const name = examNameInput.value.trim();
+    const date = examDateInput.value;
+
+
+    // -------------------------------------------------
+    // CHECK EXAM NAME
+    // -------------------------------------------------
 
     if (name === "") {
-        result.textContent = "Please enter an exam name.";
+        setResult(result, "Please enter an exam name.");
         return;
     }
+
+
+    // -------------------------------------------------
+    // CHECK DATE
+    // -------------------------------------------------
 
     if (date === "") {
-        result.textContent = "Please choose an exam date.";
+        setResult(result, "Please choose an exam date.");
         return;
     }
 
-    const targetDate = new Date(date).getTime();
 
-    if (isNaN(targetDate)) {
-        result.textContent = "Please choose a valid date.";
+    // -------------------------------------------------
+    // CREATE LOCAL DATE
+    // -------------------------------------------------
+    // Using T00:00:00 prevents the browser from treating
+    // the date-only value as UTC and causing timezone bugs.
+    // -------------------------------------------------
+
+    const targetDate = new Date(`${date}T00:00:00`).getTime();
+
+    if (!Number.isFinite(targetDate)) {
+        setResult(result, "Please choose a valid exam date.");
         return;
     }
 
-    clearInterval(countdownTimer);
+
+    // -------------------------------------------------
+    // STOP PREVIOUS COUNTDOWN
+    // -------------------------------------------------
+
+    if (countdownTimer !== null) {
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+    }
+
+
+    // -------------------------------------------------
+    // UPDATE COUNTDOWN
+    // -------------------------------------------------
 
     function updateCountdown() {
 
-        const now = new Date().getTime();
+        const now = Date.now();
         const difference = targetDate - now;
+
+
+        // -------------------------------------------------
+        // EXAM DATE REACHED
+        // -------------------------------------------------
 
         if (difference <= 0) {
 
-            clearInterval(countdownTimer);
+            if (countdownTimer !== null) {
+                clearInterval(countdownTimer);
+                countdownTimer = null;
+            }
 
-            result.innerHTML = `
-                <strong>${name}</strong><br>
-                🎉 The exam date has arrived!
-            `;
+            // IMPORTANT:
+            // Do NOT use innerHTML with user-entered text.
+            // This prevents HTML/script injection.
+            result.replaceChildren();
+
+            const nameElement = document.createElement("strong");
+            nameElement.textContent = name;
+
+            const messageElement = document.createElement("span");
+            messageElement.textContent =
+                "🎉 The exam date has arrived!";
+
+            result.appendChild(nameElement);
+            result.appendChild(document.createElement("br"));
+            result.appendChild(messageElement);
 
             return;
         }
 
+
+        // -------------------------------------------------
+        // CALCULATE TIME
+        // -------------------------------------------------
+
+        const totalSeconds = Math.floor(difference / 1000);
+
         const days = Math.floor(
-            difference / (1000 * 60 * 60 * 24)
+            totalSeconds / (60 * 60 * 24)
         );
 
         const hours = Math.floor(
-            (difference / (1000 * 60 * 60)) % 24
+            (totalSeconds % (60 * 60 * 24)) / (60 * 60)
         );
 
         const minutes = Math.floor(
-            (difference / (1000 * 60)) % 60
+            (totalSeconds % (60 * 60)) / 60
         );
 
-        const seconds = Math.floor(
-            (difference / 1000) % 60
-        );
+        const seconds =
+            totalSeconds % 60;
 
-        result.innerHTML = `
-            <strong>${name}</strong><br>
-            ${days} Days ·
-            ${hours} Hours ·
-            ${minutes} Minutes ·
-            ${seconds} Seconds
-        `;
+
+        // -------------------------------------------------
+        // DISPLAY COUNTDOWN SAFELY
+        // -------------------------------------------------
+
+        result.replaceChildren();
+
+        const nameElement = document.createElement("strong");
+        nameElement.textContent = name;
+
+        const countdownElement = document.createElement("span");
+
+        countdownElement.textContent =
+            `${days} Days · ` +
+            `${hours} Hours · ` +
+            `${minutes} Minutes · ` +
+            `${seconds} Seconds`;
+
+        result.appendChild(nameElement);
+        result.appendChild(document.createElement("br"));
+        result.appendChild(countdownElement);
     }
 
+
+    // Run immediately
     updateCountdown();
 
+
+    // Update every second
     countdownTimer = setInterval(
         updateCountdown,
         1000
@@ -202,6 +340,11 @@ function calculateMagnification() {
     const result =
         document.getElementById("magnification-result");
 
+
+    // -------------------------------------------------
+    // CHECK REQUIRED ELEMENTS
+    // -------------------------------------------------
+
     if (
         !imageInput ||
         !actualInput ||
@@ -214,138 +357,249 @@ function calculateMagnification() {
         return;
     }
 
+
+    // -------------------------------------------------
+    // GET VALUES
+    // -------------------------------------------------
+
+    const image = Number(imageInput.value);
+    const actual = Number(actualInput.value);
+    const magnification = Number(magnificationInput.value);
+
     const imageUnit = imageUnitElement.value;
     const actualUnit = actualUnitElement.value;
     const calculation = calculationElement.value;
 
-    const image = parseFloat(imageInput.value);
-    const actual = parseFloat(actualInput.value);
-    const magnification = parseFloat(magnificationInput.value);
-
 
     // -------------------------------------------------
+    // UNIT CONVERSION HELPERS
+    // -------------------------------------------------
+    // Everything is converted to micrometres (μm)
+    // internally for accurate calculations.
+    // -------------------------------------------------
+
+    function toMicrometres(value, unit) {
+
+        if (unit === "mm") {
+            return value * 1000;
+        }
+
+        // Default: μm
+        return value;
+    }
+
+
+    function fromMicrometres(value, unit) {
+
+        if (unit === "mm") {
+            return value / 1000;
+        }
+
+        // Default: μm
+        return value;
+    }
+
+
+    function unitLabel(unit) {
+
+        if (unit === "mm") {
+            return "mm";
+        }
+
+        return "μm";
+    }
+
+
+    // =================================================
     // CALCULATE MAGNIFICATION
-    // -------------------------------------------------
+    // =================================================
 
     if (calculation === "magnification") {
 
         if (
-            isNaN(image) ||
-            isNaN(actual) ||
-            image <= 0 ||
-            actual <= 0
+            !isValidPositiveNumber(image) ||
+            !isValidPositiveNumber(actual)
         ) {
-            result.textContent =
-                "Please enter a valid image size and actual size.";
-
+            setResult(
+                result,
+                "Please enter valid image and actual sizes greater than 0."
+            );
             return;
         }
 
-        let imageInMicrometres = image;
-        let actualInMicrometres = actual;
 
-        if (imageUnit === "mm") {
-            imageInMicrometres = image * 1000;
+        const imageInMicrometres =
+            toMicrometres(image, imageUnit);
+
+        const actualInMicrometres =
+            toMicrometres(actual, actualUnit);
+
+
+        if (
+            !isValidPositiveNumber(imageInMicrometres) ||
+            !isValidPositiveNumber(actualInMicrometres)
+        ) {
+            setResult(
+                result,
+                "Please enter valid measurements."
+            );
+            return;
         }
 
-        if (actualUnit === "mm") {
-            actualInMicrometres = actual * 1000;
-        }
 
         const answer =
-            imageInMicrometres / actualInMicrometres;
+            imageInMicrometres /
+            actualInMicrometres;
 
+
+        const formattedAnswer =
+            formatNumber(answer);
+
+
+        // Update magnification input
         magnificationInput.value =
-            Number.isInteger(answer)
-                ? answer
-                : answer.toFixed(2);
+            formattedAnswer;
 
-        result.textContent =
-            "Magnification = ×" +
-            (Number.isInteger(answer)
-                ? answer
-                : answer.toFixed(2));
+
+        // Display result
+        setResult(
+            result,
+            `Magnification = ×${formattedAnswer}`
+        );
+
+        return;
     }
 
 
-    // -------------------------------------------------
+    // =================================================
     // CALCULATE ACTUAL SIZE
-    // -------------------------------------------------
+    // =================================================
 
-    else if (calculation === "actual") {
+    if (calculation === "actual") {
 
         if (
-            isNaN(image) ||
-            isNaN(magnification) ||
-            image <= 0 ||
-            magnification <= 0
+            !isValidPositiveNumber(image) ||
+            !isValidPositiveNumber(magnification)
         ) {
-            result.textContent =
-                "Please enter a valid image size and magnification.";
-
+            setResult(
+                result,
+                "Please enter a valid image size and magnification."
+            );
             return;
         }
 
-        let imageInMicrometres = image;
 
-        if (imageUnit === "mm") {
-            imageInMicrometres = image * 1000;
-        }
+        const imageInMicrometres =
+            toMicrometres(image, imageUnit);
+
+
+        const actualInMicrometres =
+            imageInMicrometres /
+            magnification;
+
 
         const answer =
-            imageInMicrometres / magnification;
+            fromMicrometres(
+                actualInMicrometres,
+                actualUnit
+            );
 
+
+        const formattedAnswer =
+            formatNumber(answer);
+
+
+        // Keep the answer in the unit selected
+        // for actual size.
         actualInput.value =
-            Number.isInteger(answer)
-                ? answer
-                : answer.toFixed(2);
+            formattedAnswer;
 
-        result.textContent =
-            "Actual size = " +
-            (Number.isInteger(answer)
-                ? answer
-                : answer.toFixed(2)) +
-            " μm";
+
+        setResult(
+            result,
+            `Actual size = ${formattedAnswer} ${unitLabel(actualUnit)}`
+        );
+
+        return;
     }
 
 
-    // -------------------------------------------------
+    // =================================================
     // CALCULATE IMAGE SIZE
-    // -------------------------------------------------
+    // =================================================
 
-    else if (calculation === "image") {
+    if (calculation === "image") {
 
         if (
-            isNaN(actual) ||
-            isNaN(magnification) ||
-            actual <= 0 ||
-            magnification <= 0
+            !isValidPositiveNumber(actual) ||
+            !isValidPositiveNumber(magnification)
         ) {
-            result.textContent =
-                "Please enter a valid actual size and magnification.";
-
+            setResult(
+                result,
+                "Please enter a valid actual size and magnification."
+            );
             return;
         }
 
-        let actualInMicrometres = actual;
 
-        if (actualUnit === "mm") {
-            actualInMicrometres = actual * 1000;
-        }
+        const actualInMicrometres =
+            toMicrometres(actual, actualUnit);
+
+
+        const imageInMicrometres =
+            actualInMicrometres *
+            magnification;
+
 
         const answer =
-            actualInMicrometres * magnification;
+            fromMicrometres(
+                imageInMicrometres,
+                imageUnit
+            );
 
+
+        const formattedAnswer =
+            formatNumber(answer);
+
+
+        // Keep the answer in the unit selected
+        // for image size.
         imageInput.value =
-            Number.isInteger(answer)
-                ? answer
-                : answer.toFixed(2);
+            formattedAnswer;
 
-        result.textContent =
-            "Image size = " +
-            (Number.isInteger(answer)
-                ? answer
-                : answer.toFixed(2)) +
-            " μm";
+
+        setResult(
+            result,
+            `Image size = ${formattedAnswer} ${unitLabel(imageUnit)}`
+        );
+
+        return;
     }
+
+
+    // =================================================
+    // INVALID CALCULATION TYPE
+    // =================================================
+
+    setResult(
+        result,
+        "Please select a valid calculation type."
+    );
 }
+
+
+// =====================================================
+// STUDYHUB - CLEANUP
+// =====================================================
+
+// Stop the countdown if the user leaves the page.
+// This prevents an unnecessary timer from continuing
+// while the page is being unloaded.
+window.addEventListener("pagehide", function () {
+
+    if (countdownTimer !== null) {
+        clearInterval(countdownTimer);
+        countdownTimer = null;
+    }
+
+});
