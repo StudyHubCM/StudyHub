@@ -1,12 +1,12 @@
- /* =====================================================
-   STUDYHUB CM
-   Dashboard + Existing Study Pages
-   ===================================================== */
+/* =========================
+   STUDYHUB 2.0
+   Modern + Professional
+   ========================= */
 
 
-/* =====================================================
+/* =========================
    RESET
-   ===================================================== */
+   ========================= */
 
 * {
     box-sizing: border-box;
@@ -42,9 +42,9 @@ select {
 }
 
 
-/* =====================================================
+/* =========================
    ACCESSIBILITY
-   ===================================================== */
+   ========================= */
 
 .sr-only {
     position: absolute;
@@ -73,801 +73,433 @@ select:focus-visible {
 }
 
 
-/* =====================================================
-   NEW STUDYHUB CM HOMEPAGE
-   Only activates on the new dashboard because
-   the page contains #menuButton.
-   ===================================================== */
-
-
-/* =====================================================
+/* =========================
    HEADER
-   ===================================================== */
+   ========================= */
 
-body:has(#menuButton) .header {
+.header {
     position: sticky;
-
     top: 0;
-
     z-index: 100;
 
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px 7%;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #e8ebf2;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    font-size: 22px;
+    font-weight: 800;
+
+    color: #172033;
+}
+
+.logo-icon {
+    font-size: 24px;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+.nav a {
+    position: relative;
+
+    color: #596579;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: #3157d5;
+}
+
+.nav a.active::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: -8px;
+
+    height: 2px;
+
+    background: #3157d5;
+
+    border-radius: 10px;
+}
+
+.header-button {
+    padding: 10px 17px;
+
+    border-radius: 10px;
+
+    background: #3157d5;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.header-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(49, 87, 213, 0.22);
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+    position: relative;
+
+    overflow: hidden;
+
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
 
     align-items: center;
 
-    justify-content: space-between;
+    gap: 50px;
 
-    width: 100%;
+    min-height: 620px;
 
-    padding: 16px 5%;
+    padding: 90px 7%;
 
-    background: rgba(255, 255, 255, 0.96);
-
-    backdrop-filter: blur(14px);
-
-    -webkit-backdrop-filter: blur(14px);
-
-    border-bottom: 1px solid #e7eaf1;
+    background:
+        radial-gradient(
+            circle at 80% 30%,
+            rgba(80, 111, 230, 0.14),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #ffffff 0%,
+            #f5f7ff 100%
+        );
 }
 
-body:has(#menuButton) .logo {
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -100px;
+    bottom: -120px;
+
+    background: rgba(111, 134, 235, 0.12);
+
+    border-radius: 50%;
+
+    filter: blur(10px);
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 650px;
+}
+
+.hero-badge {
+    display: inline-block;
+
+    margin-bottom: 20px;
+
+    padding: 8px 13px;
+
+    border: 1px solid #dce3ff;
+
+    border-radius: 50px;
+
+    background: #eef2ff;
+
+    color: #3157d5;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.hero h1 {
+    margin-bottom: 22px;
+
+    font-size: clamp(45px, 6vw, 72px);
+
+    line-height: 1.03;
+
+    letter-spacing: -2px;
+}
+
+.hero h1 span {
+    color: #3157d5;
+}
+
+.hero-text {
+    max-width: 590px;
+
+    margin-bottom: 32px;
+
+    color: #647084;
+
+    font-size: 17px;
+}
+
+.hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 13px;
+
+    margin-bottom: 35px;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 21px;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.primary-button {
+    background: #3157d5;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(49, 87, 213, 0.18);
+}
+
+.secondary-button {
+    background: white;
+
+    color: #26334b;
+
+    border: 1px solid #dfe4ed;
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-2px);
+}
+
+.primary-button:hover {
+    box-shadow:
+        0 12px 28px rgba(49, 87, 213, 0.25);
+}
+
+.hero-trust {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 22px;
+}
+
+.trust-item {
     display: flex;
 
     align-items: center;
 
     gap: 8px;
 
-    color: #172033;
+    color: #687386;
 
-    font-size: 21px;
-
-    font-weight: 800;
-}
-
-body:has(#menuButton) .logo-icon {
-    font-size: 23px;
-}
-
-
-/* =====================================================
-   MENU BUTTON
-   ===================================================== */
-
-#menuButton {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 43px;
-
-    height: 43px;
-
-    padding: 0;
-
-    border: 1px solid #e2e6ef;
-
-    border-radius: 12px;
-
-    background: #ffffff;
-
-    color: #172033;
-
-    font-size: 23px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease,
-        transform 0.2s ease;
-}
-
-#menuButton:hover {
-    background: #f0f3ff;
-
-    border-color: #d3daf5;
-
-    transform: translateY(-1px);
-}
-
-#menuButton:active {
-    transform: translateY(0);
-}
-
-
-/* =====================================================
-   SIDE MENU
-   ===================================================== */
-
-#menuOverlay {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 200;
-
-    background: rgba(13, 20, 35, 0.35);
-
-    opacity: 0;
-
-    transition: opacity 0.25s ease;
-}
-
-#menuOverlay.active {
-    opacity: 1;
-}
-
-#sideMenu {
-    position: fixed;
-
-    top: 0;
-
-    right: 0;
-
-    z-index: 210;
-
-    width: min(330px, 88vw);
-
-    height: 100vh;
-
-    padding: 25px 20px;
-
-    background: #ffffff;
-
-    border-left: 1px solid #e5e8ef;
-
-    box-shadow:
-        -15px 0 40px rgba(25, 37, 65, 0.12);
-
-    transform: translateX(100%);
-
-    transition: transform 0.25s ease;
-}
-
-#sideMenu.active {
-    transform: translateX(0);
-}
-
-#menuClose {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    width: 40px;
-
-    height: 40px;
-
-    margin-left: auto;
-
-    margin-bottom: 25px;
-
-    border: 1px solid #e1e5ed;
-
-    border-radius: 10px;
-
-    background: #f7f8fb;
-
-    color: #172033;
-
-    font-size: 22px;
-
-    cursor: pointer;
-}
-
-#sideMenu a {
-    display: block;
-
-    padding: 15px 14px;
-
-    margin-bottom: 5px;
-
-    border-radius: 11px;
-
-    color: #4f5b70;
-
-    font-size: 15px;
-
+    font-size: 12px;
     font-weight: 600;
-
-    transition:
-        background 0.2s ease,
-        color 0.2s ease;
 }
 
-#sideMenu a:hover {
-    background: #eef2ff;
-
-    color: #3157d5;
-}
-
-body.menu-open {
-    overflow: hidden;
+.trust-item strong {
+    font-size: 17px;
 }
 
 
-/* =====================================================
-   DASHBOARD MAIN
-   ===================================================== */
+/* =========================
+   HERO VISUAL
+   ========================= */
 
-body:has(#menuButton) main {
-    width: 100%;
-
-    max-width: 760px;
-
-    margin: 0 auto;
-
-    padding: 24px 18px 110px;
-}
-
-
-/* =====================================================
-   WELCOME SECTION
-   ===================================================== */
-
-body:has(#studentGreeting) #home {
-    padding: 10px 2px 20px;
-}
-
-#studentGreeting {
-    margin-bottom: 5px;
-
-    color: #172033;
-
-    font-size: clamp(25px, 6vw, 34px);
-
-    line-height: 1.2;
-
-    letter-spacing: -0.7px;
-
-    font-weight: 800;
-}
-
-#studentLevel {
-    color: #69758a;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.3px;
-}
-
-
-/* =====================================================
-   GENERAL DASHBOARD SECTIONS
-   ===================================================== */
-
-body:has(#menuButton) main > section {
-    margin-bottom: 22px;
-}
-
-body:has(#menuButton) main section > h2 {
-    margin-bottom: 12px;
-
-    color: #172033;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.3px;
-
-    text-transform: uppercase;
-}
-
-
-/* =====================================================
-   EXAM CARD
-   ===================================================== */
-
-#examSection {
+.hero-visual {
     position: relative;
 
-    overflow: hidden;
+    min-height: 390px;
 
-    padding: 25px 22px;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #3157d5 0%,
-            #4569df 100%
-        );
-
-    color: white;
-
-    box-shadow:
-        0 14px 30px rgba(49, 87, 213, 0.18);
-}
-
-#examSection::after {
-    content: "";
-
-    position: absolute;
-
-    width: 150px;
-
-    height: 150px;
-
-    right: -55px;
-
-    bottom: -65px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.09);
-}
-
-#examSection h2 {
-    position: relative;
-
-    z-index: 1;
-
-    margin-bottom: 16px;
-
-    color: rgba(255, 255, 255, 0.82);
-
-    font-size: 11px;
-
-    letter-spacing: 1.5px;
-}
-
-#homeExamName {
-    position: relative;
-
-    z-index: 1;
-
-    margin-bottom: 13px;
-
-    font-size: 19px;
-
-    font-weight: 700;
-}
-
-#homeExamDays {
-    position: relative;
-
-    z-index: 1;
-
-    margin-bottom: 18px;
-
-    font-size: clamp(30px, 9vw, 45px);
-
-    line-height: 1;
-
-    font-weight: 900;
-
-    letter-spacing: -1px;
-}
-
-#viewExamButton {
-    position: relative;
-
-    z-index: 1;
-
-    display: inline-flex;
+    display: flex;
 
     align-items: center;
-
     justify-content: center;
+}
 
-    padding: 10px 15px;
-
-    border-radius: 10px;
-
+.study-card {
     background: white;
 
-    color: #3157d5;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-#viewExamButton:hover {
-    transform: translateY(-2px);
+    border: 1px solid #e6eaf2;
 
     box-shadow:
-        0 8px 18px rgba(0, 0, 0, 0.12);
+        0 25px 60px rgba(28, 45, 85, 0.12);
 }
 
+.main-study-card {
+    width: min(340px, 80%);
 
-/* =====================================================
-   CONTINUE STUDYING
-   ===================================================== */
+    padding: 28px;
 
-#continueSection {
-    padding: 21px;
+    border-radius: 24px;
 
-    background: #ffffff;
-
-    border: 1px solid #e3e7ef;
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 5px 18px rgba(25, 40, 70, 0.04);
+    transform: rotate(2deg);
 }
 
-#continueSubject {
-    margin-bottom: 2px;
-
-    color: #172033;
-
-    font-size: 17px;
-
-    font-weight: 800;
-}
-
-#continueTopic {
-    margin-bottom: 16px;
-
-    color: #69758a;
-
-    font-size: 13px;
-}
-
-#continueButton {
+.study-card-top {
     display: flex;
 
     align-items: center;
-
     justify-content: space-between;
 
+    margin-bottom: 24px;
+
+    font-size: 25px;
+}
+
+.online-dot {
+    color: #36b37e;
+
+    font-size: 11px;
+}
+
+.main-study-card h3 {
+    margin-bottom: 7px;
+
+    font-size: 21px;
+}
+
+.main-study-card p {
+    margin-bottom: 25px;
+
+    color: #758095;
+
+    font-size: 14px;
+}
+
+.progress-bar {
     width: 100%;
 
-    padding: 12px 14px;
-
-    border-radius: 11px;
-
-    background: #f0f3ff;
-
-    color: #3157d5;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition:
-        background 0.2s ease,
-        transform 0.2s ease;
-}
-
-#continueButton:hover {
-    background: #e7ecff;
-
-    transform: translateY(-1px);
-}
-
-
-/* =====================================================
-   QUICK ACCESS
-   ===================================================== */
-
-.quick-access,
-.quick-access-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 12px;
-}
-
-.quick-access a,
-.quick-item {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 94px;
-
-    padding: 14px 8px;
-
-    background: #ffffff;
-
-    border: 1px solid #e3e7ef;
-
-    border-radius: 16px;
-
-    color: #172033;
-
-    text-align: center;
-
-    box-shadow:
-        0 4px 15px rgba(25, 40, 70, 0.035);
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.quick-access a:hover,
-.quick-item:hover {
-    transform: translateY(-3px);
-
-    border-color: #d4dcfa;
-
-    box-shadow:
-        0 10px 24px rgba(25, 40, 70, 0.08);
-}
-
-.quick-access a:first-child,
-.quick-item:first-child {
-    color: #3157d5;
-}
-
-.quick-access a::first-line,
-.quick-item::first-line {
-    font-size: 24px;
-}
-
-
-/* =====================================================
-   SELECTED SUBJECTS
-   ===================================================== */
-
-#subjects {
-    padding-top: 3px;
-}
-
-#selectedSubjects {
-    display: grid;
-
-    grid-template-columns: repeat(3, 1fr);
-
-    gap: 10px;
-
-    list-style: none;
-}
-
-#selectedSubjects li {
-    min-width: 0;
-}
-
-#selectedSubjects li a {
-    display: flex;
-
-    align-items: center;
-
-    min-height: 65px;
-
-    width: 100%;
-
-    padding: 12px;
-
-    background: #ffffff;
-
-    border: 1px solid #e3e7ef;
-
-    border-radius: 14px;
-
-    color: #26334b;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    transition:
-        transform 0.2s ease,
-        border-color 0.2s ease,
-        background 0.2s ease;
-}
-
-#selectedSubjects li a:hover {
-    transform: translateY(-2px);
-
-    background: #f8f9ff;
-
-    border-color: #ccd5f5;
-
-    color: #3157d5;
-}
-
-
-/* =====================================================
-   CHANGE SUBJECTS
-   ===================================================== */
-
-#changeSubjects,
-#changeSubjectsButton,
-a[href="select-subjects.html"] {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    margin-top: 13px;
-
-    width: 100%;
-
-    padding: 11px 14px;
-
-    border: 1px dashed #cbd3e6;
-
-    border-radius: 11px;
-
-    background: transparent;
-
-    color: #3157d5;
-
-    font-size: 13px;
-
-    font-weight: 800;
-
-    transition:
-        background 0.2s ease,
-        border-color 0.2s ease;
-}
-
-a[href="select-subjects.html"]:hover {
-    background: #eef2ff;
-
-    border-color: #aebcf0;
-}
-
-
-/* =====================================================
-   TOOLS SECTION ON HOMEPAGE
-   ===================================================== */
-
-#tools {
-    padding-top: 2px;
-}
-
-#tools .tool-card,
-#tools .tools-card {
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 13px;
-
-    padding: 16px;
+    height: 9px;
 
     margin-bottom: 10px;
 
-    background: #ffffff;
+    overflow: hidden;
 
-    border: 1px solid #e3e7ef;
+    background: #edf0f6;
 
-    border-radius: 14px;
+    border-radius: 20px;
+}
 
-    color: #172033;
+.progress {
+    width: 72%;
+
+    height: 100%;
+
+    background: #3157d5;
+
+    border-radius: 20px;
+}
+
+.main-study-card small {
+    color: #8992a2;
+}
+
+.floating-card {
+    position: absolute;
+
+    padding: 12px 15px;
+
+    background: white;
+
+    border: 1px solid #e6eaf2;
+
+    border-radius: 12px;
 
     box-shadow:
-        0 4px 15px rgba(25, 40, 70, 0.035);
+        0 15px 35px rgba(28, 45, 85, 0.1);
 
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-#tools .tool-card:hover,
-#tools .tools-card:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 10px 22px rgba(25, 40, 70, 0.07);
-}
-
-#tools a[href="tools.html"] {
-    display: flex;
-
-    justify-content: flex-end;
-
-    margin-top: 8px;
-
-    color: #3157d5;
-
-    font-size: 13px;
-
-    font-weight: 800;
-}
-
-
-/* =====================================================
-   BOTTOM NAVIGATION
-   ===================================================== */
-
-.bottom-nav {
-    position: fixed;
-
-    left: 0;
-
-    right: 0;
-
-    bottom: 0;
-
-    z-index: 150;
-
-    display: grid;
-
-    grid-template-columns: repeat(4, 1fr);
-
-    padding:
-        8px
-        max(10px, env(safe-area-inset-left))
-        calc(8px + env(safe-area-inset-bottom))
-        max(10px, env(safe-area-inset-right));
-
-    background: rgba(255, 255, 255, 0.97);
-
-    backdrop-filter: blur(14px);
-
-    -webkit-backdrop-filter: blur(14px);
-
-    border-top: 1px solid #e4e8ef;
-
-    box-shadow:
-        0 -6px 25px rgba(23, 32, 51, 0.06);
-}
-
-.bottom-nav a {
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    justify-content: center;
-
-    min-height: 52px;
-
-    gap: 2px;
-
-    color: #7b8597;
-
-    font-size: 10px;
-
+    font-size: 12px;
     font-weight: 700;
 
-    transition:
-        color 0.2s ease,
-        transform 0.2s ease;
+    animation: float 4s ease-in-out infinite;
 }
 
-.bottom-nav a:hover,
-.bottom-nav a.active {
-    color: #3157d5;
+.floating-one {
+    top: 65px;
+    right: 5px;
 }
 
-.bottom-nav a:active {
-    transform: scale(0.96);
+.floating-two {
+    left: 5px;
+    bottom: 70px;
+
+    animation-delay: 1s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
 }
 
 
-/* =====================================================
-   DASHBOARD FOOTER
-   ===================================================== */
-
-body:has(#menuButton) .footer {
-    display: none;
-}
-
-
-/* =====================================================
-   EXISTING GENERAL SECTIONS
-   ===================================================== */
+/* =========================
+   GENERAL SECTIONS
+   ========================= */
 
 .section {
     max-width: 1150px;
@@ -914,7 +546,6 @@ body:has(#menuButton) .footer {
     color: #3157d5;
 
     font-size: 11px;
-
     font-weight: 800;
 
     letter-spacing: 2px;
@@ -935,9 +566,9 @@ body:has(#menuButton) .footer {
 }
 
 
-/* =====================================================
-   CALCULATOR / RESOURCE CARDS
-   ===================================================== */
+/* =========================
+   HOMEPAGE RESOURCE CARDS
+   ========================= */
 
 .cards {
     display: grid;
@@ -947,7 +578,49 @@ body:has(#menuButton) .footer {
     gap: 18px;
 }
 
-.cards .resource-card,
+/*
+   IMPORTANT:
+   These rules are intentionally scoped to .cards.
+
+   This prevents the subject-page .resource-card
+   styles from overriding homepage resource cards.
+*/
+
+.cards .resource-card {
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 17px;
+
+    padding: 25px;
+
+    background: white;
+
+    border: 1px solid #e4e8f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 5px 20px rgba(35, 50, 80, 0.035);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.cards .resource-card:hover {
+    transform: translateY(-5px);
+
+    border-color: #d2daf7;
+
+    box-shadow:
+        0 15px 35px rgba(35, 50, 80, 0.09);
+}
+
 .card {
     position: relative;
 
@@ -974,7 +647,6 @@ body:has(#menuButton) .footer {
         border-color 0.25s ease;
 }
 
-.cards .resource-card:hover,
 .card:hover {
     transform: translateY(-5px);
 
@@ -990,11 +662,9 @@ body:has(#menuButton) .footer {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     width: 52px;
-
     height: 52px;
 
     border-radius: 14px;
@@ -1034,20 +704,18 @@ body:has(#menuButton) .footer {
     position: absolute;
 
     right: 22px;
-
     bottom: 20px;
 
     color: #3157d5;
 
     font-size: 20px;
-
     font-weight: 700;
 }
 
 
-/* =====================================================
+/* =========================
    SUBJECTS
-   ===================================================== */
+   ========================= */
 
 .subjects-section {
     padding-top: 55px;
@@ -1092,11 +760,9 @@ body:has(#menuButton) .footer {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     width: 54px;
-
     height: 54px;
 
     flex-shrink: 0;
@@ -1124,7 +790,6 @@ body:has(#menuButton) .footer {
     color: #3157d5;
 
     font-size: 19px;
-
     font-weight: 700;
 }
 
@@ -1145,9 +810,13 @@ body:has(#menuButton) .footer {
 }
 
 
-/* =====================================================
+/* =========================
    TOOLS
-   ===================================================== */
+   ========================= */
+
+.tools-section {
+    padding-top: 70px;
+}
 
 .tools-grid {
     display: grid;
@@ -1188,11 +857,9 @@ body:has(#menuButton) .footer {
     display: flex;
 
     align-items: center;
-
     justify-content: center;
 
     width: 47px;
-
     height: 47px;
 
     flex-shrink: 0;
@@ -1225,9 +892,173 @@ body:has(#menuButton) .footer {
 }
 
 
-/* =====================================================
+/* =========================
+   WHY STUDYHUB
+   ========================= */
+
+.why-section {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+
+    padding: 90px 10%;
+
+    background: #eef2ff;
+}
+
+.why-content {
+    max-width: 530px;
+}
+
+.why-content h2 {
+    margin-bottom: 18px;
+
+    font-size: clamp(32px, 4vw, 48px);
+
+    line-height: 1.1;
+}
+
+.why-content > p:not(.section-label) {
+    margin-bottom: 28px;
+
+    color: #687386;
+
+    font-size: 15px;
+}
+
+.benefits {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+.benefit {
+    display: flex;
+
+    gap: 18px;
+
+    padding: 21px;
+
+    background: white;
+
+    border: 1px solid #e0e5f2;
+
+    border-radius: 16px;
+}
+
+.benefit > span {
+    color: #3157d5;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.benefit h3 {
+    margin-bottom: 4px;
+
+    font-size: 16px;
+}
+
+.benefit p {
+    color: #707b8f;
+
+    font-size: 12px;
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+.footer {
+    padding: 55px 7% 25px;
+
+    background: #111827;
+
+    color: white;
+}
+
+.footer-main {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding-bottom: 40px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-brand p {
+    margin-top: 10px;
+
+    color: #9ca6b8;
+
+    font-size: 13px;
+}
+
+.footer-links {
+    display: flex;
+
+    gap: 80px;
+}
+
+.footer-links div {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.footer-links h4 {
+    margin-bottom: 7px;
+
+    font-size: 13px;
+}
+
+.footer-links a {
+    color: #9ca6b8;
+
+    font-size: 12px;
+
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    max-width: 1150px;
+
+    margin: 20px auto 0;
+
+    color: #788397;
+
+    font-size: 11px;
+}
+
+
+/* =========================
    GRADE CALCULATOR
-   ===================================================== */
+   ========================= */
 
 .calculator-card {
     grid-column: span 2;
@@ -1270,6 +1101,10 @@ body:has(#menuButton) .footer {
     font-size: 13px;
 
     outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
 }
 
 .calculator-input input {
@@ -1280,6 +1115,8 @@ body:has(#menuButton) .footer {
     flex: 1;
 
     cursor: pointer;
+
+    appearance: auto;
 }
 
 .calculator-input input:focus,
@@ -1302,10 +1139,24 @@ body:has(#menuButton) .footer {
     color: white;
 
     font-size: 13px;
-
     font-weight: 700;
 
     cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.calculator-input button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(49, 87, 213, 0.2);
+}
+
+.calculator-input button:active {
+    transform: translateY(0);
 }
 
 .grade-result {
@@ -1320,14 +1171,13 @@ body:has(#menuButton) .footer {
     color: #3157d5;
 
     font-size: 13px;
-
     font-weight: 700;
 }
 
 
-/* =====================================================
-   EXAM COUNTDOWN TOOL
-   ===================================================== */
+/* =========================
+   EXAM COUNTDOWN
+   ========================= */
 
 .countdown-card {
     grid-column: span 2;
@@ -1373,6 +1223,17 @@ body:has(#menuButton) .footer {
     font-size: 13px;
 
     outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.countdown-input input:focus {
+    border-color: #3157d5;
+
+    box-shadow:
+        0 0 0 3px rgba(49, 87, 213, 0.1);
 }
 
 .countdown-input button {
@@ -1387,10 +1248,24 @@ body:has(#menuButton) .footer {
     color: white;
 
     font-size: 13px;
-
     font-weight: 700;
 
     cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.countdown-input button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(49, 87, 213, 0.2);
+}
+
+.countdown-input button:active {
+    transform: translateY(0);
 }
 
 .countdown-result {
@@ -1405,14 +1280,13 @@ body:has(#menuButton) .footer {
     color: #3157d5;
 
     font-size: 13px;
-
     font-weight: 700;
 }
 
 
-/* =====================================================
+/* =========================
    SUBJECT PAGE
-   ===================================================== */
+   ========================= */
 
 .subject-hero {
     text-align: center;
@@ -1432,6 +1306,18 @@ body:has(#menuButton) .footer {
     margin-bottom: 15px;
 }
 
+
+/* =========================
+   SUBJECT PAGE RESOURCE CARDS
+   ========================= */
+
+/*
+   These styles are intentionally scoped to .resource-grid.
+
+   This prevents them from interfering with the
+   homepage resource cards.
+*/
+
 .resource-grid {
     display: grid;
 
@@ -1443,13 +1329,15 @@ body:has(#menuButton) .footer {
 .resource-grid .resource-card {
     display: block;
 
-    padding: 25px;
-
     background: white;
+
+    padding: 25px;
 
     border-radius: 16px;
 
     border: 1px solid #e5e7eb;
+
+    text-decoration: none;
 
     color: #172033;
 
@@ -1466,9 +1354,9 @@ body:has(#menuButton) .footer {
 }
 
 .resource-icon {
-    margin-bottom: 12px;
-
     font-size: 32px;
+
+    margin-bottom: 12px;
 }
 
 .resource-grid .resource-card h3 {
@@ -1476,23 +1364,23 @@ body:has(#menuButton) .footer {
 }
 
 .resource-grid .resource-card p {
-    margin-bottom: 15px;
-
     color: #687386;
+
+    margin-bottom: 15px;
 }
 
 .resource-grid .resource-card span {
     color: #3157d5;
 
-    font-size: 14px;
-
     font-weight: 700;
+
+    font-size: 14px;
 }
 
 
-/* =====================================================
+/* =========================
    BIOLOGY TOPICS
-   ===================================================== */
+   ========================= */
 
 .topic-grid {
     display: grid;
@@ -1503,9 +1391,9 @@ body:has(#menuButton) .footer {
 }
 
 .topic {
-    padding: 18px;
-
     background: white;
+
+    padding: 18px;
 
     border-radius: 14px;
 
@@ -1528,18 +1416,18 @@ body:has(#menuButton) .footer {
 }
 
 
-/* =====================================================
+/* =========================
    STUDY NOTES
-   ===================================================== */
+   ========================= */
 
 .note-content {
     max-width: 800px;
 
     margin: 0 auto;
 
-    padding: 35px;
-
     background: white;
+
+    padding: 35px;
 
     border-radius: 18px;
 
@@ -1550,6 +1438,8 @@ body:has(#menuButton) .footer {
 }
 
 .note-content h2 {
+    text-align: left;
+
     margin-top: 30px;
 
     margin-bottom: 12px;
@@ -1562,9 +1452,9 @@ body:has(#menuButton) .footer {
 }
 
 .note-content p {
-    margin-bottom: 18px;
-
     color: #5f6878;
+
+    margin-bottom: 18px;
 
     font-size: 16px;
 }
@@ -1598,9 +1488,9 @@ body:has(#menuButton) .footer {
 }
 
 
-/* =====================================================
+/* =========================
    COMPARISON TABLE
-   ===================================================== */
+   ========================= */
 
 .comparison-table-wrapper {
     width: 100%;
@@ -1608,16 +1498,14 @@ body:has(#menuButton) .footer {
     overflow-x: auto;
 
     margin: 25px 0;
-
-    -webkit-overflow-scrolling: touch;
 }
 
 .comparison-table {
     width: 100%;
 
-    min-width: 600px;
-
     border-collapse: collapse;
+
+    min-width: 600px;
 
     background: white;
 }
@@ -1632,9 +1520,9 @@ body:has(#menuButton) .footer {
 }
 
 .comparison-table th {
-    background: #f0f3ff;
-
     font-weight: bold;
+
+    background: #f0f3ff;
 }
 
 .comparison-table td:first-child {
@@ -1646,9 +1534,9 @@ body:has(#menuButton) .footer {
 }
 
 
-/* =====================================================
+/* =========================
    QUIZ
-   ===================================================== */
+   ========================= */
 
 .quiz-container {
     max-width: 800px;
@@ -1670,9 +1558,9 @@ body:has(#menuButton) .footer {
 .quiz-header {
     display: flex;
 
-    align-items: center;
-
     justify-content: space-between;
+
+    align-items: center;
 
     gap: 15px;
 
@@ -1698,11 +1586,11 @@ body:has(#menuButton) .footer {
 }
 
 .quiz-question h3 {
-    margin: 0;
-
     font-size: 1.3rem;
 
     line-height: 1.5;
+
+    margin: 0;
 }
 
 .quiz-options {
@@ -1727,6 +1615,8 @@ body:has(#menuButton) .footer {
     font-size: 1rem;
 
     cursor: pointer;
+
+    transition: 0.2s ease;
 }
 
 .quiz-option:hover:not(:disabled) {
@@ -1786,29 +1676,29 @@ body:has(#menuButton) .footer {
 }
 
 .quiz-result {
-    padding: 30px 10px;
-
     text-align: center;
+
+    padding: 30px 10px;
 }
 
 .quiz-result h3 {
-    margin-bottom: 15px;
-
     font-size: 1.7rem;
+
+    margin-bottom: 15px;
 }
 
 #finalScore {
-    margin-bottom: 25px;
-
     font-size: 1.2rem;
 
     font-weight: 700;
+
+    margin-bottom: 25px;
 }
 
 
-/* =====================================================
+/* =========================
    BIOLOGY DIAGRAMS
-   ===================================================== */
+   ========================= */
 
 .diagram-container {
     margin: 35px 0;
@@ -1852,43 +1742,71 @@ body:has(#menuButton) .footer {
 }
 
 
-/* =====================================================
-   MOBILE - DASHBOARD
-   ===================================================== */
-
-@media (max-width: 700px) {
-
-    body:has(#menuButton) main {
-        padding:
-            20px
-            15px
-            105px;
-    }
-
-    #studentGreeting {
-        font-size: 27px;
-    }
-
-    #examSection {
-        padding: 23px 20px;
-    }
-
-    #homeExamDays {
-        font-size: 35px;
-    }
-
-    #selectedSubjects {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE - EXISTING PAGES
-   ===================================================== */
+/* =========================
+   MOBILE
+   ========================= */
 
 @media (max-width: 850px) {
+
+    .header {
+        padding: 15px 5%;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .header-button {
+        padding: 9px 13px;
+
+        font-size: 12px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+
+        padding: 70px 5% 80px;
+
+        text-align: center;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .hero-text {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-trust {
+        justify-content: center;
+    }
+
+    .hero-visual {
+        min-height: 320px;
+    }
+
+    .floating-one {
+        right: 0;
+    }
+
+    .floating-two {
+        left: 0;
+    }
+
+
+    /* SECTIONS */
 
     .section {
         padding: 65px 5%;
@@ -1904,10 +1822,16 @@ body:has(#menuButton) .footer {
         margin: 15px auto 0;
     }
 
+
+    /* CARDS */
+
     .cards,
     .subjects-grid {
         grid-template-columns: 1fr;
     }
+
+
+    /* TOOLS */
 
     .tools-grid {
         grid-template-columns: 1fr;
@@ -1917,6 +1841,9 @@ body:has(#menuButton) .footer {
     .countdown-card {
         grid-column: span 1;
     }
+
+
+    /* CALCULATOR */
 
     .calculator-input {
         flex-direction: column;
@@ -1928,6 +1855,9 @@ body:has(#menuButton) .footer {
         width: 100%;
     }
 
+
+    /* COUNTDOWN */
+
     .countdown-input {
         flex-direction: column;
     }
@@ -1936,6 +1866,20 @@ body:has(#menuButton) .footer {
     .countdown-input button {
         width: 100%;
     }
+
+
+    /* WHY STUDYHUB */
+
+    .why-section {
+        grid-template-columns: 1fr;
+
+        padding: 70px 5%;
+
+        gap: 35px;
+    }
+
+
+    /* SUBJECT PAGES */
 
     .subject-hero {
         padding: 55px 5% 40px;
@@ -1950,67 +1894,113 @@ body:has(#menuButton) .footer {
         grid-template-columns: 1fr;
     }
 
+
+    /* FOOTER */
+
+    .footer-main {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        gap: 55px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
 }
 
 
-/* =====================================================
+/* =========================
    SMALL MOBILE
-   ===================================================== */
+   ========================= */
 
 @media (max-width: 500px) {
 
-    body:has(#menuButton) main {
-        padding:
-            18px
-            12px
-            105px;
-    }
-
-    body:has(#menuButton) .header {
-        padding: 13px 14px;
-    }
-
-    body:has(#menuButton) .logo {
+    .logo {
         font-size: 19px;
     }
 
-    #menuButton {
-        width: 40px;
-
-        height: 40px;
+    .logo-icon {
+        font-size: 21px;
     }
 
-    #studentGreeting {
-        font-size: 25px;
+    .header-button {
+        font-size: 11px;
     }
 
-    #homeExamDays {
-        font-size: 31px;
+
+    /* HERO */
+
+    .hero {
+        padding-top: 55px;
     }
 
-    .quick-access,
-    .quick-access-grid {
-        gap: 8px;
+    .hero h1 {
+        font-size: 43px;
+
+        letter-spacing: -1.5px;
     }
 
-    .quick-access a,
-    .quick-item {
-        min-height: 88px;
-
-        font-size: 12px;
+    .hero-text {
+        font-size: 15px;
     }
 
-    #selectedSubjects {
-        gap: 8px;
+    .hero-buttons {
+        flex-direction: column;
     }
 
-    #selectedSubjects li a {
-        min-height: 60px;
-
-        padding: 10px;
-
-        font-size: 12px;
+    .primary-button,
+    .secondary-button {
+        width: 100%;
     }
+
+    .hero-trust {
+        gap: 13px;
+    }
+
+    .trust-item {
+        font-size: 10px;
+    }
+
+    .hero-visual {
+        min-height: 290px;
+    }
+
+    .main-study-card {
+        width: 80%;
+
+        padding: 22px;
+    }
+
+    .floating-card {
+        font-size: 10px;
+
+        padding: 9px 11px;
+    }
+
+    .floating-one {
+        top: 35px;
+    }
+
+    .floating-two {
+        bottom: 35px;
+    }
+
+
+    /* CARDS */
+
+    .card,
+    .cards .resource-card {
+        padding: 20px;
+    }
+
+    .card-arrow {
+        right: 17px;
+    }
+
+
+    /* NOTES */
 
     .note-content {
         padding: 22px;
@@ -2025,6 +2015,9 @@ body:has(#menuButton) .footer {
     .note-content p {
         font-size: 15px;
     }
+
+
+    /* QUIZ */
 
     .quiz-container {
         margin: 25px 10px;
@@ -2048,6 +2041,9 @@ body:has(#menuButton) .footer {
         font-size: 0.95rem;
     }
 
+
+    /* DIAGRAMS */
+
     .diagram-container {
         padding: 15px;
 
@@ -2064,12 +2060,18 @@ body:has(#menuButton) .footer {
         font-size: 12px;
     }
 
+
+    /* FOOTER */
+
+    .footer-links {
+        gap: 35px;
+    }
 }
 
 
-/* =====================================================
+/* =========================
    REDUCED MOTION
-   ===================================================== */
+   ========================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -2088,5 +2090,4 @@ body:has(#menuButton) .footer {
 
         scroll-behavior: auto !important;
     }
-
 }
