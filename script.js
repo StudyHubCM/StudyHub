@@ -1,29 +1,23 @@
-// =====================================================
-// STUDYHUB - MAIN JAVASCRIPT
-// =====================================================
+/* =====================================================
+   STUDYHUB CM
+   Main JavaScript
+   Dashboard + Navigation + Calculators
+   ===================================================== */
 
 
-// =====================================================
-// SHARED HELPERS
-// =====================================================
+/* =====================================================
+   SHARED HELPERS
+   ===================================================== */
 
 function formatNumber(value) {
-    if (!Number.isFinite(value)) {
-        return "0";
-    }
-
-    if (Number.isInteger(value)) {
-        return String(value);
-    }
-
-    return value.toFixed(2).replace(/\.?0+$/, "");
+    return Number(value).toLocaleString();
 }
 
 
 function setResult(element, message) {
-    if (!element) return;
-
-    element.textContent = message;
+    if (element) {
+        element.textContent = message;
+    }
 }
 
 
@@ -32,574 +26,1014 @@ function isValidPositiveNumber(value) {
 }
 
 
-// =====================================================
-// STUDYHUB - GRADE CALCULATOR
-// =====================================================
+/* =====================================================
+   INITIALIZATION
+   ===================================================== */
 
-function calculateGrade() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const scoreInput = document.getElementById("score");
-    const gradingSystem = document.getElementById("gradingSystem");
-    const result = document.getElementById("gradeResult");
+    initializeMenu();
+    initializeGreeting();
+    initializeDashboardCountdown();
+    initializeContinueStudying();
+    initializeSelectedSubjects();
 
-    if (!scoreInput || !gradingSystem || !result) {
-        return;
-    }
-
-    const rawScore = scoreInput.value.trim();
-    const score = Number(rawScore);
-    const system = gradingSystem.value;
-
-    // -------------------------------------------------
-    // CHECK INPUT
-    // -------------------------------------------------
-
-    if (rawScore === "" || !Number.isFinite(score)) {
-        setResult(result, "Please enter a valid score.");
-        return;
-    }
-
-    if (score < 0 || score > 100) {
-        setResult(result, "Score must be between 0 and 100.");
-        return;
-    }
+});
 
 
-    // -------------------------------------------------
-    // GRADING SCALES
-    // -------------------------------------------------
+/* =====================================================
+   SIDE MENU
+   ===================================================== */
 
-    const gradingScales = {
+function initializeMenu() {
 
-        // General percentage scale
-        general: [
-            { min: 80, grade: "A" },
-            { min: 70, grade: "B" },
-            { min: 60, grade: "C" },
-            { min: 50, grade: "D" },
-            { min: 40, grade: "E" },
-            { min: 0, grade: "F" }
-        ],
+    const menuButton = document.getElementById("menuButton");
+    const menuClose = document.getElementById("menuClose");
+    const menuOverlay = document.getElementById("menuOverlay");
+    const sideMenu = document.getElementById("sideMenu");
 
-        // Cameroon GCE O/L
-        "gce-ol": [
-            { min: 75, grade: "A" },
-            { min: 65, grade: "B" },
-            { min: 55, grade: "C" },
-            { min: 45, grade: "D" },
-            { min: 35, grade: "E" },
-            { min: 0, grade: "F" }
-        ],
-
-        // Cameroon GCE A/L
-        "gce-al": [
-            { min: 75, grade: "A" },
-            { min: 65, grade: "B" },
-            { min: 55, grade: "C" },
-            { min: 45, grade: "D" },
-            { min: 35, grade: "E" },
-            { min: 0, grade: "F" }
-        ]
-    };
-
-
-    const scale = gradingScales[system];
-
-
-    // -------------------------------------------------
-    // CHECK GRADING SYSTEM
-    // -------------------------------------------------
-
-    if (!scale) {
-        setResult(result, "Please select a valid grading system.");
+    if (!menuButton || !menuClose || !menuOverlay || !sideMenu) {
         return;
     }
 
 
-    // -------------------------------------------------
-    // FIND GRADE
-    // -------------------------------------------------
+    function openMenu() {
 
-    const gradeEntry = scale.find(item => score >= item.min);
+        menuOverlay.hidden = false;
 
-    if (!gradeEntry) {
-        setResult(result, "Unable to calculate grade.");
-        return;
+        requestAnimationFrame(() => {
+            menuOverlay.classList.add("active");
+            sideMenu.classList.add("active");
+        });
+
+        menuButton.setAttribute("aria-expanded", "true");
+
+        sideMenu.setAttribute("aria-hidden", "false");
+        menuOverlay.setAttribute("aria-hidden", "false");
+
+        document.body.classList.add("menu-open");
     }
 
-    const grade = gradeEntry.grade;
+
+    function closeMenu() {
+
+        menuOverlay.classList.remove("active");
+        sideMenu.classList.remove("active");
+
+        menuButton.setAttribute("aria-expanded", "false");
+
+        sideMenu.setAttribute("aria-hidden", "true");
+        menuOverlay.setAttribute("aria-hidden", "true");
+
+        document.body.classList.remove("menu-open");
+
+        setTimeout(() => {
+
+            if (!menuOverlay.classList.contains("active")) {
+                menuOverlay.hidden = true;
+            }
+
+        }, 250);
+    }
 
 
-    // -------------------------------------------------
-    // DISPLAY RESULT
-    // -------------------------------------------------
+    menuButton.addEventListener("click", openMenu);
 
-    const systemNames = {
-        general: "General Grade",
-        "gce-ol": "GCE O/L Grade",
-        "gce-al": "GCE A/L Grade"
-    };
+    menuClose.addEventListener("click", closeMenu);
 
-    const systemName = systemNames[system];
+    menuOverlay.addEventListener("click", closeMenu);
 
-    setResult(
-        result,
-        `${systemName}: ${grade}`
-    );
+
+    document.addEventListener("keydown", (event) => {
+
+        if (event.key === "Escape") {
+            closeMenu();
+        }
+
+    });
+
+
+    sideMenu.querySelectorAll("a").forEach((link) => {
+
+        link.addEventListener("click", closeMenu);
+
+    });
+
 }
 
 
-// =====================================================
-// STUDYHUB - EXAM COUNTDOWN
-// =====================================================
+/* =====================================================
+   STUDENT GREETING
+   ===================================================== */
 
-let countdownTimer = null;
+function initializeGreeting() {
 
+    const greetingElement = document.getElementById("studentGreeting");
 
-function startCountdown() {
-
-    const examNameInput = document.getElementById("examName");
-    const examDateInput = document.getElementById("examDate");
-    const result = document.getElementById("countdownResult");
-
-    if (!examNameInput || !examDateInput || !result) {
-        return;
-    }
-
-    const name = examNameInput.value.trim();
-    const date = examDateInput.value;
-
-
-    // -------------------------------------------------
-    // CHECK EXAM NAME
-    // -------------------------------------------------
-
-    if (name === "") {
-        setResult(result, "Please enter an exam name.");
+    if (!greetingElement) {
         return;
     }
 
 
-    // -------------------------------------------------
-    // CHECK DATE
-    // -------------------------------------------------
+    const hour = new Date().getHours();
 
-    if (date === "") {
-        setResult(result, "Please choose an exam date.");
+    let greeting = "Good evening";
+
+
+    if (hour < 12) {
+        greeting = "Good morning";
+    } else if (hour < 18) {
+        greeting = "Good afternoon";
+    }
+
+
+    const savedName =
+        localStorage.getItem("studyhub_student_name");
+
+
+    const studentName =
+        savedName && savedName.trim()
+            ? savedName.trim()
+            : "Student";
+
+
+    greetingElement.textContent =
+        `${greeting}, ${studentName} 👋`;
+}
+
+
+/* =====================================================
+   SAVE STUDENT NAME
+   ===================================================== */
+
+function saveStudyHubStudentName(name) {
+
+    const cleanedName =
+        typeof name === "string"
+            ? name.trim()
+            : "";
+
+
+    if (cleanedName) {
+
+        localStorage.setItem(
+            "studyhub_student_name",
+            cleanedName
+        );
+
+    } else {
+
+        localStorage.removeItem(
+            "studyhub_student_name"
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   DASHBOARD EXAM COUNTDOWN
+   ===================================================== */
+
+let dashboardCountdownInterval = null;
+
+
+function initializeDashboardCountdown() {
+
+    const examNameElement =
+        document.getElementById("homeExamName");
+
+    const examDaysElement =
+        document.getElementById("homeExamDays");
+
+
+    if (!examNameElement || !examDaysElement) {
         return;
     }
 
 
-    // -------------------------------------------------
-    // CREATE LOCAL DATE
-    // -------------------------------------------------
-    // Using T00:00:00 prevents the browser from treating
-    // the date-only value as UTC and causing timezone bugs.
-    // -------------------------------------------------
+    function updateDashboardCountdown() {
 
-    const targetDate = new Date(`${date}T00:00:00`).getTime();
+        const examName =
+            localStorage.getItem("studyhub_exam_name");
 
-    if (!Number.isFinite(targetDate)) {
-        setResult(result, "Please choose a valid exam date.");
-        return;
-    }
+        const examDate =
+            localStorage.getItem("studyhub_exam_date");
 
 
-    // -------------------------------------------------
-    // STOP PREVIOUS COUNTDOWN
-    // -------------------------------------------------
+        if (!examDate) {
 
-    if (countdownTimer !== null) {
-        clearInterval(countdownTimer);
-        countdownTimer = null;
-    }
+            examNameElement.textContent =
+                "GCE A Level Examination";
 
-
-    // -------------------------------------------------
-    // UPDATE COUNTDOWN
-    // -------------------------------------------------
-
-    function updateCountdown() {
-
-        const now = Date.now();
-        const difference = targetDate - now;
-
-
-        // -------------------------------------------------
-        // EXAM DATE REACHED
-        // -------------------------------------------------
-
-        if (difference <= 0) {
-
-            if (countdownTimer !== null) {
-                clearInterval(countdownTimer);
-                countdownTimer = null;
-            }
-
-            // IMPORTANT:
-            // Do NOT use innerHTML with user-entered text.
-            // This prevents HTML/script injection.
-            result.replaceChildren();
-
-            const nameElement = document.createElement("strong");
-            nameElement.textContent = name;
-
-            const messageElement = document.createElement("span");
-            messageElement.textContent =
-                "🎉 The exam date has arrived!";
-
-            result.appendChild(nameElement);
-            result.appendChild(document.createElement("br"));
-            result.appendChild(messageElement);
+            examDaysElement.textContent =
+                "EXAM DATE NEEDED";
 
             return;
         }
 
 
-        // -------------------------------------------------
-        // CALCULATE TIME
-        // -------------------------------------------------
-
-        const totalSeconds = Math.floor(difference / 1000);
-
-        const days = Math.floor(
-            totalSeconds / (60 * 60 * 24)
-        );
-
-        const hours = Math.floor(
-            (totalSeconds % (60 * 60 * 24)) / (60 * 60)
-        );
-
-        const minutes = Math.floor(
-            (totalSeconds % (60 * 60)) / 60
-        );
-
-        const seconds =
-            totalSeconds % 60;
+        const targetDate =
+            new Date(`${examDate}T00:00:00`);
 
 
-        // -------------------------------------------------
-        // DISPLAY COUNTDOWN SAFELY
-        // -------------------------------------------------
+        if (Number.isNaN(targetDate.getTime())) {
 
-        result.replaceChildren();
+            examDaysElement.textContent =
+                "EXAM DATE NEEDED";
 
-        const nameElement = document.createElement("strong");
-        nameElement.textContent = name;
+            return;
+        }
 
-        const countdownElement = document.createElement("span");
 
-        countdownElement.textContent =
-            `${days} Days · ` +
-            `${hours} Hours · ` +
-            `${minutes} Minutes · ` +
-            `${seconds} Seconds`;
+        const difference =
+            targetDate.getTime() - Date.now();
 
-        result.appendChild(nameElement);
-        result.appendChild(document.createElement("br"));
-        result.appendChild(countdownElement);
+
+        const dayMs =
+            24 * 60 * 60 * 1000;
+
+
+        const days =
+            Math.ceil(difference / dayMs);
+
+
+        examNameElement.textContent =
+            examName && examName.trim()
+                ? examName.trim()
+                : "GCE A Level Examination";
+
+
+        if (days > 0) {
+
+            examDaysElement.textContent =
+                `${formatNumber(days)} DAYS LEFT`;
+
+        } else if (days === 0) {
+
+            examDaysElement.textContent =
+                "EXAM DAY 🎓";
+
+        } else {
+
+            examDaysElement.textContent =
+                "EXAM DATE PASSED";
+
+        }
+
     }
 
 
-    // Run immediately
-    updateCountdown();
+    updateDashboardCountdown();
 
 
-    // Update every second
-    countdownTimer = setInterval(
-        updateCountdown,
-        1000
-    );
+    if (dashboardCountdownInterval) {
+        clearInterval(dashboardCountdownInterval);
+    }
+
+
+    dashboardCountdownInterval =
+        setInterval(
+            updateDashboardCountdown,
+            60 * 1000
+        );
+
 }
 
 
-// =====================================================
-// STUDYHUB - MAGNIFICATION CALCULATOR
-// =====================================================
+/* =====================================================
+   CONTINUE STUDYING
+   ===================================================== */
 
-function calculateMagnification() {
+function initializeContinueStudying() {
 
-    const imageInput =
-        document.getElementById("magnification-image");
+    const subjectElement =
+        document.getElementById("continueSubject");
 
-    const actualInput =
-        document.getElementById("magnification-actual");
+    const topicElement =
+        document.getElementById("continueTopic");
 
-    const magnificationInput =
-        document.getElementById("magnification-value");
+    const buttonElement =
+        document.getElementById("continueButton");
 
-    const imageUnitElement =
-        document.getElementById("magnification-image-unit");
-
-    const actualUnitElement =
-        document.getElementById("magnification-actual-unit");
-
-    const calculationElement =
-        document.getElementById("magnification-calculate");
-
-    const result =
-        document.getElementById("magnification-result");
-
-
-    // -------------------------------------------------
-    // CHECK REQUIRED ELEMENTS
-    // -------------------------------------------------
 
     if (
-        !imageInput ||
-        !actualInput ||
-        !magnificationInput ||
-        !imageUnitElement ||
-        !actualUnitElement ||
-        !calculationElement ||
+        !subjectElement ||
+        !topicElement ||
+        !buttonElement
+    ) {
+        return;
+    }
+
+
+    const savedSubject =
+        localStorage.getItem("studyhub_last_subject");
+
+    const savedTopic =
+        localStorage.getItem("studyhub_last_topic");
+
+    const savedLink =
+        localStorage.getItem("studyhub_last_link");
+
+
+    if (savedSubject && savedSubject.trim()) {
+
+        subjectElement.textContent =
+            savedSubject.trim();
+
+    }
+
+
+    if (savedTopic && savedTopic.trim()) {
+
+        topicElement.textContent =
+            savedTopic.trim();
+
+    }
+
+
+    if (savedLink && savedLink.trim()) {
+
+        buttonElement.href =
+            savedLink.trim();
+
+    }
+
+}
+
+
+/* =====================================================
+   SAVE LAST STUDIED
+   ===================================================== */
+
+function saveLastStudied(
+    subject,
+    topic,
+    link
+) {
+
+    if (subject) {
+
+        localStorage.setItem(
+            "studyhub_last_subject",
+            String(subject).trim()
+        );
+
+    }
+
+
+    if (topic) {
+
+        localStorage.setItem(
+            "studyhub_last_topic",
+            String(topic).trim()
+        );
+
+    }
+
+
+    if (link) {
+
+        localStorage.setItem(
+            "studyhub_last_link",
+            String(link).trim()
+        );
+
+    }
+
+}
+
+
+/* =====================================================
+   SELECTED SUBJECTS
+   ===================================================== */
+
+function initializeSelectedSubjects() {
+
+    const subjectContainer =
+        document.getElementById("selectedSubjects");
+
+
+    if (!subjectContainer) {
+        return;
+    }
+
+
+    const savedSubjects =
+        localStorage.getItem(
+            "studyhub_selected_subjects"
+        );
+
+
+    /*
+     * If the student has never selected subjects,
+     * keep the default subjects from index.html.
+     */
+
+    if (!savedSubjects) {
+        return;
+    }
+
+
+    let selectedSubjects;
+
+
+    try {
+
+        selectedSubjects =
+            JSON.parse(savedSubjects);
+
+    } catch (error) {
+
+        localStorage.removeItem(
+            "studyhub_selected_subjects"
+        );
+
+        return;
+    }
+
+
+    if (!Array.isArray(selectedSubjects)) {
+
+        localStorage.removeItem(
+            "studyhub_selected_subjects"
+        );
+
+        return;
+    }
+
+
+    const normalizedSubjects =
+        selectedSubjects
+            .map(subject =>
+                String(subject).trim().toLowerCase()
+            )
+            .filter(Boolean);
+
+
+    subjectContainer
+        .querySelectorAll("a[data-subject]")
+        .forEach((link) => {
+
+            const subject =
+                String(
+                    link.dataset.subject || ""
+                )
+                .trim()
+                .toLowerCase();
+
+
+            if (
+                !normalizedSubjects.includes(subject)
+            ) {
+
+                link.closest("li")?.remove();
+
+            }
+
+        });
+
+}
+
+
+/* =====================================================
+   SAVE SELECTED SUBJECTS
+   ===================================================== */
+
+function saveSelectedSubjects(subjects) {
+
+    if (!Array.isArray(subjects)) {
+        return;
+    }
+
+
+    const cleanedSubjects =
+        subjects
+            .map(subject =>
+                String(subject).trim().toLowerCase()
+            )
+            .filter(Boolean);
+
+
+    localStorage.setItem(
+        "studyhub_selected_subjects",
+        JSON.stringify(cleanedSubjects)
+    );
+
+}
+
+
+/* =====================================================
+   GRADE CALCULATOR
+   ===================================================== */
+
+function calculateGrade() {
+
+    const scoreInput =
+        document.getElementById("score");
+
+    const gradingSystem =
+        document.getElementById("gradingSystem");
+
+    const result =
+        document.getElementById("gradeResult");
+
+
+    if (
+        !scoreInput ||
+        !gradingSystem ||
         !result
     ) {
         return;
     }
 
 
-    // -------------------------------------------------
-    // GET VALUES
-    // -------------------------------------------------
-
-    const image = Number(imageInput.value);
-    const actual = Number(actualInput.value);
-    const magnification = Number(magnificationInput.value);
-
-    const imageUnit = imageUnitElement.value;
-    const actualUnit = actualUnitElement.value;
-    const calculation = calculationElement.value;
+    const score =
+        Number(scoreInput.value);
 
 
-    // -------------------------------------------------
-    // UNIT CONVERSION HELPERS
-    // -------------------------------------------------
-    // Everything is converted to micrometres (μm)
-    // internally for accurate calculations.
-    // -------------------------------------------------
+    if (
+        !Number.isFinite(score) ||
+        score < 0 ||
+        score > 100
+    ) {
 
-    function toMicrometres(value, unit) {
-
-        if (unit === "mm") {
-            return value * 1000;
-        }
-
-        // Default: μm
-        return value;
-    }
-
-
-    function fromMicrometres(value, unit) {
-
-        if (unit === "mm") {
-            return value / 1000;
-        }
-
-        // Default: μm
-        return value;
-    }
-
-
-    function unitLabel(unit) {
-
-        if (unit === "mm") {
-            return "mm";
-        }
-
-        return "μm";
-    }
-
-
-    // =================================================
-    // CALCULATE MAGNIFICATION
-    // =================================================
-
-    if (calculation === "magnification") {
-
-        if (
-            !isValidPositiveNumber(image) ||
-            !isValidPositiveNumber(actual)
-        ) {
-            setResult(
-                result,
-                "Please enter valid image and actual sizes greater than 0."
-            );
-            return;
-        }
-
-
-        const imageInMicrometres =
-            toMicrometres(image, imageUnit);
-
-        const actualInMicrometres =
-            toMicrometres(actual, actualUnit);
-
-
-        if (
-            !isValidPositiveNumber(imageInMicrometres) ||
-            !isValidPositiveNumber(actualInMicrometres)
-        ) {
-            setResult(
-                result,
-                "Please enter valid measurements."
-            );
-            return;
-        }
-
-
-        const answer =
-            imageInMicrometres /
-            actualInMicrometres;
-
-
-        const formattedAnswer =
-            formatNumber(answer);
-
-
-        // Update magnification input
-        magnificationInput.value =
-            formattedAnswer;
-
-
-        // Display result
         setResult(
             result,
-            `Magnification = ×${formattedAnswer}`
+            "Enter a score between 0 and 100."
         );
 
         return;
     }
 
 
-    // =================================================
-    // CALCULATE ACTUAL SIZE
-    // =================================================
+    /*
+     * These are StudyHub-configured percentage bands.
+     * They must not be presented as official GCE
+     * Board grade thresholds unless verified.
+     */
 
-    if (calculation === "actual") {
+    const gradingScales = {
 
-        if (
-            !isValidPositiveNumber(image) ||
-            !isValidPositiveNumber(magnification)
-        ) {
-            setResult(
-                result,
-                "Please enter a valid image size and magnification."
-            );
-            return;
-        }
+        general: [
+            [80, "A"],
+            [70, "B"],
+            [60, "C"],
+            [50, "D"],
+            [40, "E"],
+            [0, "F"]
+        ],
 
+        "gce-ol": [
+            [75, "A"],
+            [65, "B"],
+            [55, "C"],
+            [45, "D"],
+            [35, "E"],
+            [0, "F"]
+        ],
 
-        const imageInMicrometres =
-            toMicrometres(image, imageUnit);
+        "gce-al": [
+            [75, "A"],
+            [65, "B"],
+            [55, "C"],
+            [45, "D"],
+            [35, "E"],
+            [0, "F"]
+        ]
 
-
-        const actualInMicrometres =
-            imageInMicrometres /
-            magnification;
-
-
-        const answer =
-            fromMicrometres(
-                actualInMicrometres,
-                actualUnit
-            );
-
-
-        const formattedAnswer =
-            formatNumber(answer);
-
-
-        // Keep the answer in the unit selected
-        // for actual size.
-        actualInput.value =
-            formattedAnswer;
+    };
 
 
-        setResult(
-            result,
-            `Actual size = ${formattedAnswer} ${unitLabel(actualUnit)}`
-        );
-
-        return;
-    }
+    const scale =
+        gradingScales[gradingSystem.value]
+        || gradingScales.general;
 
 
-    // =================================================
-    // CALCULATE IMAGE SIZE
-    // =================================================
-
-    if (calculation === "image") {
-
-        if (
-            !isValidPositiveNumber(actual) ||
-            !isValidPositiveNumber(magnification)
-        ) {
-            setResult(
-                result,
-                "Please enter a valid actual size and magnification."
-            );
-            return;
-        }
+    const grade =
+        scale.find(
+            ([minimum]) => score >= minimum
+        )[1];
 
 
-        const actualInMicrometres =
-            toMicrometres(actual, actualUnit);
+    const systemName = {
+
+        general: "General",
+
+        "gce-ol": "GCE O/L",
+
+        "gce-al": "GCE A/L"
+
+    }[gradingSystem.value]
+        || "General";
 
 
-        const imageInMicrometres =
-            actualInMicrometres *
-            magnification;
+    result.textContent =
+        `${systemName} Grade: ${grade}`;
 
-
-        const answer =
-            fromMicrometres(
-                imageInMicrometres,
-                imageUnit
-            );
-
-
-        const formattedAnswer =
-            formatNumber(answer);
-
-
-        // Keep the answer in the unit selected
-        // for image size.
-        imageInput.value =
-            formattedAnswer;
-
-
-        setResult(
-            result,
-            `Image size = ${formattedAnswer} ${unitLabel(imageUnit)}`
-        );
-
-        return;
-    }
-
-
-    // =================================================
-    // INVALID CALCULATION TYPE
-    // =================================================
-
-    setResult(
-        result,
-        "Please select a valid calculation type."
-    );
 }
 
 
-// =====================================================
-// STUDYHUB - CLEANUP
-// =====================================================
+/* =====================================================
+   EXAM COUNTDOWN TOOL
+   ===================================================== */
 
-// Stop the countdown if the user leaves the page.
-// This prevents an unnecessary timer from continuing
-// while the page is being unloaded.
-window.addEventListener("pagehide", function () {
+let countdownInterval = null;
 
-    if (countdownTimer !== null) {
-        clearInterval(countdownTimer);
-        countdownTimer = null;
+
+function startCountdown() {
+
+    const examNameInput =
+        document.getElementById("examName");
+
+    const examDateInput =
+        document.getElementById("examDate");
+
+    const result =
+        document.getElementById("countdownResult");
+
+
+    if (
+        !examNameInput ||
+        !examDateInput ||
+        !result
+    ) {
+        return;
+    }
+
+
+    const examName =
+        examNameInput.value.trim();
+
+    const examDate =
+        examDateInput.value;
+
+
+    if (!examName) {
+
+        setResult(
+            result,
+            "Enter an exam name."
+        );
+
+        return;
+    }
+
+
+    if (!examDate) {
+
+        setResult(
+            result,
+            "Select an exam date."
+        );
+
+        return;
+    }
+
+
+    const targetDate =
+        new Date(`${examDate}T00:00:00`);
+
+
+    if (Number.isNaN(targetDate.getTime())) {
+
+        setResult(
+            result,
+            "Enter a valid exam date."
+        );
+
+        return;
+    }
+
+
+    localStorage.setItem(
+        "studyhub_exam_name",
+        examName
+    );
+
+
+    localStorage.setItem(
+        "studyhub_exam_date",
+        examDate
+    );
+
+
+    function updateCountdown() {
+
+        const difference =
+            targetDate.getTime() - Date.now();
+
+
+        if (difference <= 0) {
+
+            result.textContent =
+                "🎓 EXAM DAY";
+
+            return;
+        }
+
+
+        const totalSeconds =
+            Math.floor(
+                difference / 1000
+            );
+
+
+        const days =
+            Math.floor(
+                totalSeconds / 86400
+            );
+
+
+        const hours =
+            Math.floor(
+                (totalSeconds % 86400) / 3600
+            );
+
+
+        const minutes =
+            Math.floor(
+                (totalSeconds % 3600) / 60
+            );
+
+
+        const seconds =
+            totalSeconds % 60;
+
+
+        result.textContent =
+            `${formatNumber(days)} days • ` +
+            `${hours}h ${minutes}m ${seconds}s`;
+    }
+
+
+    if (countdownInterval) {
+        clearInterval(countdownInterval);
+    }
+
+
+    updateCountdown();
+
+
+    countdownInterval =
+        setInterval(
+            updateCountdown,
+            1000
+        );
+
+}
+
+
+/* =====================================================
+   MAGNIFICATION CALCULATOR
+   ===================================================== */
+
+function calculateMagnification() {
+
+    const imageInput =
+        document.getElementById(
+            "magnification-image"
+        );
+
+    const actualInput =
+        document.getElementById(
+            "magnification-actual"
+        );
+
+    const magnificationInput =
+        document.getElementById(
+            "magnification-value"
+        );
+
+    const imageUnit =
+        document.getElementById(
+            "magnification-image-unit"
+        );
+
+    const actualUnit =
+        document.getElementById(
+            "magnification-actual-unit"
+        );
+
+    const calculation =
+        document.getElementById(
+            "magnification-calculation"
+        );
+
+    const result =
+        document.getElementById(
+            "magnification-result"
+        );
+
+
+    if (
+        !imageInput ||
+        !actualInput ||
+        !magnificationInput ||
+        !imageUnit ||
+        !actualUnit ||
+        !calculation ||
+        !result
+    ) {
+        return;
+    }
+
+
+    const unitToMicrometres = {
+
+        mm: 1000,
+
+        μm: 1,
+
+        um: 1
+
+    };
+
+
+    const imageValue =
+        Number(imageInput.value);
+
+    const actualValue =
+        Number(actualInput.value);
+
+    const magnificationValue =
+        Number(magnificationInput.value);
+
+
+    function convertToMicrometres(
+        value,
+        unit
+    ) {
+
+        return value *
+            (
+                unitToMicrometres[unit]
+                || 1
+            );
+
+    }
+
+
+    function formatMagnification(value) {
+
+        if (!Number.isFinite(value)) {
+            return "—";
+        }
+
+        return `×${formatNumber(value)}`;
+
+    }
+
+
+    switch (calculation.value) {
+
+        case "magnification": {
+
+            if (
+                !isValidPositiveNumber(imageValue) ||
+                !isValidPositiveNumber(actualValue)
+            ) {
+
+                setResult(
+                    result,
+                    "Enter valid image and actual sizes."
+                );
+
+                return;
+            }
+
+
+            const image =
+                convertToMicrometres(
+                    imageValue,
+                    imageUnit.value
+                );
+
+
+            const actual =
+                convertToMicrometres(
+                    actualValue,
+                    actualUnit.value
+                );
+
+
+            const answer =
+                image / actual;
+
+
+            result.textContent =
+                `Magnification = ${formatMagnification(answer)}`;
+
+            break;
+        }
+
+
+        case "actual": {
+
+            if (
+                !isValidPositiveNumber(imageValue) ||
+                !isValidPositiveNumber(magnificationValue)
+            ) {
+
+                setResult(
+                    result,
+                    "Enter valid image size and magnification."
+                );
+
+                return;
+            }
+
+
+            const image =
+                convertToMicrometres(
+                    imageValue,
+                    imageUnit.value
+                );
+
+
+            const answer =
+                image / magnificationValue;
+
+
+            result.textContent =
+                `Actual size = ${formatNumber(answer)} μm`;
+
+            break;
+        }
+
+
+        case "image": {
+
+            if (
+                !isValidPositiveNumber(actualValue) ||
+                !isValidPositiveNumber(magnificationValue)
+            ) {
+
+                setResult(
+                    result,
+                    "Enter valid actual size and magnification."
+                );
+
+                return;
+            }
+
+
+            const actual =
+                convertToMicrometres(
+                    actualValue,
+                    actualUnit.value
+                );
+
+
+            const answer =
+                actual * magnificationValue;
+
+
+            result.textContent =
+                `Image size = ${formatNumber(answer)} μm`;
+
+            break;
+        }
+
+
+        default:
+
+            setResult(
+                result,
+                "Select a calculation."
+            );
+
+    }
+
+}
+
+
+/* =====================================================
+   PAGE CLEANUP
+   ===================================================== */
+
+window.addEventListener("pagehide", () => {
+
+    if (dashboardCountdownInterval) {
+
+        clearInterval(
+            dashboardCountdownInterval
+        );
+
+        dashboardCountdownInterval = null;
+
+    }
+
+
+    if (countdownInterval) {
+
+        clearInterval(
+            countdownInterval
+        );
+
+        countdownInterval = null;
+
     }
 
 });
