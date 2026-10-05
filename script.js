@@ -27,16 +27,49 @@ function isValidPositiveNumber(value) {
 
 
 /* =====================================================
+   STUDYHUB STORAGE KEYS
+   ===================================================== */
+
+const STUDYHUB_KEYS = {
+
+    studentName: "studyhub_student_name",
+
+    gceLevel: "studyhub_gce_level",
+
+    selectedSubjects: "studyhub_selected_subjects",
+
+    examName: "studyhub_exam_name",
+
+    examDate: "studyhub_exam_date",
+
+    lastSubject: "studyhub_last_subject",
+
+    lastTopic: "studyhub_last_topic",
+
+    lastLink: "studyhub_last_link"
+
+};
+
+
+/* =====================================================
    INITIALIZATION
    ===================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     initializeMenu();
+
     initializeGreeting();
+
+    initializeStudentLevel();
+
     initializeDashboardCountdown();
+
     initializeContinueStudying();
+
     initializeSelectedSubjects();
+
+    initializeGradeCalculator();
 
 });
 
@@ -47,12 +80,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initializeMenu() {
 
-    const menuButton = document.getElementById("menuButton");
-    const menuClose = document.getElementById("menuClose");
-    const menuOverlay = document.getElementById("menuOverlay");
-    const sideMenu = document.getElementById("sideMenu");
+    const menuButton =
+        document.getElementById("menuButton");
 
-    if (!menuButton || !menuClose || !menuOverlay || !sideMenu) {
+    const menuClose =
+        document.getElementById("menuClose");
+
+    const menuOverlay =
+        document.getElementById("menuOverlay");
+
+    const sideMenu =
+        document.getElementById("sideMenu");
+
+
+    if (
+        !menuButton ||
+        !menuClose ||
+        !menuOverlay ||
+        !sideMenu
+    ) {
         return;
     }
 
@@ -62,62 +108,118 @@ function initializeMenu() {
         menuOverlay.hidden = false;
 
         requestAnimationFrame(() => {
+
             menuOverlay.classList.add("active");
+
             sideMenu.classList.add("active");
+
         });
 
-        menuButton.setAttribute("aria-expanded", "true");
 
-        sideMenu.setAttribute("aria-hidden", "false");
-        menuOverlay.setAttribute("aria-hidden", "false");
+        menuButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
 
-        document.body.classList.add("menu-open");
+        sideMenu.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        menuOverlay.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        document.body.classList.add(
+            "menu-open"
+        );
+
     }
 
 
     function closeMenu() {
 
         menuOverlay.classList.remove("active");
+
         sideMenu.classList.remove("active");
 
-        menuButton.setAttribute("aria-expanded", "false");
 
-        sideMenu.setAttribute("aria-hidden", "true");
-        menuOverlay.setAttribute("aria-hidden", "true");
+        menuButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
 
-        document.body.classList.remove("menu-open");
+        sideMenu.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        menuOverlay.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+
+        document.body.classList.remove(
+            "menu-open"
+        );
+
 
         setTimeout(() => {
 
-            if (!menuOverlay.classList.contains("active")) {
+            if (
+                !menuOverlay.classList.contains(
+                    "active"
+                )
+            ) {
+
                 menuOverlay.hidden = true;
+
             }
 
         }, 250);
+
     }
 
 
-    menuButton.addEventListener("click", openMenu);
+    menuButton.addEventListener(
+        "click",
+        openMenu
+    );
 
-    menuClose.addEventListener("click", closeMenu);
+    menuClose.addEventListener(
+        "click",
+        closeMenu
+    );
 
-    menuOverlay.addEventListener("click", closeMenu);
+    menuOverlay.addEventListener(
+        "click",
+        closeMenu
+    );
 
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener(
+        "keydown",
+        (event) => {
 
-        if (event.key === "Escape") {
-            closeMenu();
+            if (event.key === "Escape") {
+                closeMenu();
+            }
+
         }
+    );
 
-    });
 
+    sideMenu
+        .querySelectorAll("a")
+        .forEach((link) => {
 
-    sideMenu.querySelectorAll("a").forEach((link) => {
+            link.addEventListener(
+                "click",
+                closeMenu
+            );
 
-        link.addEventListener("click", closeMenu);
-
-    });
+        });
 
 }
 
@@ -128,37 +230,54 @@ function initializeMenu() {
 
 function initializeGreeting() {
 
-    const greetingElement = document.getElementById("studentGreeting");
+    const greetingElement =
+        document.getElementById(
+            "studentGreeting"
+        );
+
 
     if (!greetingElement) {
         return;
     }
 
 
-    const hour = new Date().getHours();
+    const hour =
+        new Date().getHours();
 
-    let greeting = "Good evening";
+
+    let greeting =
+        "Good evening";
 
 
     if (hour < 12) {
-        greeting = "Good morning";
+
+        greeting =
+            "Good morning";
+
     } else if (hour < 18) {
-        greeting = "Good afternoon";
+
+        greeting =
+            "Good afternoon";
+
     }
 
 
     const savedName =
-        localStorage.getItem("studyhub_student_name");
+        localStorage.getItem(
+            STUDYHUB_KEYS.studentName
+        );
 
 
     const studentName =
-        savedName && savedName.trim()
+        savedName &&
+        savedName.trim()
             ? savedName.trim()
             : "Student";
 
 
     greetingElement.textContent =
         `${greeting}, ${studentName} 👋`;
+
 }
 
 
@@ -177,17 +296,134 @@ function saveStudyHubStudentName(name) {
     if (cleanedName) {
 
         localStorage.setItem(
-            "studyhub_student_name",
+            STUDYHUB_KEYS.studentName,
             cleanedName
         );
 
     } else {
 
         localStorage.removeItem(
-            "studyhub_student_name"
+            STUDYHUB_KEYS.studentName
         );
 
     }
+
+}
+
+
+/* =====================================================
+   GCE LEVEL
+   ===================================================== */
+
+/*
+ * Valid values:
+ *
+ * "gce-ol" = GCE Ordinary Level
+ * "gce-al" = GCE Advanced Level
+ *
+ * StudyHub never assumes one automatically.
+ */
+
+function getStudyHubGceLevel() {
+
+    const level =
+        localStorage.getItem(
+            STUDYHUB_KEYS.gceLevel
+        );
+
+
+    if (
+        level === "gce-ol" ||
+        level === "gce-al"
+    ) {
+        return level;
+    }
+
+
+    return null;
+
+}
+
+
+function getStudyHubGceLabel() {
+
+    const level =
+        getStudyHubGceLevel();
+
+
+    if (level === "gce-ol") {
+        return "GCE ORDINARY LEVEL";
+    }
+
+
+    if (level === "gce-al") {
+        return "GCE ADVANCED LEVEL";
+    }
+
+
+    return null;
+
+}
+
+
+/* =====================================================
+   SAVE GCE LEVEL
+   ===================================================== */
+
+function saveStudyHubGceLevel(level) {
+
+    if (
+        level !== "gce-ol" &&
+        level !== "gce-al"
+    ) {
+        return false;
+    }
+
+
+    localStorage.setItem(
+        STUDYHUB_KEYS.gceLevel,
+        level
+    );
+
+
+    return true;
+
+}
+
+
+/* =====================================================
+   STUDENT LEVEL ON DASHBOARD
+   ===================================================== */
+
+function initializeStudentLevel() {
+
+    const levelElement =
+        document.getElementById(
+            "studentLevel"
+        );
+
+
+    if (!levelElement) {
+        return;
+    }
+
+
+    const level =
+        getStudyHubGceLabel();
+
+
+    if (!level) {
+
+        levelElement.textContent =
+            "SET UP YOUR GCE LEVEL TO GET STARTED";
+
+        return;
+
+    }
+
+
+    levelElement.textContent =
+        level;
 
 }
 
@@ -202,53 +438,133 @@ let dashboardCountdownInterval = null;
 function initializeDashboardCountdown() {
 
     const examNameElement =
-        document.getElementById("homeExamName");
+        document.getElementById(
+            "homeExamName"
+        );
 
     const examDaysElement =
-        document.getElementById("homeExamDays");
+        document.getElementById(
+            "homeExamDays"
+        );
+
+    const examButton =
+        document.getElementById(
+            "viewExamButton"
+        );
 
 
-    if (!examNameElement || !examDaysElement) {
+    if (
+        !examNameElement ||
+        !examDaysElement
+    ) {
         return;
     }
 
 
     function updateDashboardCountdown() {
 
+        const level =
+            getStudyHubGceLevel();
+
+
         const examName =
-            localStorage.getItem("studyhub_exam_name");
+            localStorage.getItem(
+                STUDYHUB_KEYS.examName
+            );
+
 
         const examDate =
-            localStorage.getItem("studyhub_exam_date");
+            localStorage.getItem(
+                STUDYHUB_KEYS.examDate
+            );
+
+
+        /*
+         * The student has not selected
+         * O/L or A/L yet.
+         */
+
+        if (!level) {
+
+            examNameElement.textContent =
+                "Set up your GCE examination";
+
+            examDaysElement.textContent =
+                "GCE LEVEL NEEDED";
+
+
+            if (examButton) {
+
+                examButton.textContent =
+                    "Set Up Exam →";
+
+            }
+
+            return;
+
+        }
+
+
+        /*
+         * The GCE level is known but the
+         * student has not configured a date.
+         */
+
+        const defaultExamName =
+            level === "gce-ol"
+                ? "GCE Ordinary Level Examination"
+                : "GCE Advanced Level Examination";
 
 
         if (!examDate) {
 
             examNameElement.textContent =
-                "GCE A Level Examination";
+                examName && examName.trim()
+                    ? examName.trim()
+                    : defaultExamName;
 
             examDaysElement.textContent =
                 "EXAM DATE NEEDED";
 
+
+            if (examButton) {
+
+                examButton.textContent =
+                    "Set Exam Date →";
+
+            }
+
             return;
+
         }
 
 
         const targetDate =
-            new Date(`${examDate}T00:00:00`);
+            new Date(
+                `${examDate}T00:00:00`
+            );
 
 
-        if (Number.isNaN(targetDate.getTime())) {
+        if (
+            Number.isNaN(
+                targetDate.getTime()
+            )
+        ) {
+
+            examNameElement.textContent =
+                defaultExamName;
 
             examDaysElement.textContent =
                 "EXAM DATE NEEDED";
 
             return;
+
         }
 
 
         const difference =
-            targetDate.getTime() - Date.now();
+            targetDate.getTime() -
+            Date.now();
 
 
         const dayMs =
@@ -256,13 +572,15 @@ function initializeDashboardCountdown() {
 
 
         const days =
-            Math.ceil(difference / dayMs);
+            Math.ceil(
+                difference / dayMs
+            );
 
 
         examNameElement.textContent =
             examName && examName.trim()
                 ? examName.trim()
-                : "GCE A Level Examination";
+                : defaultExamName;
 
 
         if (days > 0) {
@@ -270,15 +588,25 @@ function initializeDashboardCountdown() {
             examDaysElement.textContent =
                 `${formatNumber(days)} DAYS LEFT`;
 
+
         } else if (days === 0) {
 
             examDaysElement.textContent =
                 "EXAM DAY 🎓";
 
+
         } else {
 
             examDaysElement.textContent =
                 "EXAM DATE PASSED";
+
+        }
+
+
+        if (examButton) {
+
+            examButton.textContent =
+                "Manage Exam Countdown →";
 
         }
 
@@ -289,7 +617,11 @@ function initializeDashboardCountdown() {
 
 
     if (dashboardCountdownInterval) {
-        clearInterval(dashboardCountdownInterval);
+
+        clearInterval(
+            dashboardCountdownInterval
+        );
+
     }
 
 
@@ -303,19 +635,80 @@ function initializeDashboardCountdown() {
 
 
 /* =====================================================
+   SAVE EXAM SETUP
+   ===================================================== */
+
+function saveStudyHubExam(
+    examName,
+    examDate
+) {
+
+    const cleanedName =
+        typeof examName === "string"
+            ? examName.trim()
+            : "";
+
+
+    const cleanedDate =
+        typeof examDate === "string"
+            ? examDate.trim()
+            : "";
+
+
+    if (cleanedName) {
+
+        localStorage.setItem(
+            STUDYHUB_KEYS.examName,
+            cleanedName
+        );
+
+    } else {
+
+        localStorage.removeItem(
+            STUDYHUB_KEYS.examName
+        );
+
+    }
+
+
+    if (cleanedDate) {
+
+        localStorage.setItem(
+            STUDYHUB_KEYS.examDate,
+            cleanedDate
+        );
+
+    } else {
+
+        localStorage.removeItem(
+            STUDYHUB_KEYS.examDate
+        );
+
+    }
+
+}
+
+
+/* =====================================================
    CONTINUE STUDYING
    ===================================================== */
 
 function initializeContinueStudying() {
 
     const subjectElement =
-        document.getElementById("continueSubject");
+        document.getElementById(
+            "continueSubject"
+        );
 
     const topicElement =
-        document.getElementById("continueTopic");
+        document.getElementById(
+            "continueTopic"
+        );
 
     const buttonElement =
-        document.getElementById("continueButton");
+        document.getElementById(
+            "continueButton"
+        );
 
 
     if (
@@ -328,37 +721,70 @@ function initializeContinueStudying() {
 
 
     const savedSubject =
-        localStorage.getItem("studyhub_last_subject");
+        localStorage.getItem(
+            STUDYHUB_KEYS.lastSubject
+        );
+
 
     const savedTopic =
-        localStorage.getItem("studyhub_last_topic");
+        localStorage.getItem(
+            STUDYHUB_KEYS.lastTopic
+        );
+
 
     const savedLink =
-        localStorage.getItem("studyhub_last_link");
+        localStorage.getItem(
+            STUDYHUB_KEYS.lastLink
+        );
 
 
-    if (savedSubject && savedSubject.trim()) {
+    /*
+     * IMPORTANT:
+     *
+     * No saved study session means
+     * we do NOT invent one.
+     */
+
+    if (
+        !savedSubject ||
+        !savedSubject.trim() ||
+        !savedTopic ||
+        !savedTopic.trim() ||
+        !savedLink ||
+        !savedLink.trim()
+    ) {
 
         subjectElement.textContent =
-            savedSubject.trim();
-
-    }
-
-
-    if (savedTopic && savedTopic.trim()) {
+            "Start your first lesson";
 
         topicElement.textContent =
-            savedTopic.trim();
+            "Choose a subject and begin studying.";
 
-    }
-
-
-    if (savedLink && savedLink.trim()) {
+        buttonElement.textContent =
+            "Start Studying →";
 
         buttonElement.href =
-            savedLink.trim();
+            "study.html";
+
+        return;
 
     }
+
+
+    subjectElement.textContent =
+        savedSubject.trim();
+
+
+    topicElement.textContent =
+        savedTopic.trim();
+
+
+    buttonElement.textContent =
+        "Continue Studying →";
+
+
+    buttonElement.href =
+        savedLink.trim();
 
 }
 
@@ -367,40 +793,95 @@ function initializeContinueStudying() {
    SAVE LAST STUDIED
    ===================================================== */
 
+/*
+ * Topic pages can call:
+ *
+ * saveLastStudied(
+ *     "Biology",
+ *     "The Living World",
+ *     "living-world.html"
+ * );
+ *
+ * StudyHub will then remember the REAL page
+ * the student opened.
+ */
+
 function saveLastStudied(
     subject,
     topic,
     link
 ) {
 
-    if (subject) {
+    const cleanedSubject =
+        typeof subject === "string"
+            ? subject.trim()
+            : "";
 
-        localStorage.setItem(
-            "studyhub_last_subject",
-            String(subject).trim()
-        );
 
+    const cleanedTopic =
+        typeof topic === "string"
+            ? topic.trim()
+            : "";
+
+
+    const cleanedLink =
+        typeof link === "string"
+            ? link.trim()
+            : "";
+
+
+    if (!cleanedSubject) {
+        return;
     }
 
 
-    if (topic) {
-
-        localStorage.setItem(
-            "studyhub_last_topic",
-            String(topic).trim()
-        );
-
+    if (!cleanedTopic) {
+        return;
     }
 
 
-    if (link) {
-
-        localStorage.setItem(
-            "studyhub_last_link",
-            String(link).trim()
-        );
-
+    if (!cleanedLink) {
+        return;
     }
+
+
+    localStorage.setItem(
+        STUDYHUB_KEYS.lastSubject,
+        cleanedSubject
+    );
+
+
+    localStorage.setItem(
+        STUDYHUB_KEYS.lastTopic,
+        cleanedTopic
+    );
+
+
+    localStorage.setItem(
+        STUDYHUB_KEYS.lastLink,
+        cleanedLink
+    );
+
+}
+
+
+/* =====================================================
+   CLEAR LAST STUDIED
+   ===================================================== */
+
+function clearLastStudied() {
+
+    localStorage.removeItem(
+        STUDYHUB_KEYS.lastSubject
+    );
+
+    localStorage.removeItem(
+        STUDYHUB_KEYS.lastTopic
+    );
+
+    localStorage.removeItem(
+        STUDYHUB_KEYS.lastLink
+    );
 
 }
 
@@ -412,7 +893,9 @@ function saveLastStudied(
 function initializeSelectedSubjects() {
 
     const subjectContainer =
-        document.getElementById("selectedSubjects");
+        document.getElementById(
+            "selectedSubjects"
+        );
 
 
     if (!subjectContainer) {
@@ -422,17 +905,29 @@ function initializeSelectedSubjects() {
 
     const savedSubjects =
         localStorage.getItem(
-            "studyhub_selected_subjects"
+            STUDYHUB_KEYS.selectedSubjects
         );
 
 
     /*
-     * If the student has never selected subjects,
-     * keep the default subjects from index.html.
+     * No saved selection:
+     *
+     * Do not pretend these are the
+     * student's selected subjects.
      */
 
     if (!savedSubjects) {
+
+        subjectContainer
+            .querySelectorAll("li")
+            .forEach((item) => {
+
+                item.hidden = true;
+
+            });
+
         return;
+
     }
 
 
@@ -447,33 +942,55 @@ function initializeSelectedSubjects() {
     } catch (error) {
 
         localStorage.removeItem(
-            "studyhub_selected_subjects"
+            STUDYHUB_KEYS.selectedSubjects
         );
 
+        subjectContainer
+            .querySelectorAll("li")
+            .forEach((item) => {
+
+                item.hidden = true;
+
+            });
+
         return;
+
     }
 
 
     if (!Array.isArray(selectedSubjects)) {
 
         localStorage.removeItem(
-            "studyhub_selected_subjects"
+            STUDYHUB_KEYS.selectedSubjects
         );
 
+        subjectContainer
+            .querySelectorAll("li")
+            .forEach((item) => {
+
+                item.hidden = true;
+
+            });
+
         return;
+
     }
 
 
     const normalizedSubjects =
         selectedSubjects
-            .map(subject =>
-                String(subject).trim().toLowerCase()
+            .map((subject) =>
+                String(subject)
+                    .trim()
+                    .toLowerCase()
             )
             .filter(Boolean);
 
 
     subjectContainer
-        .querySelectorAll("a[data-subject]")
+        .querySelectorAll(
+            "a[data-subject]"
+        )
         .forEach((link) => {
 
             const subject =
@@ -484,13 +1001,19 @@ function initializeSelectedSubjects() {
                 .toLowerCase();
 
 
-            if (
-                !normalizedSubjects.includes(subject)
-            ) {
+            const listItem =
+                link.closest("li");
 
-                link.closest("li")?.remove();
 
+            if (!listItem) {
+                return;
             }
+
+
+            listItem.hidden =
+                !normalizedSubjects.includes(
+                    subject
+                );
 
         });
 
@@ -504,22 +1027,83 @@ function initializeSelectedSubjects() {
 function saveSelectedSubjects(subjects) {
 
     if (!Array.isArray(subjects)) {
-        return;
+        return false;
     }
 
 
     const cleanedSubjects =
         subjects
-            .map(subject =>
-                String(subject).trim().toLowerCase()
+            .map((subject) =>
+                String(subject)
+                    .trim()
+                    .toLowerCase()
             )
             .filter(Boolean);
 
 
+    if (!cleanedSubjects.length) {
+
+        localStorage.removeItem(
+            STUDYHUB_KEYS.selectedSubjects
+        );
+
+        return false;
+
+    }
+
+
     localStorage.setItem(
-        "studyhub_selected_subjects",
+        STUDYHUB_KEYS.selectedSubjects,
         JSON.stringify(cleanedSubjects)
     );
+
+
+    return true;
+
+}
+
+
+/* =====================================================
+   GRADE CALCULATOR INITIALIZATION
+   ===================================================== */
+
+function initializeGradeCalculator() {
+
+    const gradingSystem =
+        document.getElementById(
+            "gradingSystem"
+        );
+
+
+    if (!gradingSystem) {
+        return;
+    }
+
+
+    const savedLevel =
+        getStudyHubGceLevel();
+
+
+    /*
+     * If the student has already selected
+     * O/L or A/L, use that automatically.
+     *
+     * Otherwise leave the calculator's
+     * existing selection untouched.
+     */
+
+    if (
+        savedLevel &&
+        (
+            gradingSystem.value === "" ||
+            gradingSystem.value === "general"
+        )
+    ) {
+
+        gradingSystem.value =
+            savedLevel;
+
+    }
 
 }
 
@@ -531,13 +1115,21 @@ function saveSelectedSubjects(subjects) {
 function calculateGrade() {
 
     const scoreInput =
-        document.getElementById("score");
+        document.getElementById(
+            "score"
+        );
+
 
     const gradingSystem =
-        document.getElementById("gradingSystem");
+        document.getElementById(
+            "gradingSystem"
+        );
+
 
     const result =
-        document.getElementById("gradeResult");
+        document.getElementById(
+            "gradeResult"
+        );
 
 
     if (
@@ -550,7 +1142,9 @@ function calculateGrade() {
 
 
     const score =
-        Number(scoreInput.value);
+        Number(
+            scoreInput.value
+        );
 
 
     if (
@@ -565,13 +1159,18 @@ function calculateGrade() {
         );
 
         return;
+
     }
 
 
     /*
-     * These are StudyHub-configured percentage bands.
-     * They must not be presented as official GCE
-     * Board grade thresholds unless verified.
+     * These are StudyHub-configured bands.
+     *
+     * They are NOT being presented here as
+     * official Cameroon GCE Board grade thresholds.
+     *
+     * Official GCE grading rules should be verified
+     * before StudyHub labels these bands as official.
      */
 
     const gradingScales = {
@@ -607,14 +1206,23 @@ function calculateGrade() {
 
 
     const scale =
-        gradingScales[gradingSystem.value]
-        || gradingScales.general;
+        gradingScales[
+            gradingSystem.value
+        ] ||
+        gradingScales.general;
+
+
+    const matchingGrade =
+        scale.find(
+            ([minimum]) =>
+                score >= minimum
+        );
 
 
     const grade =
-        scale.find(
-            ([minimum]) => score >= minimum
-        )[1];
+        matchingGrade
+            ? matchingGrade[1]
+            : "—";
 
 
     const systemName = {
@@ -625,8 +1233,9 @@ function calculateGrade() {
 
         "gce-al": "GCE A/L"
 
-    }[gradingSystem.value]
-        || "General";
+    }[
+        gradingSystem.value
+    ] || "General";
 
 
     result.textContent =
@@ -645,13 +1254,21 @@ let countdownInterval = null;
 function startCountdown() {
 
     const examNameInput =
-        document.getElementById("examName");
+        document.getElementById(
+            "examName"
+        );
+
 
     const examDateInput =
-        document.getElementById("examDate");
+        document.getElementById(
+            "examDate"
+        );
+
 
     const result =
-        document.getElementById("countdownResult");
+        document.getElementById(
+            "countdownResult"
+        );
 
 
     if (
@@ -666,6 +1283,7 @@ function startCountdown() {
     const examName =
         examNameInput.value.trim();
 
+
     const examDate =
         examDateInput.value;
 
@@ -678,6 +1296,7 @@ function startCountdown() {
         );
 
         return;
+
     }
 
 
@@ -689,14 +1308,21 @@ function startCountdown() {
         );
 
         return;
+
     }
 
 
     const targetDate =
-        new Date(`${examDate}T00:00:00`);
+        new Date(
+            `${examDate}T00:00:00`
+        );
 
 
-    if (Number.isNaN(targetDate.getTime())) {
+    if (
+        Number.isNaN(
+            targetDate.getTime()
+        )
+    ) {
 
         setResult(
             result,
@@ -704,25 +1330,35 @@ function startCountdown() {
         );
 
         return;
+
     }
 
 
-    localStorage.setItem(
-        "studyhub_exam_name",
-        examName
-    );
+    /*
+     * Save the student's exam setup.
+     */
 
-
-    localStorage.setItem(
-        "studyhub_exam_date",
+    saveStudyHubExam(
+        examName,
         examDate
     );
+
+
+    /*
+     * If the student has not yet chosen
+     * O/L or A/L, we do not guess.
+     *
+     * The exam page should provide the
+     * level selection and call
+     * saveStudyHubGceLevel().
+     */
 
 
     function updateCountdown() {
 
         const difference =
-            targetDate.getTime() - Date.now();
+            targetDate.getTime() -
+            Date.now();
 
 
         if (difference <= 0) {
@@ -731,6 +1367,7 @@ function startCountdown() {
                 "🎓 EXAM DAY";
 
             return;
+
         }
 
 
@@ -765,11 +1402,16 @@ function startCountdown() {
         result.textContent =
             `${formatNumber(days)} days • ` +
             `${hours}h ${minutes}m ${seconds}s`;
+
     }
 
 
     if (countdownInterval) {
-        clearInterval(countdownInterval);
+
+        clearInterval(
+            countdownInterval
+        );
+
     }
 
 
@@ -796,30 +1438,36 @@ function calculateMagnification() {
             "magnification-image"
         );
 
+
     const actualInput =
         document.getElementById(
             "magnification-actual"
         );
+
 
     const magnificationInput =
         document.getElementById(
             "magnification-value"
         );
 
+
     const imageUnit =
         document.getElementById(
             "magnification-image-unit"
         );
+
 
     const actualUnit =
         document.getElementById(
             "magnification-actual-unit"
         );
 
+
     const calculation =
         document.getElementById(
             "magnification-calculation"
         );
+
 
     const result =
         document.getElementById(
@@ -852,13 +1500,21 @@ function calculateMagnification() {
 
 
     const imageValue =
-        Number(imageInput.value);
+        Number(
+            imageInput.value
+        );
+
 
     const actualValue =
-        Number(actualInput.value);
+        Number(
+            actualInput.value
+        );
+
 
     const magnificationValue =
-        Number(magnificationInput.value);
+        Number(
+            magnificationInput.value
+        );
 
 
     function convertToMicrometres(
@@ -875,11 +1531,18 @@ function calculateMagnification() {
     }
 
 
-    function formatMagnification(value) {
+    function formatMagnification(
+        value
+    ) {
 
-        if (!Number.isFinite(value)) {
+        if (
+            !Number.isFinite(value)
+        ) {
+
             return "—";
+
         }
+
 
         return `×${formatNumber(value)}`;
 
@@ -891,8 +1554,12 @@ function calculateMagnification() {
         case "magnification": {
 
             if (
-                !isValidPositiveNumber(imageValue) ||
-                !isValidPositiveNumber(actualValue)
+                !isValidPositiveNumber(
+                    imageValue
+                ) ||
+                !isValidPositiveNumber(
+                    actualValue
+                )
             ) {
 
                 setResult(
@@ -901,6 +1568,7 @@ function calculateMagnification() {
                 );
 
                 return;
+
             }
 
 
@@ -923,17 +1591,24 @@ function calculateMagnification() {
 
 
             result.textContent =
-                `Magnification = ${formatMagnification(answer)}`;
+                `Magnification = ${
+                    formatMagnification(answer)
+                }`;
 
             break;
+
         }
 
 
         case "actual": {
 
             if (
-                !isValidPositiveNumber(imageValue) ||
-                !isValidPositiveNumber(magnificationValue)
+                !isValidPositiveNumber(
+                    imageValue
+                ) ||
+                !isValidPositiveNumber(
+                    magnificationValue
+                )
             ) {
 
                 setResult(
@@ -942,6 +1617,7 @@ function calculateMagnification() {
                 );
 
                 return;
+
             }
 
 
@@ -953,21 +1629,29 @@ function calculateMagnification() {
 
 
             const answer =
-                image / magnificationValue;
+                image /
+                magnificationValue;
 
 
             result.textContent =
-                `Actual size = ${formatNumber(answer)} μm`;
+                `Actual size = ${
+                    formatNumber(answer)
+                } μm`;
 
             break;
+
         }
 
 
         case "image": {
 
             if (
-                !isValidPositiveNumber(actualValue) ||
-                !isValidPositiveNumber(magnificationValue)
+                !isValidPositiveNumber(
+                    actualValue
+                ) ||
+                !isValidPositiveNumber(
+                    magnificationValue
+                )
             ) {
 
                 setResult(
@@ -976,6 +1660,7 @@ function calculateMagnification() {
                 );
 
                 return;
+
             }
 
 
@@ -987,13 +1672,17 @@ function calculateMagnification() {
 
 
             const answer =
-                actual * magnificationValue;
+                actual *
+                magnificationValue;
 
 
             result.textContent =
-                `Image size = ${formatNumber(answer)} μm`;
+                `Image size = ${
+                    formatNumber(answer)
+                } μm`;
 
             break;
+
         }
 
 
@@ -1002,6 +1691,7 @@ function calculateMagnification() {
             setResult(
                 result,
                 "Select a calculation."
+
             );
 
     }
@@ -1013,27 +1703,30 @@ function calculateMagnification() {
    PAGE CLEANUP
    ===================================================== */
 
-window.addEventListener("pagehide", () => {
+window.addEventListener(
+    "pagehide",
+    () => {
 
-    if (dashboardCountdownInterval) {
+        if (dashboardCountdownInterval) {
 
-        clearInterval(
-            dashboardCountdownInterval
-        );
+            clearInterval(
+                dashboardCountdownInterval
+            );
 
-        dashboardCountdownInterval = null;
+            dashboardCountdownInterval = null;
+
+        }
+
+
+        if (countdownInterval) {
+
+            clearInterval(
+                countdownInterval
+            );
+
+            countdownInterval = null;
+
+        }
 
     }
-
-
-    if (countdownInterval) {
-
-        clearInterval(
-            countdownInterval
-        );
-
-        countdownInterval = null;
-
-    }
-
-});
+);
