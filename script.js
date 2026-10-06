@@ -203,7 +203,15 @@ function startCountdown() {
         setResult(result, "Please choose a valid exam date.");
         return;
     }
+localStorage.setItem(
+    "studyhub_exam_name",
+    name
+);
 
+localStorage.setItem(
+    "studyhub_exam_date",
+    date
+);
 
     // -------------------------------------------------
     // STOP PREVIOUS COUNTDOWN
