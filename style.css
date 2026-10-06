@@ -451,7 +451,31 @@ select:focus-visible {
 .main-study-card small {
     color: #8992a2;
 }
+.home-exam-info {
+    display: flex;
 
+    flex-direction: column;
+
+    gap: 4px;
+
+    margin-top: 8px;
+}
+
+.home-exam-info strong {
+    color: #172033;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+}
+
+.home-exam-info span {
+    color: #8992a2;
+
+    font-size: 12px;
+
+    line-height: 1.4;
+}
 .floating-card {
     position: absolute;
 
