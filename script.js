@@ -8,6 +8,7 @@
 // =====================================================
 
 function formatNumber(value) {
+
     if (!Number.isFinite(value)) {
         return "0";
     }
@@ -21,6 +22,7 @@ function formatNumber(value) {
 
 
 function setResult(element, message) {
+
     if (!element) return;
 
     element.textContent = message;
@@ -28,6 +30,7 @@ function setResult(element, message) {
 
 
 function isValidPositiveNumber(value) {
+
     return Number.isFinite(value) && value > 0;
 }
 
@@ -38,29 +41,63 @@ function isValidPositiveNumber(value) {
 
 function calculateGrade() {
 
-    const scoreInput = document.getElementById("score");
-    const gradingSystem = document.getElementById("gradingSystem");
-    const result = document.getElementById("gradeResult");
+    const scoreInput =
+        document.getElementById("score");
 
-    if (!scoreInput || !gradingSystem || !result) {
+    const gradingSystem =
+        document.getElementById("gradingSystem");
+
+    const result =
+        document.getElementById("gradeResult");
+
+
+    if (
+        !scoreInput ||
+        !gradingSystem ||
+        !result
+    ) {
         return;
     }
 
-    const rawScore = scoreInput.value.trim();
-    const score = Number(rawScore);
-    const system = gradingSystem.value;
+
+    const rawScore =
+        scoreInput.value.trim();
+
+    const score =
+        Number(rawScore);
+
+    const system =
+        gradingSystem.value;
+
 
     // -------------------------------------------------
     // CHECK INPUT
     // -------------------------------------------------
 
-    if (rawScore === "" || !Number.isFinite(score)) {
-        setResult(result, "Please enter a valid score.");
+    if (
+        rawScore === "" ||
+        !Number.isFinite(score)
+    ) {
+
+        setResult(
+            result,
+            "Please enter a valid score."
+        );
+
         return;
     }
 
-    if (score < 0 || score > 100) {
-        setResult(result, "Score must be between 0 and 100.");
+
+    if (
+        score < 0 ||
+        score > 100
+    ) {
+
+        setResult(
+            result,
+            "Score must be between 0 and 100."
+        );
+
         return;
     }
 
@@ -71,7 +108,6 @@ function calculateGrade() {
 
     const gradingScales = {
 
-        // General percentage scale
         general: [
             { min: 80, grade: "A" },
             { min: 70, grade: "B" },
@@ -81,7 +117,7 @@ function calculateGrade() {
             { min: 0, grade: "F" }
         ],
 
-        // Cameroon GCE O/L
+
         "gce-ol": [
             { min: 75, grade: "A" },
             { min: 65, grade: "B" },
@@ -91,7 +127,7 @@ function calculateGrade() {
             { min: 0, grade: "F" }
         ],
 
-        // Cameroon GCE A/L
+
         "gce-al": [
             { min: 75, grade: "A" },
             { min: 65, grade: "B" },
@@ -100,10 +136,12 @@ function calculateGrade() {
             { min: 35, grade: "E" },
             { min: 0, grade: "F" }
         ]
+
     };
 
 
-    const scale = gradingScales[system];
+    const scale =
+        gradingScales[system];
 
 
     // -------------------------------------------------
@@ -111,7 +149,12 @@ function calculateGrade() {
     // -------------------------------------------------
 
     if (!scale) {
-        setResult(result, "Please select a valid grading system.");
+
+        setResult(
+            result,
+            "Please select a valid grading system."
+        );
+
         return;
     }
 
@@ -120,14 +163,25 @@ function calculateGrade() {
     // FIND GRADE
     // -------------------------------------------------
 
-    const gradeEntry = scale.find(item => score >= item.min);
+    const gradeEntry =
+        scale.find(
+            item => score >= item.min
+        );
+
 
     if (!gradeEntry) {
-        setResult(result, "Unable to calculate grade.");
+
+        setResult(
+            result,
+            "Unable to calculate grade."
+        );
+
         return;
     }
 
-    const grade = gradeEntry.grade;
+
+    const grade =
+        gradeEntry.grade;
 
 
     // -------------------------------------------------
@@ -135,12 +189,21 @@ function calculateGrade() {
     // -------------------------------------------------
 
     const systemNames = {
+
         general: "General Grade",
-        "gce-ol": "GCE O/L Grade",
-        "gce-al": "GCE A/L Grade"
+
+        "gce-ol":
+            "GCE O/L Grade",
+
+        "gce-al":
+            "GCE A/L Grade"
+
     };
 
-    const systemName = systemNames[system];
+
+    const systemName =
+        systemNames[system];
+
 
     setResult(
         result,
@@ -156,69 +219,60 @@ function calculateGrade() {
 let countdownTimer = null;
 
 
-function startCountdown() {
+// =====================================================
+// CREATE EXAM DATE SAFELY
+// =====================================================
 
-    const examNameInput = document.getElementById("examName");
-    const examDateInput = document.getElementById("examDate");
-    const result = document.getElementById("countdownResult");
+function getExamTimestamp(dateValue) {
 
-    if (!examNameInput || !examDateInput || !result) {
-        return;
-    }
-
-    const name = examNameInput.value.trim();
-    const date = examDateInput.value;
-
-
-    // -------------------------------------------------
-    // CHECK EXAM NAME
-    // -------------------------------------------------
-
-    if (name === "") {
-        setResult(result, "Please enter an exam name.");
-        return;
+    if (!dateValue) {
+        return NaN;
     }
 
 
-    // -------------------------------------------------
-    // CHECK DATE
-    // -------------------------------------------------
+    /*
+        datetime-local normally gives:
 
-    if (date === "") {
-        setResult(result, "Please choose an exam date.");
+        YYYY-MM-DDTHH:mm
+
+        We intentionally use the value directly
+        instead of adding another T00:00:00.
+
+        This preserves the exact date AND time
+        selected by the student.
+    */
+
+    const timestamp =
+        new Date(dateValue).getTime();
+
+
+    return timestamp;
+}
+
+
+// =====================================================
+// DISPLAY COUNTDOWN
+// =====================================================
+
+function runCountdown(
+    name,
+    targetDate,
+    result
+) {
+
+    if (!result) {
         return;
     }
 
 
     // -------------------------------------------------
-    // CREATE LOCAL DATE
-    // -------------------------------------------------
-    // Using T00:00:00 prevents the browser from treating
-    // the date-only value as UTC and causing timezone bugs.
-    // -------------------------------------------------
-
-    const targetDate = new Date(`${date}T00:00:00`).getTime();
-
-    if (!Number.isFinite(targetDate)) {
-        setResult(result, "Please choose a valid exam date.");
-        return;
-    }
-localStorage.setItem(
-    "studyhub_exam_name",
-    name
-);
-
-localStorage.setItem(
-    "studyhub_exam_date",
-    date
-);
-
-    // -------------------------------------------------
-    // STOP PREVIOUS COUNTDOWN
+    // STOP ANY OLD TIMER
     // -------------------------------------------------
 
     if (countdownTimer !== null) {
+
         clearInterval(countdownTimer);
+
         countdownTimer = null;
     }
 
@@ -229,8 +283,11 @@ localStorage.setItem(
 
     function updateCountdown() {
 
-        const now = Date.now();
-        const difference = targetDate - now;
+        const now =
+            Date.now();
+
+        const difference =
+            targetDate - now;
 
 
         // -------------------------------------------------
@@ -240,47 +297,89 @@ localStorage.setItem(
         if (difference <= 0) {
 
             if (countdownTimer !== null) {
-                clearInterval(countdownTimer);
+
+                clearInterval(
+                    countdownTimer
+                );
+
                 countdownTimer = null;
             }
 
-            // IMPORTANT:
-            // Do NOT use innerHTML with user-entered text.
-            // This prevents HTML/script injection.
+
             result.replaceChildren();
 
-            const nameElement = document.createElement("strong");
-            nameElement.textContent = name;
 
-            const messageElement = document.createElement("span");
+            const nameElement =
+                document.createElement(
+                    "strong"
+                );
+
+            nameElement.textContent =
+                name;
+
+
+            const messageElement =
+                document.createElement(
+                    "span"
+                );
+
             messageElement.textContent =
                 "🎉 The exam date has arrived!";
 
-            result.appendChild(nameElement);
-            result.appendChild(document.createElement("br"));
-            result.appendChild(messageElement);
+
+            result.appendChild(
+                nameElement
+            );
+
+            result.appendChild(
+                document.createElement("br")
+            );
+
+            result.appendChild(
+                messageElement
+            );
+
 
             return;
         }
 
 
         // -------------------------------------------------
-        // CALCULATE TIME
+        // CALCULATE REMAINING TIME
         // -------------------------------------------------
 
-        const totalSeconds = Math.floor(difference / 1000);
+        const totalSeconds =
+            Math.floor(
+                difference / 1000
+            );
 
-        const days = Math.floor(
-            totalSeconds / (60 * 60 * 24)
-        );
 
-        const hours = Math.floor(
-            (totalSeconds % (60 * 60 * 24)) / (60 * 60)
-        );
+        const days =
+            Math.floor(
+                totalSeconds /
+                (60 * 60 * 24)
+            );
 
-        const minutes = Math.floor(
-            (totalSeconds % (60 * 60)) / 60
-        );
+
+        const hours =
+            Math.floor(
+                (
+                    totalSeconds %
+                    (60 * 60 * 24)
+                ) /
+                (60 * 60)
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    totalSeconds %
+                    (60 * 60)
+                ) /
+                60
+            );
+
 
         const seconds =
             totalSeconds % 60;
@@ -292,10 +391,21 @@ localStorage.setItem(
 
         result.replaceChildren();
 
-        const nameElement = document.createElement("strong");
-        nameElement.textContent = name;
 
-        const countdownElement = document.createElement("span");
+        const nameElement =
+            document.createElement(
+                "strong"
+            );
+
+        nameElement.textContent =
+            name;
+
+
+        const countdownElement =
+            document.createElement(
+                "span"
+            );
+
 
         countdownElement.textContent =
             `${days} Days · ` +
@@ -303,9 +413,20 @@ localStorage.setItem(
             `${minutes} Minutes · ` +
             `${seconds} Seconds`;
 
-        result.appendChild(nameElement);
-        result.appendChild(document.createElement("br"));
-        result.appendChild(countdownElement);
+
+        result.appendChild(
+            nameElement
+        );
+
+
+        result.appendChild(
+            document.createElement("br")
+        );
+
+
+        result.appendChild(
+            countdownElement
+        );
     }
 
 
@@ -313,12 +434,222 @@ localStorage.setItem(
     updateCountdown();
 
 
-    // Update every second
-    countdownTimer = setInterval(
-        updateCountdown,
-        1000
+    // Continue updating every second
+    countdownTimer =
+        setInterval(
+            updateCountdown,
+            1000
+        );
+}
+
+
+// =====================================================
+// START / SAVE EXAM COUNTDOWN
+// =====================================================
+
+function startCountdown() {
+
+    const examNameInput =
+        document.getElementById("examName");
+
+    const examDateInput =
+        document.getElementById("examDate");
+
+    const result =
+        document.getElementById(
+            "countdownResult"
+        );
+
+
+    if (
+        !examNameInput ||
+        !examDateInput ||
+        !result
+    ) {
+        return;
+    }
+
+
+    const name =
+        examNameInput.value.trim();
+
+    const date =
+        examDateInput.value;
+
+
+    // -------------------------------------------------
+    // CHECK EXAM NAME
+    // -------------------------------------------------
+
+    if (name === "") {
+
+        setResult(
+            result,
+            "Please enter an exam name."
+        );
+
+        return;
+    }
+
+
+    // -------------------------------------------------
+    // CHECK DATE
+    // -------------------------------------------------
+
+    if (date === "") {
+
+        setResult(
+            result,
+            "Please choose an exam date."
+        );
+
+        return;
+    }
+
+
+    // -------------------------------------------------
+    // CREATE VALID TIMESTAMP
+    // -------------------------------------------------
+
+    const targetDate =
+        getExamTimestamp(date);
+
+
+    if (!Number.isFinite(targetDate)) {
+
+        setResult(
+            result,
+            "Please choose a valid exam date."
+        );
+
+        return;
+    }
+
+
+    // -------------------------------------------------
+    // SAVE EXAM
+    // -------------------------------------------------
+
+    localStorage.setItem(
+        "studyhub_exam_name",
+        name
+    );
+
+
+    localStorage.setItem(
+        "studyhub_exam_date",
+        date
+    );
+
+
+    // -------------------------------------------------
+    // RUN COUNTDOWN
+    // -------------------------------------------------
+
+    runCountdown(
+        name,
+        targetDate,
+        result
+    );
+
+
+    // -------------------------------------------------
+    // UPDATE HOMEPAGE EXAM INFORMATION
+    // -------------------------------------------------
+
+    updateHomeExamInfo();
+}
+
+
+// =====================================================
+// STUDYHUB - RESTORE SAVED COUNTDOWN
+// =====================================================
+
+function restoreSavedCountdown() {
+
+    const examNameInput =
+        document.getElementById("examName");
+
+    const examDateInput =
+        document.getElementById("examDate");
+
+    const result =
+        document.getElementById(
+            "countdownResult"
+        );
+
+
+    if (
+        !examNameInput ||
+        !examDateInput ||
+        !result
+    ) {
+        return;
+    }
+
+
+    const savedName =
+        localStorage.getItem(
+            "studyhub_exam_name"
+        );
+
+
+    const savedDate =
+        localStorage.getItem(
+            "studyhub_exam_date"
+        );
+
+
+    // -------------------------------------------------
+    // NOTHING SAVED
+    // -------------------------------------------------
+
+    if (
+        !savedName ||
+        !savedDate
+    ) {
+        return;
+    }
+
+
+    // -------------------------------------------------
+    // RESTORE INPUTS
+    // -------------------------------------------------
+
+    examNameInput.value =
+        savedName;
+
+    examDateInput.value =
+        savedDate;
+
+
+    // -------------------------------------------------
+    // RESTORE COUNTDOWN
+    // -------------------------------------------------
+
+    const targetDate =
+        getExamTimestamp(savedDate);
+
+
+    if (!Number.isFinite(targetDate)) {
+
+        setResult(
+            result,
+            "Please choose a valid exam date."
+        );
+
+        return;
+    }
+
+
+    runCountdown(
+        savedName,
+        targetDate,
+        result
     );
 }
+
+
 // =====================================================
 // STUDYHUB - HOMEPAGE EXAM INFORMATION
 // =====================================================
@@ -326,37 +657,85 @@ localStorage.setItem(
 function updateHomeExamInfo() {
 
     const examNameElement =
-        document.getElementById("homeExamName");
+        document.getElementById(
+            "homeExamName"
+        );
 
     const examDateElement =
-        document.getElementById("homeExamDate");
+        document.getElementById(
+            "homeExamDate"
+        );
 
-    if (!examNameElement || !examDateElement) {
+
+    if (
+        !examNameElement ||
+        !examDateElement
+    ) {
         return;
     }
 
 
     const examName =
-        localStorage.getItem("studyhub_exam_name");
+        localStorage.getItem(
+            "studyhub_exam_name"
+        );
+
 
     const examDate =
-        localStorage.getItem("studyhub_exam_date");
+        localStorage.getItem(
+            "studyhub_exam_date"
+        );
 
 
-    if (!examName || !examDate) {
+    // -------------------------------------------------
+    // NO EXAM SAVED
+    // -------------------------------------------------
+
+    if (
+        !examName ||
+        !examDate
+    ) {
 
         examNameElement.textContent =
             "No exam set yet";
 
+
         examDateElement.textContent =
             "Set your exam in Tools";
+
+
+        return;
+    }
+
+
+    // -------------------------------------------------
+    // FORMAT DATE
+    // -------------------------------------------------
+
+    const savedDate =
+        new Date(examDate);
+
+
+    if (
+        Number.isNaN(
+            savedDate.getTime()
+        )
+    ) {
+
+        examNameElement.textContent =
+            examName;
+
+
+        examDateElement.textContent =
+            "Exam date saved";
+
 
         return;
     }
 
 
     const formattedDate =
-        new Date(examDate).toLocaleString(
+        savedDate.toLocaleString(
             undefined,
             {
                 day: "numeric",
@@ -368,20 +747,18 @@ function updateHomeExamInfo() {
         );
 
 
+    // -------------------------------------------------
+    // DISPLAY EXAM
+    // -------------------------------------------------
+
     examNameElement.textContent =
         examName;
+
 
     examDateElement.textContent =
         `📅 ${formattedDate}`;
 }
 
-
-// Update homepage exam information
-// when the page loads.
-document.addEventListener(
-    "DOMContentLoaded",
-    updateHomeExamInfo
-);
 
 // =====================================================
 // STUDYHUB - MAGNIFICATION CALCULATOR
@@ -390,25 +767,39 @@ document.addEventListener(
 function calculateMagnification() {
 
     const imageInput =
-        document.getElementById("magnification-image");
+        document.getElementById(
+            "magnification-image"
+        );
 
     const actualInput =
-        document.getElementById("magnification-actual");
+        document.getElementById(
+            "magnification-actual"
+        );
 
     const magnificationInput =
-        document.getElementById("magnification-value");
+        document.getElementById(
+            "magnification-value"
+        );
 
     const imageUnitElement =
-        document.getElementById("magnification-image-unit");
+        document.getElementById(
+            "magnification-image-unit"
+        );
 
     const actualUnitElement =
-        document.getElementById("magnification-actual-unit");
+        document.getElementById(
+            "magnification-actual-unit"
+        );
 
     const calculationElement =
-        document.getElementById("magnification-calculate");
+        document.getElementById(
+            "magnification-calculate"
+        );
 
     const result =
-        document.getElementById("magnification-result");
+        document.getElementById(
+            "magnification-result"
+        );
 
 
     // -------------------------------------------------
@@ -432,40 +823,56 @@ function calculateMagnification() {
     // GET VALUES
     // -------------------------------------------------
 
-    const image = Number(imageInput.value);
-    const actual = Number(actualInput.value);
-    const magnification = Number(magnificationInput.value);
+    const image =
+        Number(imageInput.value);
 
-    const imageUnit = imageUnitElement.value;
-    const actualUnit = actualUnitElement.value;
-    const calculation = calculationElement.value;
+    const actual =
+        Number(actualInput.value);
+
+    const magnification =
+        Number(magnificationInput.value);
+
+
+    const imageUnit =
+        imageUnitElement.value;
+
+    const actualUnit =
+        actualUnitElement.value;
+
+    const calculation =
+        calculationElement.value;
 
 
     // -------------------------------------------------
     // UNIT CONVERSION HELPERS
     // -------------------------------------------------
-    // Everything is converted to micrometres (μm)
-    // internally for accurate calculations.
-    // -------------------------------------------------
 
-    function toMicrometres(value, unit) {
+    function toMicrometres(
+        value,
+        unit
+    ) {
 
         if (unit === "mm") {
+
             return value * 1000;
         }
 
-        // Default: μm
+
         return value;
     }
 
 
-    function fromMicrometres(value, unit) {
+    function fromMicrometres(
+        value,
+        unit
+    ) {
 
         if (unit === "mm") {
+
             return value / 1000;
         }
 
-        // Default: μm
+
         return value;
     }
 
@@ -473,8 +880,10 @@ function calculateMagnification() {
     function unitLabel(unit) {
 
         if (unit === "mm") {
+
             return "mm";
         }
+
 
         return "μm";
     }
@@ -484,35 +893,52 @@ function calculateMagnification() {
     // CALCULATE MAGNIFICATION
     // =================================================
 
-    if (calculation === "magnification") {
+    if (
+        calculation === "magnification"
+    ) {
 
         if (
             !isValidPositiveNumber(image) ||
             !isValidPositiveNumber(actual)
         ) {
+
             setResult(
                 result,
                 "Please enter valid image and actual sizes greater than 0."
             );
+
             return;
         }
 
 
         const imageInMicrometres =
-            toMicrometres(image, imageUnit);
+            toMicrometres(
+                image,
+                imageUnit
+            );
+
 
         const actualInMicrometres =
-            toMicrometres(actual, actualUnit);
+            toMicrometres(
+                actual,
+                actualUnit
+            );
 
 
         if (
-            !isValidPositiveNumber(imageInMicrometres) ||
-            !isValidPositiveNumber(actualInMicrometres)
+            !isValidPositiveNumber(
+                imageInMicrometres
+            ) ||
+            !isValidPositiveNumber(
+                actualInMicrometres
+            )
         ) {
+
             setResult(
                 result,
                 "Please enter valid measurements."
             );
+
             return;
         }
 
@@ -526,16 +952,15 @@ function calculateMagnification() {
             formatNumber(answer);
 
 
-        // Update magnification input
         magnificationInput.value =
             formattedAnswer;
 
 
-        // Display result
         setResult(
             result,
             `Magnification = ×${formattedAnswer}`
         );
+
 
         return;
     }
@@ -545,22 +970,29 @@ function calculateMagnification() {
     // CALCULATE ACTUAL SIZE
     // =================================================
 
-    if (calculation === "actual") {
+    if (
+        calculation === "actual"
+    ) {
 
         if (
             !isValidPositiveNumber(image) ||
             !isValidPositiveNumber(magnification)
         ) {
+
             setResult(
                 result,
                 "Please enter a valid image size and magnification."
             );
+
             return;
         }
 
 
         const imageInMicrometres =
-            toMicrometres(image, imageUnit);
+            toMicrometres(
+                image,
+                imageUnit
+            );
 
 
         const actualInMicrometres =
@@ -579,8 +1011,6 @@ function calculateMagnification() {
             formatNumber(answer);
 
 
-        // Keep the answer in the unit selected
-        // for actual size.
         actualInput.value =
             formattedAnswer;
 
@@ -590,6 +1020,7 @@ function calculateMagnification() {
             `Actual size = ${formattedAnswer} ${unitLabel(actualUnit)}`
         );
 
+
         return;
     }
 
@@ -598,22 +1029,29 @@ function calculateMagnification() {
     // CALCULATE IMAGE SIZE
     // =================================================
 
-    if (calculation === "image") {
+    if (
+        calculation === "image"
+    ) {
 
         if (
             !isValidPositiveNumber(actual) ||
             !isValidPositiveNumber(magnification)
         ) {
+
             setResult(
                 result,
                 "Please enter a valid actual size and magnification."
             );
+
             return;
         }
 
 
         const actualInMicrometres =
-            toMicrometres(actual, actualUnit);
+            toMicrometres(
+                actual,
+                actualUnit
+            );
 
 
         const imageInMicrometres =
@@ -632,8 +1070,6 @@ function calculateMagnification() {
             formatNumber(answer);
 
 
-        // Keep the answer in the unit selected
-        // for image size.
         imageInput.value =
             formattedAnswer;
 
@@ -642,6 +1078,7 @@ function calculateMagnification() {
             result,
             `Image size = ${formattedAnswer} ${unitLabel(imageUnit)}`
         );
+
 
         return;
     }
@@ -659,17 +1096,42 @@ function calculateMagnification() {
 
 
 // =====================================================
+// STUDYHUB - PAGE INITIALIZATION
+// =====================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        // Update the homepage exam information
+        updateHomeExamInfo();
+
+
+        // Restore the saved countdown
+        restoreSavedCountdown();
+
+    }
+);
+
+
+// =====================================================
 // STUDYHUB - CLEANUP
 // =====================================================
 
 // Stop the countdown if the user leaves the page.
-// This prevents an unnecessary timer from continuing
-// while the page is being unloaded.
-window.addEventListener("pagehide", function () {
 
-    if (countdownTimer !== null) {
-        clearInterval(countdownTimer);
-        countdownTimer = null;
+window.addEventListener(
+    "pagehide",
+    function () {
+
+        if (countdownTimer !== null) {
+
+            clearInterval(
+                countdownTimer
+            );
+
+            countdownTimer = null;
+        }
+
     }
-
-});
+);
