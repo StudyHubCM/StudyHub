@@ -319,7 +319,69 @@ localStorage.setItem(
         1000
     );
 }
+// =====================================================
+// STUDYHUB - HOMEPAGE EXAM INFORMATION
+// =====================================================
 
+function updateHomeExamInfo() {
+
+    const examNameElement =
+        document.getElementById("homeExamName");
+
+    const examDateElement =
+        document.getElementById("homeExamDate");
+
+    if (!examNameElement || !examDateElement) {
+        return;
+    }
+
+
+    const examName =
+        localStorage.getItem("studyhub_exam_name");
+
+    const examDate =
+        localStorage.getItem("studyhub_exam_date");
+
+
+    if (!examName || !examDate) {
+
+        examNameElement.textContent =
+            "No exam set yet";
+
+        examDateElement.textContent =
+            "Set your exam in Tools";
+
+        return;
+    }
+
+
+    const formattedDate =
+        new Date(examDate).toLocaleString(
+            undefined,
+            {
+                day: "numeric",
+                month: "long",
+                year: "numeric",
+                hour: "numeric",
+                minute: "2-digit"
+            }
+        );
+
+
+    examNameElement.textContent =
+        examName;
+
+    examDateElement.textContent =
+        `📅 ${formattedDate}`;
+}
+
+
+// Update homepage exam information
+// when the page loads.
+document.addEventListener(
+    "DOMContentLoaded",
+    updateHomeExamInfo
+);
 
 // =====================================================
 // STUDYHUB - MAGNIFICATION CALCULATOR
