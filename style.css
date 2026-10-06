@@ -461,20 +461,138 @@ select:focus-visible {
     margin-top: 8px;
 }
 
-.home-exam-info strong {
-    color: #172033;
+/* =========================
+   HERO EXAM CARD
+   ========================= */
 
-    font-size: 14px;
-
-    line-height: 1.4;
+.exam-hero-card {
+    position: relative;
+    min-height: 430px;
+    padding: 42px 34px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid #e2e7f0;
+    border-radius: 30px;
+    box-shadow: 0 20px 50px rgba(30, 45, 80, 0.10);
 }
 
-.home-exam-info span {
-    color: #8992a2;
+.exam-hero-top {
+    margin-bottom: 18px;
+}
 
+.exam-hero-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: #eef2ff;
+    color: #3157d5;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.exam-hero-icon {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    background: #f0f3ff;
+    font-size: 38px;
+}
+
+.exam-hero-card h2 {
+    margin: 0 0 24px;
+    color: #172033;
+    font-size: 34px;
+    line-height: 1.15;
+    font-weight: 800;
+}
+
+.exam-date-display {
+    width: 100%;
+    max-width: 440px;
+    padding: 20px 22px;
+    background: #f5f7ff;
+    border: 2px solid #dfe5ff;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.exam-date-label {
+    color: #3157d5;
     font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
 
-    line-height: 1.4;
+.exam-date-display strong {
+    color: #172033;
+    font-size: 24px;
+    line-height: 1.35;
+    font-weight: 800;
+}
+
+.exam-hero-message {
+    margin-top: 20px;
+    color: #8992a2;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   MOBILE HERO EXAM CARD
+   ========================= */
+
+@media (max-width: 500px) {
+
+    .exam-hero-card {
+        min-height: 380px;
+        padding: 32px 22px;
+        border-radius: 26px;
+    }
+
+    .exam-hero-label {
+        font-size: 11px;
+        padding: 8px 13px;
+        letter-spacing: 1px;
+    }
+
+    .exam-hero-icon {
+        width: 68px;
+        height: 68px;
+        margin-bottom: 16px;
+        font-size: 34px;
+    }
+
+    .exam-hero-card h2 {
+        font-size: 30px;
+        margin-bottom: 21px;
+    }
+
+    .exam-date-display {
+        padding: 18px 15px;
+        border-radius: 17px;
+    }
+
+    .exam-date-display strong {
+        font-size: 20px;
+    }
+
+    .exam-hero-message {
+        font-size: 13px;
+    }
 }
 .floating-card {
     position: absolute;
