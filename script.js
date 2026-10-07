@@ -218,6 +218,8 @@ function calculateGrade() {
 
 let countdownTimer = null;
 
+let homeCountdownInterval = null;
+
 
 // =====================================================
 // CREATE EXAM DATE SAFELY
@@ -231,15 +233,12 @@ function getExamTimestamp(dateValue) {
 
 
     /*
-        datetime-local normally gives:
+        datetime-local gives:
 
         YYYY-MM-DDTHH:mm
 
-        We intentionally use the value directly
-        instead of adding another T00:00:00.
-
-        This preserves the exact date AND time
-        selected by the student.
+        Use the value directly so the
+        selected date AND time are preserved.
     */
 
     const timestamp =
@@ -656,89 +655,32 @@ function restoreSavedCountdown() {
 
 function updateHomeExamInfo() {
 
-    const examNameElement = document.getElementById("homeExamName");
-    const countdownElement = document.getElementById("homeExamCountdown");
-
-    if (!examNameElement || !countdownElement) {
-        return;
-    }
-
-    const savedExamName = localStorage.getItem("studyhub_exam_name");
-    const savedExamDate = localStorage.getItem("studyhub_exam_date");
-
-    if (!savedExamName || !savedExamDate) {
-
-        examNameElement.textContent = "No exam set yet";
-
-        countdownElement.textContent =
-            "Set your exam in Tools";
-
-        return;
-    }
-
-    examNameElement.textContent = savedExamName;
-
-    const targetDate = new Date(savedExamDate).getTime();
-
-    if (isNaN(targetDate)) {
-
-        countdownElement.textContent =
-            "Set your exam in Tools";
-
-        return;
-    }
-
-    function updateCountdown() {
-
-        const now = Date.now();
-        const difference = targetDate - now;
-
-        if (difference <= 0) {
-
-            countdownElement.textContent =
-                "🎉 EXAM DAY";
-
-            clearInterval(homeCountdownInterval);
-
-            return;
-        }
-
-        const totalSeconds = Math.floor(difference / 1000);
-
-        const days = Math.floor(totalSeconds / 86400);
-
-        const hours = Math.floor(
-            (totalSeconds % 86400) / 3600
+    const examNameElement =
+        document.getElementById(
+            "homeExamName"
         );
 
-        const minutes = Math.floor(
-            (totalSeconds % 3600) / 60
+    const countdownElement =
+        document.getElementById(
+            "homeExamCountdown"
         );
 
-        const seconds = totalSeconds % 60;
 
-        countdownElement.textContent =
-            `${days} DAYS ${hours} HOURS ${minutes} MINUTES ${String(seconds).padStart(2, "0")} SECONDS`;
+    if (
+        !examNameElement ||
+        !countdownElement
+    ) {
+        return;
     }
 
-    updateCountdown();
 
-    if (window.homeCountdownInterval) {
-        clearInterval(window.homeCountdownInterval);
-    }
-
-    window.homeCountdownInterval =
-        setInterval(updateCountdown, 1000);
-}
-
-
-    const examName =
+    const savedExamName =
         localStorage.getItem(
             "studyhub_exam_name"
         );
 
 
-    const examDate =
+    const savedExamDate =
         localStorage.getItem(
             "studyhub_exam_date"
         );
@@ -749,15 +691,15 @@ function updateHomeExamInfo() {
     // -------------------------------------------------
 
     if (
-        !examName ||
-        !examDate
+        !savedExamName ||
+        !savedExamDate
     ) {
 
         examNameElement.textContent =
             "No exam set yet";
 
 
-        examDateElement.textContent =
+        countdownElement.textContent =
             "Set your exam in Tools";
 
 
@@ -766,54 +708,150 @@ function updateHomeExamInfo() {
 
 
     // -------------------------------------------------
-    // FORMAT DATE
+    // CREATE EXAM TIMESTAMP
     // -------------------------------------------------
 
-    const savedDate =
-        new Date(examDate);
+    const targetDate =
+        getExamTimestamp(
+            savedExamDate
+        );
 
 
-    if (
-        Number.isNaN(
-            savedDate.getTime()
-        )
-    ) {
+    if (!Number.isFinite(targetDate)) {
 
         examNameElement.textContent =
-            examName;
+            savedExamName;
 
 
-        examDateElement.textContent =
-            "Exam date saved";
+        countdownElement.textContent =
+            "Set your exam in Tools";
 
 
         return;
     }
 
 
-    const formattedDate =
-        savedDate.toLocaleString(
-            undefined,
-            {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-                hour: "numeric",
-                minute: "2-digit"
-            }
-        );
-
-
     // -------------------------------------------------
-    // DISPLAY EXAM
+    // DISPLAY EXAM NAME
     // -------------------------------------------------
 
     examNameElement.textContent =
-        examName;
+        savedExamName;
 
 
-    examDateElement.textContent =
-        `📅 ${formattedDate}`;
+    // -------------------------------------------------
+    // STOP PREVIOUS HOMEPAGE TIMER
+    // -------------------------------------------------
+
+    if (
+        homeCountdownInterval !== null
+    ) {
+
+        clearInterval(
+            homeCountdownInterval
+        );
+
+        homeCountdownInterval = null;
+    }
+
+
+    // -------------------------------------------------
+    // UPDATE HOMEPAGE COUNTDOWN
+    // -------------------------------------------------
+
+    function updateHomeCountdown() {
+
+        const now =
+            Date.now();
+
+        const difference =
+            targetDate - now;
+
+
+        // -------------------------------------------------
+        // EXAM DAY
+        // -------------------------------------------------
+
+        if (difference <= 0) {
+
+            countdownElement.textContent =
+                "🎉 EXAM DAY";
+
+
+            if (
+                homeCountdownInterval !== null
+            ) {
+
+                clearInterval(
+                    homeCountdownInterval
+                );
+
+                homeCountdownInterval = null;
+            }
+
+
+            return;
+        }
+
+
+        // -------------------------------------------------
+        // CALCULATE TIME
+        // -------------------------------------------------
+
+        const totalSeconds =
+            Math.floor(
+                difference / 1000
+            );
+
+
+        const days =
+            Math.floor(
+                totalSeconds / 86400
+            );
+
+
+        const hours =
+            Math.floor(
+                (
+                    totalSeconds % 86400
+                ) / 3600
+            );
+
+
+        const minutes =
+            Math.floor(
+                (
+                    totalSeconds % 3600
+                ) / 60
+            );
+
+
+        const seconds =
+            totalSeconds % 60;
+
+
+        // -------------------------------------------------
+        // DISPLAY HOMEPAGE COUNTDOWN
+        // -------------------------------------------------
+
+        countdownElement.textContent =
+            `${days} DAYS ` +
+            `${hours} HOURS ` +
+            `${minutes} MINUTES ` +
+            `${String(seconds).padStart(2, "0")} SECONDS`;
+    }
+
+
+    // Run immediately
+    updateHomeCountdown();
+
+
+    // Continue updating every second
+    homeCountdownInterval =
+        setInterval(
+            updateHomeCountdown,
+            1000
+        );
 }
 
 
@@ -1175,19 +1213,33 @@ document.addEventListener(
 // STUDYHUB - CLEANUP
 // =====================================================
 
-// Stop the countdown if the user leaves the page.
+// Stop both countdowns if the user leaves the page.
 
 window.addEventListener(
     "pagehide",
     function () {
 
-        if (countdownTimer !== null) {
+        if (
+            countdownTimer !== null
+        ) {
 
             clearInterval(
                 countdownTimer
             );
 
             countdownTimer = null;
+        }
+
+
+        if (
+            homeCountdownInterval !== null
+        ) {
+
+            clearInterval(
+                homeCountdownInterval
+            );
+
+            homeCountdownInterval = null;
         }
 
     }
