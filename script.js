@@ -656,23 +656,80 @@ function restoreSavedCountdown() {
 
 function updateHomeExamInfo() {
 
-    const examNameElement =
-        document.getElementById(
-            "homeExamName"
-        );
+    const examNameElement = document.getElementById("homeExamName");
+    const countdownElement = document.getElementById("homeExamCountdown");
 
-    const examDateElement =
-        document.getElementById(
-            "homeExamDate"
-        );
-
-
-    if (
-        !examNameElement ||
-        !examDateElement
-    ) {
+    if (!examNameElement || !countdownElement) {
         return;
     }
+
+    const savedExamName = localStorage.getItem("studyhub_exam_name");
+    const savedExamDate = localStorage.getItem("studyhub_exam_date");
+
+    if (!savedExamName || !savedExamDate) {
+
+        examNameElement.textContent = "No exam set yet";
+
+        countdownElement.textContent =
+            "Set your exam in Tools";
+
+        return;
+    }
+
+    examNameElement.textContent = savedExamName;
+
+    const targetDate = new Date(savedExamDate).getTime();
+
+    if (isNaN(targetDate)) {
+
+        countdownElement.textContent =
+            "Set your exam in Tools";
+
+        return;
+    }
+
+    function updateCountdown() {
+
+        const now = Date.now();
+        const difference = targetDate - now;
+
+        if (difference <= 0) {
+
+            countdownElement.textContent =
+                "🎉 EXAM DAY";
+
+            clearInterval(homeCountdownInterval);
+
+            return;
+        }
+
+        const totalSeconds = Math.floor(difference / 1000);
+
+        const days = Math.floor(totalSeconds / 86400);
+
+        const hours = Math.floor(
+            (totalSeconds % 86400) / 3600
+        );
+
+        const minutes = Math.floor(
+            (totalSeconds % 3600) / 60
+        );
+
+        const seconds = totalSeconds % 60;
+
+        countdownElement.textContent =
+            `${days} DAYS ${hours} HOURS ${minutes} MINUTES ${String(seconds).padStart(2, "0")} SECONDS`;
+    }
+
+    updateCountdown();
+
+    if (window.homeCountdownInterval) {
+        clearInterval(window.homeCountdownInterval);
+    }
+
+    window.homeCountdownInterval =
+        setInterval(updateCountdown, 1000);
+}
 
 
     const examName =
